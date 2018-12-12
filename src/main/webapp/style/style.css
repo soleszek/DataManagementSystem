@@ -61,3 +61,79 @@ body{
     cursor: pointer;
     margin: 12px 0;
 }
+
+#container{
+    width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo{
+    color:white;
+    margin-top: 20px;
+    font-size: 44px;
+    letter-spacing: 3px;
+}
+
+#menu{
+    background-color: #303030;
+    margin-top: 20px;
+    color: #ffffff;
+    padding: 10px;
+}
+
+#sidebar{
+    float: left;
+    width: 148px;
+    min-height: 620px;
+    padding: 20px;
+    background-color: lightgray;
+    text-align: center;
+    font-size: 18px;
+    border-right: 2px dotted #666666;
+}
+
+#content{
+    float: left;
+    padding: 40px;
+    width: 1330px;
+    background-color: #dedede;
+    min-height: 580px;
+    text-align: justify;
+}
+
+#footer{
+    clear: both;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.option{
+    float: right;
+    min-width: 50px;
+    height: 25px;
+    font-size: 18px;
+    padding: 10px;
+    border-right: 2px dotted #444444;
+    opacity: 0.8;
+}
+
+.option:hover{
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.optionL{
+    font-size: 18px;
+    height: 25px;
+    padding: 10px;
+    border-bottom: 2px dotted #444444;
+}
+
+.optionL:hover{
+    background-color: #f36742;
+    color: white;
+    cursor: pointer;
+}
