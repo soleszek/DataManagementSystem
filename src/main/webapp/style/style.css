@@ -129,15 +129,33 @@ body{
     cursor: pointer;
 }
 
+.optionSO{
+    float: right;
+    min-width: 50px;
+    height: 25px;
+    font-size: 18px;
+    padding: 10px;
+    border-right: 2px dotted #444444;
+    opacity: 0.8;
+}
+
+
 .optionL{
     font-size: 18px;
     height: 25px;
     padding: 10px;
     border-bottom: 2px dotted #444444;
+    text-decoration: none;
 }
 
 .optionL:hover{
     background-color: #f36742;
     color: white;
     cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
 }

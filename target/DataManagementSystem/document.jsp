@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style/style.css" type="text/css">
+    <title>Document</title>
 </head>
 <body>
+
 <div id="container">
 
     <%
@@ -39,7 +41,7 @@
         <div class="optionSO">
             <form action="LogoutServlet" method="get">
                 <input type="hidden" name="username" value="<%=user%>"/>
-            <input type="submit" name="menu" value="Sign out">
+                <input type="submit" name="menu" value="Sign out">
             </form>
         </div>
         <div class="option">Witaj <%=name%></div>
@@ -49,10 +51,12 @@
     </div>
 
     <div id="sidebar">
-        <div class="optionL"><a href="dashboard.jsp">Home</a></div>
-        <div class="optionL"><a href="workspaces.jsp">Workspaces</a></div>
-        <div class="optionL"><a href="tasks.jsp">Tasks</a></div>
-        <div class="optionL"><a href="adminpanel.jsp">Admin Panel</a></div>
+        <div class="optionL"><a href="dashboard.jsp">Doc</a></div>
+        <div class="optionL"><a href="workspaces.jsp">Files</a></div>
+        <div class="optionL"><a href="tasks.jsp">Revisions</a></div>
+        <div class="optionL"><a href="adminpanel.jsp">Routes</a></div>
+        <div class="optionL"><a href="adminpanel.jsp">Lifecycle</a></div>
+        <div class="optionL"><a href="adminpanel.jsp">Viewer</a></div>
         <div style="clear: both"></div>
     </div>
 
@@ -65,7 +69,6 @@
     </div>
 
 </div>
-
 
 </body>
 </html>

@@ -36,7 +36,7 @@
     </div>
 
     <div id="menu">
-        <div class="option">
+        <div class="optionSO">
             <form action="LogoutServlet" method="get">
                 <input type="hidden" name="username" value="<%=user%>"/>
             <input type="submit" name="menu" value="Sign out">
@@ -49,10 +49,10 @@
     </div>
 
     <div id="sidebar">
-        <div class="optionL">Home</div>
-        <div class="optionL">Workspaces</div>
-        <div class="optionL">Tasks</div>
-        <div class="optionL">Admin Panel</div>
+        <div class="optionL"><a href="dashboard.jsp">Home</a></div>
+        <div class="optionL"><a href="workspaces.jsp">Workspaces</a></div>
+        <div class="optionL"><a href="tasks.jsp">Tasks</a></div>
+        <div class="optionL"><a href="adminpanel.jsp">Admin Panel</a></div>
         <div style="clear: both"></div>
     </div>
 
