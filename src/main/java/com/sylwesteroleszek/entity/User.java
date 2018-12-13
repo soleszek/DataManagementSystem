@@ -1,12 +1,14 @@
 package com.sylwesteroleszek.entity;
 
+import com.sylwesteroleszek.factory.DmsObject;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class User extends DmsObject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -15,6 +17,9 @@ public class User {
     private String username;
     private String password;
     private String role;
+
+    public User() {
+    }
 
     public static class Builder{
         private String name;

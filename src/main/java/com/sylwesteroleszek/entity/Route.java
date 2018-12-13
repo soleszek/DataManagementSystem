@@ -1,5 +1,7 @@
 package com.sylwesteroleszek.entity;
 
+import com.sylwesteroleszek.factory.DmsObject;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,7 +9,7 @@ import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
-public class Route {
+public class Route extends DmsObject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

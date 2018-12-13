@@ -45,6 +45,15 @@
             <input type="password" placeholder="Password" name="password" value="">
         </div>
 
+        <div class="textbox">
+            <select name="role">
+                <option value="viewer">Viewer</option>
+                <option value="contributor">Contributor</option>
+                <option value="manager">Manager</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+
         <input class="btn" type="submit" name="" value="Create">
 
     </div>
