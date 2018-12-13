@@ -28,9 +28,25 @@ public class UserDaoImpl implements UserDao {
                     .createQuery("from User where id=:id")
                     .setParameter("id", id).getSingleResult();
             session.getTransaction().commit();
-            session.clear();
+            session.close();
             return user;
         }catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    public User findBy(String username) {
+        try{
+            Session session = HibernateUtils.getInstance()
+                    .getSessionFactory().getCurrentSession();
+            session.beginTransaction();
+            User user = (User)session
+                    .createQuery("from User where username=:username")
+                    .setParameter("username", username).getSingleResult();
+            session.getTransaction().commit();
+            session.close();
+            return user;
+        } catch (NoResultException e){
             return null;
         }
     }

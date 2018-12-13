@@ -9,6 +9,24 @@
 <body>
 <div id="container">
 
+    <%
+        String name = (String)request.getSession().getAttribute("name");
+
+        String user = (String)request.getSession().getAttribute("username");
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null) {
+            for (Cookie cookie : cookies){
+                if(cookie.getName().equals(user)){
+                    user = cookie.getValue();
+                }
+            }
+        }
+
+        if(user == null) {
+            response.sendRedirect("index.jsp");
+        }
+    %>
+
     <div id="logo">
         Data Management System
     </div>
@@ -19,7 +37,7 @@
 
     <div id="menu">
         <div class="option">Sign out</div>
-        <div class="option">User</div>
+        <div class="option">Witaj <%=name%></div>
         <%--<div class="option">Tasks</div>
         <div class="option">Admin Panel</div>--%>
         <div style="clear: both"></div>
