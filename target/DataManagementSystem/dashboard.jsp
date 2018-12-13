@@ -36,7 +36,12 @@
     </div>
 
     <div id="menu">
-        <div class="option">Sign out</div>
+        <div class="option">
+            <form action="LogoutServlet" method="get">
+                <input type="hidden" name="username" value="<%=user%>"/>
+            <input type="submit" name="menu" value="Sign out">
+            </form>
+        </div>
         <div class="option">Witaj <%=name%></div>
         <%--<div class="option">Tasks</div>
         <div class="option">Admin Panel</div>--%>
