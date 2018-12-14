@@ -56,6 +56,7 @@ public class User extends DmsObject {
         public User build(){
             return new User(this);
         }
+
     }
 
     private User(Builder builder){

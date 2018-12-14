@@ -81,6 +81,10 @@ public class Document extends DmsObject {
             this.link = link;
             return this;
         }
+
+        public Document build(){
+            return new Document(this);
+        }
     }
 
     private Document(Builder builder){

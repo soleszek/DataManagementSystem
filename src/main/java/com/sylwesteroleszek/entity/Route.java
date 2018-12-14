@@ -60,6 +60,10 @@ public class Route extends DmsObject {
             this.comments = comments;
             return this;
         }
+
+        public Route build(){
+            return new Route(this);
+        }
     }
 
     private Route(Builder builder){

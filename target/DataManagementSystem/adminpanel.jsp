@@ -59,7 +59,21 @@
     </div>
 
     <div id="content">
-        <H1><a href="registration.jsp">Create new user</a> </H1>
+        <div class="square">
+            <div class="tile1"><H1><a href="registration.jsp">Create new user</a> </H1></div>
+            <div class="tile1">1</div>
+            <div style="clear: both"></div>
+
+            <div class="tile2">2</div>
+            <div class="tile3">3</div>
+            <div style="clear: both"></div>
+
+            <div class="tile4">3</div>
+
+
+        </div>
+        <div class="square"></div>
+        <div style="clear: both"></div>
     </div>
 
     <div id="footer">
