@@ -175,6 +175,11 @@ td {
     height: 198px;
     background-color: #000000;
     float: left;
+    text-align: center;
+}
+
+.tile1:hover{
+    background-color: #222222;
 }
 
 .tile2{
@@ -183,6 +188,11 @@ td {
     height: 198px;
     background-color: #666666;
     float: left;
+    text-align: center;
+}
+
+.tile2:hover{
+    background-color: #444444;
 }
 
 .tile3{
@@ -191,6 +201,11 @@ td {
     height: 198px;
     background-color: #93c748;
     float: left;
+    text-align: center;
+}
+
+.tile3:hover{
+    background-color: #71a526;
 }
 
 .tile4{
@@ -198,4 +213,61 @@ td {
     width: 485px;
     height: 198px;
     background-color: #ee5a32;
+    text-align: center;
+}
+
+.tile4:hover{
+    background-color: #cc3810;
+}
+
+.tile5{
+    margin: 12.5px;
+    width: 523px;
+    height: 421px;
+    background-color: #666666;
+    text-align: center;
+}
+
+.tile6{
+    margin: 12.5px;
+    width: 112px;
+    height: 198px;
+    background-color: #666666;
+    float: left;
+    text-align: center;
+}
+
+.tile7{
+    margin: 12.5px;
+    width: 112px;
+    height: 198px;
+    background-color: #666666;
+    float: left;
+    text-align: center;
+}
+
+.tile8{
+    margin: 12.5px;
+    width: 112px;
+    height: 198px;
+    background-color: #666666;
+    float: left;
+    text-align: center;
+}
+
+.tile9{
+    margin: 12.5px;
+    width: 112px;
+    height: 198px;
+    background-color: #666666;
+    float: left;
+    text-align: center;
+}
+
+a.tilelink{
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    width: 230px;
+    height: 198px;
 }

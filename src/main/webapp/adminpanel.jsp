@@ -60,19 +60,26 @@
 
     <div id="content">
         <div class="square">
-            <div class="tile1"><H1><a href="registration.jsp">Create new user</a> </H1></div>
-            <div class="tile1">1</div>
+            <div class="tile1"><H1><a href="registration.jsp" class="tilelink">Create new user</a> </H1></div>
+            <div class="tile1"><H1><a href="registration.jsp" class="tilelink">Delete user</a> </H1><</div>
             <div style="clear: both"></div>
 
-            <div class="tile2">2</div>
+            <div class="tile2"><H1><a href="registration.jsp" class="tilelink">Create workspace</a> </H1></div>
             <div class="tile3">3</div>
             <div style="clear: both"></div>
 
-            <div class="tile4">3</div>
-
+            <div class="tile4">4</div>
 
         </div>
-        <div class="square"></div>
+        <div class="square">
+            <div class="tile5">5</div>
+
+            <div class="tile6">6</div>
+            <div class="tile7">7</div>
+            <div class="tile8">8</div>
+            <div class="tile9">9</div>
+            <div style="clear: both"></div>
+        </div>
         <div style="clear: both"></div>
     </div>
 
