@@ -88,8 +88,8 @@ body{
 
 #sidebar{
     float: left;
-    width: 148px;
-    min-height: 620px;
+    width: 138px;
+    min-height: 690px;
     padding: 20px;
     background-color: lightgray;
     text-align: center;
@@ -100,9 +100,9 @@ body{
 #content{
     float: left;
     padding: 40px;
-    width: 1330px;
+    width: 1340px;
     background-color: #dedede;
-    min-height: 580px;
+    min-height: 650px;
     text-align: justify;
 }
 
@@ -170,9 +170,9 @@ td {
 }
 
 .tile1{
-    margin: 12.5px;
-    width: 230px;
-    height: 198px;
+    margin: 10px;
+    width: 315px;
+    height: 195px;
     background-color: #000000;
     float: left;
     text-align: center;
@@ -183,9 +183,9 @@ td {
 }
 
 .tile2{
-    margin: 12.5px;
-    width: 230px;
-    height: 198px;
+    margin: 10px;
+    width: 315px;
+    height: 195px;
     background-color: #666666;
     float: left;
     text-align: center;
@@ -196,9 +196,9 @@ td {
 }
 
 .tile3{
-    margin: 12.5px;
-    width: 230px;
-    height: 198px;
+    margin: 10px;
+    width: 315px;
+    height: 195px;
     background-color: #93c748;
     float: left;
     text-align: center;
@@ -209,9 +209,9 @@ td {
 }
 
 .tile4{
-    margin: 12.5px;
-    width: 485px;
-    height: 198px;
+    margin: 10px;
+    width: 650px;
+    height: 195px;
     background-color: #ee5a32;
     text-align: center;
 }
@@ -221,44 +221,44 @@ td {
 }
 
 .tile5{
-    margin: 12.5px;
-    width: 523px;
-    height: 421px;
+    margin: 10px;
+    width: 650px;
+    height: 410px;
     background-color: #666666;
     text-align: center;
 }
 
 .tile6{
-    margin: 12.5px;
-    width: 112px;
-    height: 198px;
+    margin: 10px;
+    width: 147.5px;
+    height: 195px;
     background-color: #666666;
     float: left;
     text-align: center;
 }
 
 .tile7{
-    margin: 12.5px;
-    width: 112px;
-    height: 198px;
+    margin: 10px;
+    width: 147.5px;
+    height: 195px;
     background-color: #666666;
     float: left;
     text-align: center;
 }
 
 .tile8{
-    margin: 12.5px;
-    width: 112px;
-    height: 198px;
+    margin: 10px;
+    width: 147.5px;
+    height: 195px;
     background-color: #666666;
     float: left;
     text-align: center;
 }
 
 .tile9{
-    margin: 12.5px;
-    width: 112px;
-    height: 198px;
+    margin: 10px;
+    width: 147.5px;
+    height: 195px;
     background-color: #666666;
     float: left;
     text-align: center;
@@ -268,6 +268,68 @@ a.tilelink{
     color: #ffffff;
     text-decoration: none;
     display: block;
-    width: 230px;
-    height: 198px;
+    width: 315px;
+    height: 195px;
 }
+
+/*the container must be positioned relative:*/
+.custom-select {
+    position: relative;
+}
+
+.custom-select select {
+    display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+    background-color: #46b7ce;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent #46b7ce transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+    position: absolute;
+    background-color: #46b7ce;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+

@@ -38,8 +38,8 @@
     </div>
 
     <div id="menu">
-        <div class="option">
-            <form action="LogoutServlet" method="get">
+        <div class="optionSO">
+            <form id="signout" action="LogoutServlet" method="get">
                 <input type="hidden" name="username" value="<%=user%>"/>
                 <input type="submit" name="menu" value="Sign out">
             </form>

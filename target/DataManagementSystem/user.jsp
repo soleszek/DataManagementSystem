@@ -62,6 +62,7 @@
     <div id="content">
 
         <table class="user-table" cellpadding="2" cellspacing="2" border="1" align="center" width="100%">
+            <col width="180">
 
             <%
                 User userObject = (User)request.getSession().getAttribute("user");
