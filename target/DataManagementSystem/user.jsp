@@ -14,6 +14,7 @@
 
     <%
         String name = (String)request.getSession().getAttribute("name");
+        String role = (String) request.getSession().getAttribute("role");
 
         String user = (String)request.getSession().getAttribute("username");
         Cookie[] cookies = request.getCookies();
@@ -57,7 +58,13 @@
         <div class="optionL"><a href="dashboard.jsp">Home</a></div>
         <div class="optionL"><a href="workspaces.jsp">Workspaces</a></div>
         <div class="optionL"><a href="tasks.jsp">Tasks</a></div>
+        <%
+            if (role.equals("admin")) {
+        %>
         <div class="optionL"><a href="adminpanel.jsp">Admin Panel</a></div>
+        <%
+            }
+        %>
         <div style="clear: both"></div>
     </div>
 
