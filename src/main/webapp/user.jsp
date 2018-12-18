@@ -39,15 +39,17 @@
     </div>
 
     <div id="menu">
-        <div class="option">
+        <div class="optionSO">
             <form action="LogoutServlet" method="get">
                 <input type="hidden" name="username" value="<%=user%>"/>
                 <input type="submit" name="menu" value="Sign out">
             </form>
         </div>
-        <div class="option">Witaj <%=name%></div>
-        <%--<div class="option">Tasks</div>
-        <div class="option">Admin Panel</div>--%>
+        <div class="option">
+            <form id = "usershow" action="UserShow" method="get">
+                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%></a>
+            </form>
+        </div>
         <div style="clear: both"></div>
     </div>
 
@@ -61,8 +63,8 @@
 
     <div id="content">
 
-        <table class="user-table" cellpadding="2" cellspacing="2" border="1" align="center" width="100%">
-            <col width="180">
+        <table class="user-table">
+            <col width="220">
 
             <%
                 User userObject = (User)request.getSession().getAttribute("user");
@@ -77,7 +79,7 @@
                 <td><%=userObject.getName()%></td>
             </tr>
             <tr>
-                <td>Last Nme</td>
+                <td>Last Name</td>
                 <td><%=userObject.getLastName()%></td>
             </tr>
             <tr>
