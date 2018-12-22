@@ -97,6 +97,15 @@ body{
     border-right: 2px dotted #666666;
 }
 
+#navbar{
+    width: 1340px;
+    background-color: white;
+    min-height: 40px;
+    border-bottom: 1px solid #751b1b;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 #content{
     float: left;
     padding: 40px;
@@ -356,18 +365,49 @@ table td:nth-child(2){
     background-color: #e7e9ec;
 }
 
-/*.user-table{
-    font-size: 25px;
-    border-bottom: 1px solid #ddd;
+/*.icon-bar {
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
 }
 
-.user-table td {
-    padding: 5px;
-    text-align: left;
+.icon-bar a {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 36px;
 }
 
-.user-table td:nth-child(2){
-    background-color: #e7e9ec;
+.icon-bar a:hover {
+    background-color: #000;
 }*/
+
+ul{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 20px 0;
+    background: #fff;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.3);
+}
+
+ul li{
+    list-style: none;
+    text-align: center;
+    display: block;
+}
+
+ul li a{
+    text-decoration: none;
+    padding: 0 50px;
+    display: block;
+}
 
 

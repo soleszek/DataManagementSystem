@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <title>Information about user</title>
     <link rel="stylesheet" href="style/style.css" type="text/css">
-    <title>Admin panel</title>
 </head>
 <body>
 
@@ -56,7 +55,7 @@
 
     <div id="sidebar">
         <div class="optionL"><a href="dashboard.jsp">Home</a></div>
-        <div class="optionL"><a href="workspaces.jsp">Workspaces</a></div>
+        <div class="optionL"><a href="documents.jsp">Documents</a></div>
         <div class="optionL"><a href="tasks.jsp">Tasks</a></div>
         <%
             if (role.equals("admin")) {

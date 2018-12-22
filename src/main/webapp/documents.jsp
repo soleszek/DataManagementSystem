@@ -1,14 +1,16 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="style/style.css" type="text/css">
+    <link rel="stylesheet" href="style/documents-view.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <title>Documents</title>
 </head>
 <body>
+
 <div id="container">
 
     <%
@@ -68,7 +70,38 @@
         <div style="clear: both"></div>
     </div>
 
+    <div id="navbar">
+        <ul>
+            <li>
+                <a href="#">
+                    <div class="icon">
+                        <i class="fas fa-plus-square fa-2x"></i>
+                        <i class="fas fa-plus-square fa-2x" title="Create new document"></i>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="icon">
+                        <i class="fas fa-minus-square fa-2x"></i>
+                        <i class="fas fa-minus-square fa-2x" title="Delete"></i>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="icon">
+                        <i class="fas fa-filter fa-2x"></i>
+                        <i class="fas fa-filter fa-2x" title="Filter"></i>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
     <div id="content">
+
+
 
     </div>
 
@@ -77,7 +110,6 @@
     </div>
 
 </div>
-
 
 </body>
 </html>

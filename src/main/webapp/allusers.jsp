@@ -1,10 +1,11 @@
 <%@ page import="com.sylwesteroleszek.entity.User" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Information about user</title>
+    <title>Search results of all users</title>
     <link rel="stylesheet" href="style/style.css" type="text/css">
 </head>
 <body>
@@ -12,20 +13,20 @@
 <div id="container">
 
     <%
-        String name = (String)request.getSession().getAttribute("name");
+        String name = (String) request.getSession().getAttribute("name");
         String role = (String) request.getSession().getAttribute("role");
 
-        String user = (String)request.getSession().getAttribute("username");
+        String user = (String) request.getSession().getAttribute("username");
         Cookie[] cookies = request.getCookies();
-        if(cookies != null) {
-            for (Cookie cookie : cookies){
-                if(cookie.getName().equals(user)){
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals(user)) {
                     user = cookie.getValue();
                 }
             }
         }
 
-        if(user == null) {
+        if (user == null) {
             response.sendRedirect("index.jsp");
         }
     %>
@@ -46,8 +47,9 @@
             </form>
         </div>
         <div class="option">
-            <form id = "usershow" action="UserShow" method="get">
-                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%></a>
+            <form id="usershow" action="UserShow" method="get">
+                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%>
+                </a>
             </form>
         </div>
         <div style="clear: both"></div>
@@ -73,33 +75,31 @@
             <col width="220">
 
             <%
-                User userObject = (User)request.getSession().getAttribute("user");
+                /*User userObject = (User)request.getSession().getAttribute("user");*/
+                List<User> users = (List<User>) request.getAttribute("users");
             %>
 
             <tr>
-                <td>User id</td>
-                <td><%=userObject.getId()%></td>
+                <th>User id</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Last name</th>
+                <th>Role</th>
+                <th>Password</th>
             </tr>
+            <% for (User u : users) {
+            %>
             <tr>
-                <td>First Name</td>
-                <td><%=userObject.getName()%></td>
+                <td><%=u.getId()%></td>
+                <td><%=u.getUsername()%></td>
+                <td><%=u.getName()%></td>
+                <td><%=u.getLastName()%></td>
+                <td><%=u.getRole()%></td>
+                <td><%=u.getPassword()%></td>
             </tr>
-            <tr>
-                <td>Last Name</td>
-                <td><%=userObject.getLastName()%></td>
-            </tr>
-            <tr>
-                <td>Role</td>
-                <td><%=userObject.getRole()%></td>
-            </tr>
-            <tr>
-                <td>User Name</td>
-                <td><%=userObject.getUsername()%></td>
-            </tr>
-            <tr>
-                <td>User Password</td>
-                <td><%=userObject.getPassword()%></td>
-            </tr>
+            <%
+                }
+            %>
 
         </table>
 
