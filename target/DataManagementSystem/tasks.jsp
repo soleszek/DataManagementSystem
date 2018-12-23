@@ -55,7 +55,7 @@
 
     <div id="sidebar">
         <div class="optionL"><a href="dashboard.jsp">Home</a></div>
-        <div class="optionL"><a href="documents.jsp">Documents</a></div>
+        <div class="optionL"><a href="AllDocuments">Documents</a></div>
         <div class="optionL"><a href="tasks.jsp">Tasks</a></div>
         <%
             if (role.equals("admin")) {

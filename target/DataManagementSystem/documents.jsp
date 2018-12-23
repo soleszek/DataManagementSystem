@@ -1,3 +1,5 @@
+<%@ page import="com.sylwesteroleszek.entity.Document" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
@@ -227,7 +229,7 @@
 
     <div id="sidebar">
         <div class="optionL"><a href="dashboard.jsp">Home</a></div>
-        <div class="optionL"><a href="documents.jsp">Documents</a></div>
+        <div class="optionL"><a href="AllDocuments">Documents</a></div>
         <div class="optionL"><a href="tasks.jsp">Tasks</a></div>
         <%
             if (role.equals("admin")) {
@@ -271,7 +273,44 @@
 
     <div id="content">
 
+        <table>
+            <col width="220">
 
+            <%
+                List<Document> documents = (List<Document>) request.getAttribute("documents");
+            %>
+
+            <tr>
+                <th>Document id</th>
+                <th>Title</th>
+                <th>Type</th>
+                <th>State</th>
+                <th>Revision</th>
+                <th>Owner</th>
+                <th>Creation date</th>
+                <th>Last modified</th>
+                <th>Attachement</th>
+                <th>Description</th>
+            </tr>
+            <% for (Document d : documents) {
+            %>
+            <tr>
+                <td><%=d.getId()%></td>
+                <td><%=d.getTitle()%></td>
+                <td><%=d.getType()%></td>
+                <td><%=d.getState()%></td>
+                <td><%=d.getRevision()%></td>
+                <td><%=d.getOwner()%></td>
+                <td><%=d.getCreationDate()%></td>
+                <td><%=d.getLastModification()%></td>
+                <td><%=d.getLink()%></td>
+                <td><%=d.getDescription()%></td>
+            </tr>
+            <%
+                }
+            %>
+
+        </table>
 
     </div>
 

@@ -154,4 +154,31 @@ a:hover, a:visited, a:link, a:active
     color: #ffffff;
 }
 
+table {
+    align: center;
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
 
+th {
+    text-align: left;
+}
+
+table, th, td{
+    border-bottom: 1px solid #000;
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 8px;
+    font-size: 20px;
+}
+
+table td:nth-child(2){
+    background-color: #e7e9ec;
+}
+td {
+    border-bottom: 1px solid #ddd;
+}

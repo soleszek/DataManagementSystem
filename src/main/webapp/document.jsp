@@ -1,3 +1,4 @@
+<%@ page import="com.sylwesteroleszek.entity.Document" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -64,6 +65,58 @@
     </div>
 
     <div id="content">
+        <col width="220">
+
+        <table class="user-table">
+            <col width="220">
+
+            <%
+                Document document = (Document) request.getSession().getAttribute("document");
+            %>
+
+            <tr>
+                <td>Document id</td>
+                <td><%=document.getId()%></td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td><%=document.getTitle()%></td>
+            </tr>
+            <tr>
+                <td>Type</td>
+                <td><%=document.getType()%></td>
+            </tr>
+            <tr>
+                <td>Revision</td>
+                <td><%=document.getRevision()%></td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td><%=document.getState()%></td>
+            </tr>
+            <tr>
+                <td>Owner</td>
+                <td><%=document.getOwner()%></td>
+            </tr>
+            <tr>
+                <td>Creation date</td>
+                <td><%=document.getCreationDate()%></td>
+            </tr>
+            <tr>
+                <td>Last modified</td>
+                <td><%=document.getLastModification()%></td>
+            </tr>
+            <tr>
+                <td>Attachement</td>
+                <td><%=document.getLink()%></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><%=document.getDescription()%></td>
+            </tr>
+
+
+        </table>
 
     </div>
 

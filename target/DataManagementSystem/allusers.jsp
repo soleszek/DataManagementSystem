@@ -57,7 +57,7 @@
 
     <div id="sidebar">
         <div class="optionL"><a href="dashboard.jsp">Home</a></div>
-        <div class="optionL"><a href="documents.jsp">Documents</a></div>
+        <div class="optionL"><a href="AllDocuments">Documents</a></div>
         <div class="optionL"><a href="tasks.jsp">Tasks</a></div>
         <%
             if (role.equals("admin")) {
@@ -71,11 +71,10 @@
 
     <div id="content">
 
-        <table class="user-table">
+        <table>
             <col width="220">
 
             <%
-                /*User userObject = (User)request.getSession().getAttribute("user");*/
                 List<User> users = (List<User>) request.getAttribute("users");
             %>
 
