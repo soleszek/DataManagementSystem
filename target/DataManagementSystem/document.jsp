@@ -54,7 +54,7 @@
 
     <div id="sidebar">
         <div class="optionL"><a href="dashboard.jsp">Home</a></div>
-        <div class="optionL"><a href="dashboard.jsp">Doc</a></div>
+        <div class="optionL"><a href="dashboard.jsp">Properties</a></div>
         <div class="optionL"><a href="documents.jsp">Files</a></div>
         <div class="optionL"><a href="tasks.jsp">Revisions</a></div>
         <div class="optionL"><a href="adminpanel.jsp">Routes</a></div>

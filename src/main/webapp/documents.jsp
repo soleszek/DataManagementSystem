@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <title>Documents</title>
+    <link rel="javascript" href="jsscripts/popupwindow.js" type="text/javascript">
 </head>
 <body>
 
@@ -76,7 +77,8 @@
                 <a href="#">
                     <div class="icon">
                         <i class="fas fa-plus-square fa-2x"></i>
-                        <i class="fas fa-plus-square fa-2x" title="Create new document"></i>
+                        <i class="fas fa-plus-square fa-2x" title="Create new document" onclick="myFunction()"></i>
+                        <script src="jsscripts/popupwindow.js"></script>
                     </div>
                 </a>
             </li>
