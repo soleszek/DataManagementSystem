@@ -1,4 +1,10 @@
+var myWindow;
+
 function myFunction() {
-    var myWindow = window.open("document-type.jsp", "myWindow", "width=700,height=700");
+    myWindow = window.open("document-type.jsp", "Choose document type", "width=500,height=500, top=200,left=200");
+}
+
+function popupClose() {
+    close();
 }
 

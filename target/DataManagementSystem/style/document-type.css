@@ -163,3 +163,40 @@ li.active > a > span.fa-folder-o:before {
     content: "\f115" !important;
 }
 
+.container{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center{
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px;
+}
+
+.row{
+    min-height: 400px;
+}
+
+ul li{
+    list-style: none;
+}
+
+.buttons{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button{
+    width: 30%;
+    cursor: pointer;
+    float: left;
+    margin: 10px;
+}
+
+.button:hover{
+    background-color: #bcbcbc;
+}
+
