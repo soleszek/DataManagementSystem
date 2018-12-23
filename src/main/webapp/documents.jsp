@@ -281,7 +281,7 @@
 
     <div id="modal-wrapper" class="modal">
 
-        <form class="modal-content animate" action="CreateDocument" method="post">
+        <form class="modal-content animate" action="CreateDocument" method="post" enctype="multipart/form-data">
 
             <div class="imgcontainer">
                 <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
@@ -292,18 +292,17 @@
             <div class="container">
                 <div class="custom-select">
                     <select name="doctype">
-                        <option value="viewer">2D Drawing (pdf)</option>
-                        <option value="viewer">2D Drawing (pdf)</option>
-                        <option value="contributor">Document (doc, docx)</option>
-                        <option value="manager">Image (jpg, png)</option>
+                        <option value="2D drawing">2D Drawing (pdf)</option>
+                        <option value="2D drawing">2D Drawing (pdf)</option>
+                        <option value="document">Document (doc, docx)</option>
+                        <option value="image">Image (jpg, png)</option>
                     </select>
                 </div>
                 <input type="text" placeholder="Enter title" name="title" required>
-                <input type="text" disabled name="state" value="in work">
                 <input type="text" disabled name="owner" value="<%=user%>">
                 <c:set var="now" value="<%=new java.util.Date()%>"/>
                 <input type="text" disabled name="creation date" value="<fmt:formatDate type = "date" value = "${now}"/>">
-                <input type="file" name="link" value="" class="file" required>
+                <input type="file" name="file" class="file" required>
                 <input type="text" placeholder="Enter description" name="description" required>
                 <button type="submit">Create</button>
             </div>
