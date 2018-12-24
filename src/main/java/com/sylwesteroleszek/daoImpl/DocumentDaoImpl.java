@@ -29,7 +29,7 @@ public class DocumentDaoImpl implements DocumentDao {
                     .createQuery("from Document where id=:id")
                     .setParameter("id",id).getSingleResult();
             session.getTransaction().commit();
-            session.clear();
+            session.close();
             return document;
         } catch (NoResultException e) {
             return null;

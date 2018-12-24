@@ -299,7 +299,7 @@
             <tr>
                 <td><input type="checkbox"></td>
                 <td><%=d.getId()%></td>
-                <td><%=d.getTitle()%></td>
+                <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getTitle()%></a></td>
                 <td><i class="far fa-window-restore"></i></td>
                 <td><%=d.getType()%></td>
                 <td><%=d.getState()%></td>

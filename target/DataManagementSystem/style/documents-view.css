@@ -166,7 +166,7 @@ th {
     text-align: left;
     border-right: 1px solid #444444;
     border-top: 1px solid #444444;
-    background-color: #efefef;;
+    background-color: #efefef;
 }
 
 table, th, td{
@@ -185,4 +185,15 @@ td {
 
 tr:nth-child(odd) {
     background: #FFF
+}
+
+#doc-link {
+    text-decoration: none;
+    color: #696969;
+    font-weight: bold;
+}
+
+#doc-link:hover {
+    text-decoration: none;
+    color: #696969;
 }
