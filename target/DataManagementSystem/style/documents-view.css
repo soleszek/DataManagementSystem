@@ -195,5 +195,13 @@ tr:nth-child(odd) {
 
 #doc-link:hover {
     text-decoration: none;
-    color: #696969;
+    color: #e91e63;
+}
+
+#popup{
+    cursor: pointer;
+}
+
+#popup:hover{
+    color: #e91e63;
 }

@@ -248,7 +248,6 @@
                     <div class="icon">
                         <i class="fas fa-plus-square fa-2x"></i>
                         <i class="fas fa-plus-square fa-2x" title="Create new document" onclick="document.getElementById('modal-wrapper').style.display='block'"></i>
-                        <script src="jsscripts/popupwindow.js"></script>
                     </div>
                 </a>
             </li>
@@ -300,7 +299,7 @@
                 <td><input type="checkbox"></td>
                 <td><%=d.getId()%></td>
                 <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getTitle()%></a></td>
-                <td><i class="far fa-window-restore"></i></td>
+                <td><div id="popup" onclick="openPopup('OpenDocument?documentId=<%=d.getId()%>')"><i class="far fa-window-restore"></i></div></td>
                 <td><%=d.getType()%></td>
                 <td><%=d.getState()%></td>
                 <td><%=d.getRevision()%></td>
@@ -365,6 +364,7 @@
     </script>
 
     <script src="jsscripts/dropdownmenu.js"></script>
+    <script src="jsscripts/popup.js"></script>
 
 </div>
 
