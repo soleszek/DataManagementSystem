@@ -7,7 +7,6 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Dashboard</title>
     <link rel="stylesheet" href="style/documents-view.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -224,11 +223,13 @@
                 </a>
             </form>
         </div>
+        <div class="optionSO">
+            <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+        </div>
         <div style="clear: both"></div>
     </div>
 
     <div id="sidebar">
-        <div class="optionL"><a href="dashboard.jsp">Home</a></div>
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
         <div class="optionL"><a href="tasks.jsp">Tasks</a></div>
         <%

@@ -49,11 +49,13 @@
                 <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%></a>
             </form>
         </div>
+        <div class="optionSO">
+            <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+        </div>
         <div style="clear: both"></div>
     </div>
 
     <div id="sidebar">
-        <div class="optionL"><a href="dashboard.jsp">Home</a></div>
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
         <div class="optionL"><a href="tasks.jsp">Tasks</a></div>
         <div class="optionL"><a href="adminpanel.jsp">Admin Panel</a></div>
