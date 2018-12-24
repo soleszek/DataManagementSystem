@@ -157,11 +157,16 @@ a:hover, a:visited, a:link, a:active
 table {
     align: center;
     width: 100%;
-
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 th {
     text-align: left;
+    border-right: 1px solid #444444;
+    border-top: 1px solid #444444;
+    background-color: #efefef;;
 }
 
 table, th, td{
@@ -170,13 +175,14 @@ table, th, td{
 }
 
 th, td{
-    padding: 8px;
+    padding: 10px;
     font-size: 20px;
 }
 
-table td:nth-child(2){
-    background-color: #e7e9ec;
-}
 td {
     border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(odd) {
+    background: #FFF
 }

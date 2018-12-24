@@ -274,15 +274,17 @@
     <div id="content">
 
         <table>
-            <col width="220">
+            <col width="60">
 
             <%
                 List<Document> documents = (List<Document>) request.getAttribute("documents");
             %>
 
             <tr>
-                <th>Document id</th>
+                <th><input type="checkbox"></th>
+                <th>Id</th>
                 <th>Title</th>
+                <th><i class="far fa-window-restore"></i></th>
                 <th>Type</th>
                 <th>State</th>
                 <th>Revision</th>
@@ -295,8 +297,10 @@
             <% for (Document d : documents) {
             %>
             <tr>
+                <td><input type="checkbox"></td>
                 <td><%=d.getId()%></td>
                 <td><%=d.getTitle()%></td>
+                <td><i class="far fa-window-restore"></i></td>
                 <td><%=d.getType()%></td>
                 <td><%=d.getState()%></td>
                 <td><%=d.getRevision()%></td>
