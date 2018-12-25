@@ -1,9 +1,9 @@
+<%@ page import="com.sylwesteroleszek.entity.Document" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Dashboard</title>
     <link rel="stylesheet" href="style/style.css" type="text/css">
     <title>Document</title>
 </head>
@@ -29,6 +29,10 @@
         }
     %>
 
+    <%
+        Document document = (Document) request.getSession().getAttribute("document");
+    %>
+
     <div id="logo">
         Data Management System
     </div>
@@ -44,23 +48,74 @@
                 <input type="submit" name="menu" value="Sign out">
             </form>
         </div>
-        <div class="option">Witaj <%=name%></div>
-        <%--<div class="option">Tasks</div>
-        <div class="option">Admin Panel</div>--%>
+        <div class="option">
+            <form id = "usershow" action="UserShow" method="get">
+                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%></a>
+            </form>
+        </div>
+        <div class="optionSO">
+            <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+        </div>
         <div style="clear: both"></div>
     </div>
 
     <div id="sidebar">
-        <div class="optionL"><a href="dashboard.jsp">Doc</a></div>
-        <div class="optionL"><a href="workspaces.jsp">Files</a></div>
-        <div class="optionL"><a href="tasks.jsp">Revisions</a></div>
-        <div class="optionL"><a href="adminpanel.jsp">Routes</a></div>
-        <div class="optionL"><a href="adminpanel.jsp">Lifecycle</a></div>
-        <div class="optionL"><a href="adminpanel.jsp">Viewer</a></div>
+        <div class="optionL"><a href="OpenDocument?documentId=<%=document.getId()%>">Properties</a></div>
+        <div class="optionL"><a href="DocumentRevisions?documentId=<%=document.getId()%>">Revisions</a></div>
+        <div class="optionL"><a href="DocumentRoutes?documentId=<%=document.getId()%>">Routes</a></div>
+        <div class="optionL"><a href="Lifecycle?documentId=<%=document.getId()%>">Lifecycle</a></div>
+        <div class="optionL"><a href="DocumentViewer?documentId=<%=document.getId()%>">Viewer</a></div>
         <div style="clear: both"></div>
     </div>
 
     <div id="content">
+        <col width="220">
+
+        <table class="user-table">
+            <col width="220">
+
+            <tr>
+                <td>Document id</td>
+                <td><%=document.getId()%></td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td><%=document.getTitle()%></td>
+            </tr>
+            <tr>
+                <td>Type</td>
+                <td><%=document.getType()%></td>
+            </tr>
+            <tr>
+                <td>Revision</td>
+                <td><%=document.getRevision()%></td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td><%=document.getState()%></td>
+            </tr>
+            <tr>
+                <td>Owner</td>
+                <td><%=document.getOwner()%></td>
+            </tr>
+            <tr>
+                <td>Creation date</td>
+                <td><%=document.getCreationDate()%></td>
+            </tr>
+            <tr>
+                <td>Last modified</td>
+                <td><%=document.getLastModification()%></td>
+            </tr>
+            <tr>
+                <td>Attachement</td>
+                <td><%=document.getLink()%></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><%=document.getDescription()%></td>
+            </tr>
+
+        </table>
 
     </div>
 

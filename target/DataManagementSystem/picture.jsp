@@ -44,15 +44,18 @@
                 <input type="submit" name="menu" value="Sign out">
             </form>
         </div>
-        <div class="option">Witaj <%=name%></div>
-        <%--<div class="option">Tasks</div>
-        <div class="option">Admin Panel</div>--%>
+        <div class="option">
+            <form id = "usershow" action="UserShow" method="get">
+                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%></a>
+            </form>
+        </div>
         <div style="clear: both"></div>
     </div>
 
     <div id="sidebar">
+        <div class="optionL"><a href="dashboard.jsp">Home</a></div>
         <div class="optionL"><a href="dashboard.jsp">Pic</a></div>
-        <div class="optionL"><a href="workspaces.jsp">Files</a></div>
+        <div class="optionL"><a href="documents.jsp">Files</a></div>
         <div class="optionL"><a href="tasks.jsp">Revisions</a></div>
         <div class="optionL"><a href="adminpanel.jsp">Routes</a></div>
         <div class="optionL"><a href="adminpanel.jsp">Lifecycle</a></div>

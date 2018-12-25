@@ -1,11 +1,11 @@
+<%@ page import="com.sylwesteroleszek.entity.Document" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Dashboard</title>
     <link rel="stylesheet" href="style/style.css" type="text/css">
-    <title>Workspaces</title>
+    <title>Revisions</title>
 </head>
 <body>
 
@@ -29,6 +29,10 @@
         }
     %>
 
+    <%
+        Document document = (Document) request.getSession().getAttribute("document");
+    %>
+
     <div id="logo">
         Data Management System
     </div>
@@ -38,27 +42,34 @@
     </div>
 
     <div id="menu">
-        <div class="option">
+        <div class="optionSO">
             <form action="LogoutServlet" method="get">
                 <input type="hidden" name="username" value="<%=user%>"/>
                 <input type="submit" name="menu" value="Sign out">
             </form>
         </div>
-        <div class="option">Witaj <%=name%></div>
-        <%--<div class="option">Tasks</div>
-        <div class="option">Admin Panel</div>--%>
+        <div class="option">
+            <form id = "usershow" action="UserShow" method="get">
+                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%></a>
+            </form>
+        </div>
+        <div class="optionSO">
+            <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+        </div>
         <div style="clear: both"></div>
     </div>
 
     <div id="sidebar">
-        <div class="optionL"><a href="dashboard.jsp">Home</a></div>
-        <div class="optionL"><a href="workspaces.jsp">Workspaces</a></div>
-        <div class="optionL"><a href="tasks.jsp">Tasks</a></div>
-        <div class="optionL"><a href="adminpanel.jsp">Admin Panel</a></div>
+        <div class="optionL"><a href="OpenDocument?documentId=<%=document.getId()%>">Properties</a></div>
+        <div class="optionL"><a href="documentview/revisions.jsp">Revisions</a></div>
+        <div class="optionL"><a href="documentview/routes.jsp">Routes</a></div>
+        <div class="optionL"><a href="documentview/lifecycle.jsp">Lifecycle</a></div>
+        <div class="optionL"><a href="documentview/viewer.jsp">Viewer</a></div>
         <div style="clear: both"></div>
     </div>
 
     <div id="content">
+
 
     </div>
 

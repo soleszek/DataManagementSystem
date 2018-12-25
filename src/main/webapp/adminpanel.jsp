@@ -38,28 +38,53 @@
     </div>
 
     <div id="menu">
-        <div class="option">
-            <form action="LogoutServlet" method="get">
+        <div class="optionSO">
+            <form id="signout" action="LogoutServlet" method="get">
                 <input type="hidden" name="username" value="<%=user%>"/>
                 <input type="submit" name="menu" value="Sign out">
             </form>
         </div>
-        <div class="option">Witaj <%=name%></div>
-        <%--<div class="option">Tasks</div>
-        <div class="option">Admin Panel</div>--%>
+        <div class="option">
+            <form id = "usershow" action="UserShow" method="get">
+                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%></a>
+            </form>
+        </div>
+        <div class="optionSO">
+            <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+        </div>
         <div style="clear: both"></div>
     </div>
 
     <div id="sidebar">
-        <div class="optionL"><a href="dashboard.jsp">Home</a></div>
-        <div class="optionL"><a href="workspaces.jsp">Workspaces</a></div>
+        <div class="optionL"><a href="AllDocuments">Documents</a></div>
         <div class="optionL"><a href="tasks.jsp">Tasks</a></div>
         <div class="optionL"><a href="adminpanel.jsp">Admin Panel</a></div>
         <div style="clear: both"></div>
     </div>
 
     <div id="content">
-        <H1><a href="registration.jsp">Create new user</a> </H1>
+        <div class="square">
+            <div class="tile1"><H1><a href="registration.jsp" class="tilelink">Create new user</a> </H1></div>
+            <div class="tile1"><H1><a href="AllUsers" class="tilelink">Show all users</a> </H1><</div>
+            <div style="clear: both"></div>
+
+            <div class="tile2"><H1><a href="registration.jsp" class="tilelink">Delete user</a></H1></div>
+            <div class="tile3"><H1><a href="registration.jsp" class="tilelink">Create workspace</a></H1></div>
+            <div style="clear: both"></div>
+
+            <div class="tile4">4</div>
+
+        </div>
+        <div class="square">
+            <div class="tile5">5</div>
+
+            <div class="tile6">6</div>
+            <div class="tile7">7</div>
+            <div class="tile8">8</div>
+            <div class="tile9">9</div>
+            <div style="clear: both"></div>
+        </div>
+        <div style="clear: both"></div>
     </div>
 
     <div id="footer">
