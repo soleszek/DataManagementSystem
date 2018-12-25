@@ -3,6 +3,7 @@
 <%@ page import="com.sylwesteroleszek.entity.Document" %>
 <%@ page import="com.sylwesteroleszek.entity.Route" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.sylwesteroleszek.entity.User" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -214,7 +215,8 @@
     %>
 
     <%
-        Document document = (Document) request.getSession().getAttribute("document");
+        Document document = (Document) request.getAttribute("document");
+        List<User> approvers = (List<User>) request.getAttribute("approvers");
     %>
 
     <div id="logo">
@@ -352,10 +354,26 @@
             </div>
 
             <div class="container">
+                <input type="text" disabled name="documentId" value="Id: <%=document.getId()%>">
+                <input type="text" disabled name="documentTitle" value="Title: <%=document.getTitle()%>">
                 <input type="text" disabled name="owner" value="<%=user%>">
+                <div class="custom-select">
+
+                    <select name="doctype">
+                        <option value="approver">Sylwester Oleszek, admin</option>
+                        <%
+                            for(User u: approvers){
+                        %>
+                        <option value="approver"><%=u.getName()%> <%=u.getLastName()%>, <%=u.getRole()%></option>
+                        <%
+                            }
+                        %>
+                    </select>
+
+                </div>
                 <c:set var="now" value="<%=new java.util.Date()%>"/>
                 <input type="text" disabled name="creation date" value="<fmt:formatDate type = "date" value = "${now}"/>">
-                <input type="text" placeholder="Must be finished before" id="datepicker">
+                <input type="text" placeholder="Must be finished before" id="datepicker" required>
                 <input type="text" placeholder="Enter comment" name="description" required>
                 <button type="submit">Create</button>
             </div>
@@ -375,6 +393,7 @@
     </script>
 
     <script src="jsscripts/popup.js"></script>
+    <script src="jsscripts/dropdownmenu.js"></script>
 
 </div>
 
