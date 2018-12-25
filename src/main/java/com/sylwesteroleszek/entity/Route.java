@@ -13,23 +13,34 @@ public class Route extends DmsObject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String owner;
     private String state;
     private LocalDate creationDate;
     private LocalDate finishDate;
-    private String checkedBy;
-    private String approvedBy;
+    private LocalDate deadline;
+    private String documentBeingApprovedId;
+    private String responsibleForChecking;
+    private String responsibleForApproving;
     private String comments;
 
     public Route() {
     }
 
     public static class Builder {
+        private String owner;
         private String state;
         private LocalDate creationDate;
         private LocalDate finishDate;
-        private String checkedBy;
-        private String approvedBy;
+        private LocalDate deadline;
+        private String documentBeingApprovedId;
+        private String responsibleForChecking;
+        private String responsibleForApproving;
         private String comments;
+
+        public Builder owner(String owner){
+            this.owner = owner;
+            return this;
+        }
 
         public Builder state(String state){
             this.state = state;
@@ -46,13 +57,23 @@ public class Route extends DmsObject {
             return this;
         }
 
-        public Builder checkedBy (String checkedBy){
-            this.checkedBy = checkedBy;
+        public Builder deadline(LocalDate deadline){
+            this.deadline = deadline;
             return this;
         }
 
-        public Builder approvedBy(String approvedBy){
-            this.approvedBy = approvedBy;
+        public Builder documentBeingApprovedId(String documentBeingApprovedId){
+            this.documentBeingApprovedId = documentBeingApprovedId;
+            return this;
+        }
+
+        public Builder responsibleForChecking (String responsibleForChecking){
+            this.responsibleForChecking = responsibleForChecking;
+            return this;
+        }
+
+        public Builder responsibleForApproving(String responsibleForApproving){
+            this.responsibleForApproving = responsibleForApproving;
             return this;
         }
 
@@ -67,100 +88,54 @@ public class Route extends DmsObject {
     }
 
     private Route(Builder builder){
+        this.owner = builder.owner;
         this.state = builder.state;
         this.creationDate = builder.creationDate;
         this.finishDate = builder.finishDate;
-        this.checkedBy = builder.checkedBy;
-        this.approvedBy = builder.approvedBy;
+        this.deadline = builder.deadline;
+        this.documentBeingApprovedId = builder.documentBeingApprovedId;
+        this.responsibleForChecking = builder.responsibleForChecking;
+        this.responsibleForApproving = builder.responsibleForApproving;
         this.comments = builder.comments;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public LocalDate getCreationDate() {
-        return creationDate;
-    }
-
-    public LocalDate getFinishDate() {
-        return finishDate;
-    }
-
-    public String getCheckedBy() {
-        return checkedBy;
-    }
-
-    public String getApprovedBy() {
-        return approvedBy;
-    }
-
-    public String getComments() {
-        return comments;
-    }
-
-/*    public Route(String state, LocalDate creationDate, LocalDate finishDate, String checkedBy, String approvedBy, String comments) {
-        this.state = state;
-        this.creationDate = creationDate;
-        this.finishDate = finishDate;
-        this.checkedBy = checkedBy;
-        this.approvedBy = approvedBy;
-        this.comments = comments;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getOwner(){
+        return owner;
     }
 
     public String getState() {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = state;
-    }
-
     public LocalDate getCreationDate() {
         return creationDate;
-    }
-
-    public void setCreationDate(LocalDate creationDate) {
-        this.creationDate = creationDate;
     }
 
     public LocalDate getFinishDate() {
         return finishDate;
     }
 
-    public void setFinishDate(LocalDate finishDate) {
-        this.finishDate = finishDate;
+    public LocalDate getDeadline() {
+        return deadline;
     }
 
-    public String getCheckedBy() {
-        return checkedBy;
+    public String getDocumentBeingApprovedId() {
+        return documentBeingApprovedId;
     }
 
-    public void setCheckedBy(String checkedBy) {
-        this.checkedBy = checkedBy;
+    public String getResponsibleForChecking() {
+        return responsibleForChecking;
     }
 
-    public String getApprovedBy() {
-        return approvedBy;
-    }
-
-    public void setApprovedBy(String approvedBy) {
-        this.approvedBy = approvedBy;
+    public String getResponsibleForApproving() {
+        return responsibleForApproving;
     }
 
     public String getComments() {
         return comments;
     }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }*/
 }
