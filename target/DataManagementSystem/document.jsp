@@ -67,7 +67,7 @@
         <%
             if(document.getType().equals("2D drawing")){
         %>
-        <div class="optionL"><a href="DocumentViewer?documentId=<%=document.getId()%>">Viewer</a></div>
+        <div class="optionL"><a href="viewer.jsp">Viewer</a></div>
         <% } %>
         <div style="clear: both"></div>
     </div>

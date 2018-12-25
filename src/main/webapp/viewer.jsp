@@ -31,6 +31,7 @@
 
     <%
         Document document = (Document) request.getSession().getAttribute("document");
+
     %>
 
     <div id="logo">
@@ -61,15 +62,22 @@
 
     <div id="sidebar">
         <div class="optionL"><a href="OpenDocument?documentId=<%=document.getId()%>">Properties</a></div>
-        <div class="optionL"><a href="documentview/revisions.jsp">Revisions</a></div>
-        <div class="optionL"><a href="documentview/routes.jsp">Routes</a></div>
-        <div class="optionL"><a href="documentview/lifecycle.jsp">Lifecycle</a></div>
-        <div class="optionL"><a href="documentview/viewer.jsp">Viewer</a></div>
+        <div class="optionL"><a href="DocumentRevisions?documentId=<%=document.getId()%>">Revisions</a></div>
+        <div class="optionL"><a href="DocumentRoutes?documentId=<%=document.getId()%>">Routes</a></div>
+        <div class="optionL"><a href="Lifecycle?documentId=<%=document.getId()%>">Lifecycle</a></div>
+        <%
+            if(document.getType().equals("2D drawing")){
+        %>
+        <div class="optionL"><a href="documentview/viewer.jsp>">Viewer</a></div>
+        <% } %>
         <div style="clear: both"></div>
     </div>
 
     <div id="content">
 
+        <object data="DocumentViewer?documentId=<%=document.getId()%>" type="application/pdf" width="100%" height="650">
+            <p>There is a problem with opening this file.</p>
+        </object>
 
     </div>
 

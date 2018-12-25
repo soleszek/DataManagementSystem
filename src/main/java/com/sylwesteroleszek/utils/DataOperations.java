@@ -24,13 +24,25 @@ public class DataOperations {
         } else if(docType.equals("image")) {
 
             save(imagesPath, fileContent, fileName);
-
         }
     }
 
-    //TODO: implement method
-    public static void loadData(String docType){
+    public static DataInputStream loadData(String docType, String fileName){
+        if(docType.equals("2D drawing")){
 
+            return read(drawingsPath, fileName);
+
+        } else if (docType.equals("document")){
+
+            return read(documentsPath, fileName);
+
+
+        } else if(docType.equals("image")) {
+
+            return read(imagesPath, fileName);
+
+        }
+        return null;
     }
 
     public static void deleteData(String docType){
@@ -49,6 +61,18 @@ public class DataOperations {
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Problem z zapisem", e);
             e.printStackTrace();
+        }
+    }
+
+    private static DataInputStream read(String path, String fileName){
+
+        try {
+            DataInputStream reader = new DataInputStream(new FileInputStream(path));
+            return reader;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }
