@@ -4,7 +4,6 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Dashboard</title>
     <link rel="stylesheet" href="style/style.css" type="text/css">
     <title>Document</title>
 </head>
@@ -28,6 +27,10 @@
         if(user == null) {
             response.sendRedirect("index.jsp");
         }
+    %>
+
+    <%
+        Document document = (Document) request.getSession().getAttribute("document");
     %>
 
     <div id="logo">
@@ -57,12 +60,11 @@
     </div>
 
     <div id="sidebar">
-        <div class="optionL"><a href="dashboard.jsp">Properties</a></div>
-        <div class="optionL"><a href="documents.jsp">Files</a></div>
-        <div class="optionL"><a href="tasks.jsp">Revisions</a></div>
-        <div class="optionL"><a href="adminpanel.jsp">Routes</a></div>
-        <div class="optionL"><a href="adminpanel.jsp">Lifecycle</a></div>
-        <div class="optionL"><a href="adminpanel.jsp">Viewer</a></div>
+        <div class="optionL"><a href="OpenDocument?documentId=<%=document.getId()%>">Properties</a></div>
+        <div class="optionL"><a href="DocumentRevisions?documentId=<%=document.getId()%>">Revisions</a></div>
+        <div class="optionL"><a href="DocumentRoutes?documentId=<%=document.getId()%>">Routes</a></div>
+        <div class="optionL"><a href="Lifecycle?documentId=<%=document.getId()%>">Lifecycle</a></div>
+        <div class="optionL"><a href="DocumentViewer?documentId=<%=document.getId()%>">Viewer</a></div>
         <div style="clear: both"></div>
     </div>
 
@@ -71,10 +73,6 @@
 
         <table class="user-table">
             <col width="220">
-
-            <%
-                Document document = (Document) request.getSession().getAttribute("document");
-            %>
 
             <tr>
                 <td>Document id</td>
@@ -116,7 +114,6 @@
                 <td>Description</td>
                 <td><%=document.getDescription()%></td>
             </tr>
-
 
         </table>
 
