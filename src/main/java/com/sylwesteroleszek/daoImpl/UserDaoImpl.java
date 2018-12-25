@@ -6,6 +6,7 @@ import com.sylwesteroleszek.utils.HibernateUtils;
 import org.hibernate.Session;
 import javax.persistence.NoResultException;
 import java.util.List;
+import java.util.Optional;
 
 public class UserDaoImpl implements UserDao {
     @Override
@@ -27,6 +28,10 @@ public class UserDaoImpl implements UserDao {
             User user = (User)session
                     .createQuery("from User where id=:id")
                     .setParameter("id", id).getSingleResult();
+
+            /*Optional<User> user = (User)session
+                    .createQuery("from User where id=:id")
+                    .setParameter("id", id).getSingleResult();*/
             session.getTransaction().commit();
             session.close();
             return user;
@@ -43,6 +48,11 @@ public class UserDaoImpl implements UserDao {
             User user = (User)session
                     .createQuery("from User where username=:username")
                     .setParameter("username", username).getSingleResult();
+            /*List<User> users = session.createQuery("from User")
+                    .list();
+            Optional<User> user = users.stream()
+                    .filter(u -> u.getUsername().equals(username))
+                    .findFirst();*/
             session.getTransaction().commit();
             session.close();
             return user;

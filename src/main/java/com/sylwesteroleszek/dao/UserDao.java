@@ -3,6 +3,7 @@ package com.sylwesteroleszek.dao;
 import com.sylwesteroleszek.entity.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserDao {
     void SaveOrUpdate(User user);
