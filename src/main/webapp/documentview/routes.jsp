@@ -1,11 +1,11 @@
-<%@ page import="com.sylwesteroleszek.entity.User" %>
+<%@ page import="com.sylwesteroleszek.entity.Document" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Information about user</title>
     <link rel="stylesheet" href="style/style.css" type="text/css">
+    <title>Routes</title>
 </head>
 <body>
 
@@ -13,7 +13,6 @@
 
     <%
         String name = (String)request.getSession().getAttribute("name");
-        String role = (String) request.getSession().getAttribute("role");
 
         String user = (String)request.getSession().getAttribute("username");
         Cookie[] cookies = request.getCookies();
@@ -28,6 +27,10 @@
         if(user == null) {
             response.sendRedirect("index.jsp");
         }
+    %>
+
+    <%
+        Document document = (Document) request.getSession().getAttribute("document");
     %>
 
     <div id="logo">
@@ -57,53 +60,16 @@
     </div>
 
     <div id="sidebar">
-        <div class="optionL"><a href="AllDocuments">Documents</a></div>
-        <div class="optionL"><a href="tasks.jsp">Tasks</a></div>
-        <%
-            if (role.equals("admin")) {
-        %>
-        <div class="optionL"><a href="adminpanel.jsp">Admin Panel</a></div>
-        <%
-            }
-        %>
+        <div class="optionL"><a href="OpenDocument?documentId=<%=document.getId()%>">Properties</a></div>
+        <div class="optionL"><a href="documentview/revisions.jsp">Revisions</a></div>
+        <div class="optionL"><a href="documentview/routes.jsp">Routes</a></div>
+        <div class="optionL"><a href="documentview/lifecycle.jsp">Lifecycle</a></div>
+        <div class="optionL"><a href="documentview/viewer.jsp">Viewer</a></div>
         <div style="clear: both"></div>
     </div>
 
     <div id="content">
 
-        <table class="user-table">
-            <col width="220">
-
-            <%
-                User userObject = (User)request.getSession().getAttribute("user");
-            %>
-
-            <tr>
-                <td>User id</td>
-                <td><%=userObject.getId()%></td>
-            </tr>
-            <tr>
-                <td>First Name</td>
-                <td><%=userObject.getName()%></td>
-            </tr>
-            <tr>
-                <td>Last Name</td>
-                <td><%=userObject.getLastName()%></td>
-            </tr>
-            <tr>
-                <td>Role</td>
-                <td><%=userObject.getRole()%></td>
-            </tr>
-            <tr>
-                <td>User Name</td>
-                <td><%=userObject.getUsername()%></td>
-            </tr>
-            <tr>
-                <td>User Password</td>
-                <td><%=userObject.getPassword()%></td>
-            </tr>
-
-        </table>
 
     </div>
 
