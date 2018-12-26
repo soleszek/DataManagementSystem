@@ -28,7 +28,7 @@ public class RouteDaoImpl implements RouteDao {
                     .createQuery("from Route where id=:id")
                     .setParameter("id", id).getSingleResult();
             session.getTransaction().commit();
-            session.clear();
+            session.close();
             return route;
         }catch (NoResultException e) {
             return null;

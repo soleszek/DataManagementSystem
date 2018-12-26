@@ -342,9 +342,9 @@
                     </select>
                 </div>
                 <input type="text" placeholder="Enter title" name="title" required>
-                <input type="text" disabled name="owner" value="<%=user%>">
+                <input type="text" readonly name="owner" value="<%=user%>">
                 <c:set var="now" value="<%=new java.util.Date()%>"/>
-                <input type="text" disabled name="creation date" value="<fmt:formatDate type = "date" value = "${now}"/>">
+                <input type="text" readonly name="creation date" value="<fmt:formatDate type = "date" value = "${now}"/>">
                 <input type="file" name="file" class="file" required>
                 <input type="text" placeholder="Enter description" name="description" required>
                 <button type="submit">Create</button>

@@ -19,6 +19,7 @@ public class Route extends DmsObject {
     private LocalDate finishDate;
     private LocalDate deadline;
     private String documentBeingApprovedId;
+    private LocalDate checkingDueDate;
     private String responsibleForChecking;
     private String responsibleForApproving;
     private String comments;
@@ -33,6 +34,7 @@ public class Route extends DmsObject {
         private LocalDate finishDate;
         private LocalDate deadline;
         private String documentBeingApprovedId;
+        private LocalDate checkingDueDate;
         private String responsibleForChecking;
         private String responsibleForApproving;
         private String comments;
@@ -67,6 +69,11 @@ public class Route extends DmsObject {
             return this;
         }
 
+        public Builder checkingDueDate(LocalDate checkingDueDate){
+            this.checkingDueDate = checkingDueDate;
+            return this;
+        }
+
         public Builder responsibleForChecking (String responsibleForChecking){
             this.responsibleForChecking = responsibleForChecking;
             return this;
@@ -94,6 +101,7 @@ public class Route extends DmsObject {
         this.finishDate = builder.finishDate;
         this.deadline = builder.deadline;
         this.documentBeingApprovedId = builder.documentBeingApprovedId;
+        this.checkingDueDate = builder.checkingDueDate;
         this.responsibleForChecking = builder.responsibleForChecking;
         this.responsibleForApproving = builder.responsibleForApproving;
         this.comments = builder.comments;
@@ -125,6 +133,10 @@ public class Route extends DmsObject {
 
     public String getDocumentBeingApprovedId() {
         return documentBeingApprovedId;
+    }
+
+    public LocalDate getCheckingDueDate(){
+        return checkingDueDate;
     }
 
     public String getResponsibleForChecking() {

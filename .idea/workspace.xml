@@ -7,8 +7,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c36d803-88fe-41d2-bf65-efca6c6a5f84" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/OpenRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/daoImpl/RouteDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/daoImpl/RouteDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/entity/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/entity/Route.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CreateRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CreateRoute.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/DocumentRoutes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/DocumentRoutes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/OpenDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/OpenDocument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/documents.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/documents.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/documentview/routes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/documentview/routes.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/route.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/route.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/documents-view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/documents-view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/daoImpl/RouteDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/daoImpl/RouteDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/entity/Route$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/entity/Route$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/entity/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/entity/Route.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/CreateRoute.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/CreateRoute.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/DocumentRoutes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/DocumentRoutes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/OpenDocument.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/OpenDocument.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/documents.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/documents.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/documentview/routes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/documentview/routes.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/route.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/route.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/style/documents-view.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/style/documents-view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/daoImpl/RouteDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/daoImpl/RouteDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/entity/Route$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/entity/Route$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/entity/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/entity/Route.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/CreateRoute.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/CreateRoute.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/DocumentRoutes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/DocumentRoutes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/OpenDocument.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/OpenDocument.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,66 +86,58 @@
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Document" value="1" />
-          <entry key="Route" value="3" />
+          <entry key="Route" value="4" />
           <entry key="User" value="1" />
-          <entry key="css" value="3" />
-          <entry key="java" value="22" />
-          <entry key="jsp" value="18" />
+          <entry key="css" value="4" />
+          <entry key="java" value="33" />
+          <entry key="jsp" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="3" />
-          <entry key="Database Element" value="5" />
-          <entry key="JAVA" value="22" />
-          <entry key="JSP" value="18" />
+          <entry key="CSS" value="4" />
+          <entry key="Database Element" value="6" />
+          <entry key="JAVA" value="33" />
+          <entry key="JSP" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cell" value="13" />
-          <entry key="css" value="8" />
-          <entry key="java" value="1848" />
-          <entry key="jsp" value="1018" />
+          <entry key="css" value="45" />
+          <entry key="java" value="3051" />
+          <entry key="jsp" value="1758" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="8" />
-          <entry key="JAVA" value="1848" />
-          <entry key="JSP" value="1018" />
+          <entry key="CSS" value="45" />
+          <entry key="JAVA" value="3051" />
+          <entry key="JSP" value="1758" />
           <entry key="Scratch" value="13" />
         </counts>
       </usages-collector>
     </session>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="DataManagementSystem" />
+  </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.44728434">
+    <splitter split-orientation="horizontal" split-proportion="0.48722044">
       <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CreateRoute.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/DocumentRoutes.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="426">
-                  <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+                <state relative-caret-position="735">
+                  <caret line="61" selection-start-line="61" selection-end-line="61" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -129,42 +146,13 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/entity/Route.java">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CreateRoute.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1443">
-                  <caret line="106" column="21" selection-start-line="106" selection-start-column="21" selection-end-line="106" selection-end-column="21" />
+                <state relative-caret-position="576">
+                  <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#2845#2846#0" expanded="true" />
-                    <element signature="e#2870#2871#0" expanded="true" />
-                    <element signature="e#3101#3102#0" expanded="true" />
-                    <element signature="e#3128#3129#0" expanded="true" />
-                    <element signature="e#2902#2903#0" expanded="true" />
-                    <element signature="e#2930#2931#0" expanded="true" />
-                    <element signature="e#2972#2973#0" expanded="true" />
-                    <element signature="e#3007#3008#0" expanded="true" />
-                    <element signature="e#3047#3048#0" expanded="true" />
-                    <element signature="e#3080#3081#0" expanded="true" />
-                    <element signature="e#3118#3119#0" expanded="true" />
-                    <element signature="e#3149#3150#0" expanded="true" />
-                    <element signature="e#3199#3200#0" expanded="true" />
-                    <element signature="e#3245#3246#0" expanded="true" />
-                    <element signature="e#3294#3295#0" expanded="true" />
-                    <element signature="e#3339#3340#0" expanded="true" />
-                    <element signature="e#3389#3390#0" expanded="true" />
-                    <element signature="e#3435#3436#0" expanded="true" />
-                    <element signature="e#3470#3471#0" expanded="true" />
-                    <element signature="e#3501#3502#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/webapp/style/documents-view.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="139">
-                  <caret line="91" column="1" lean-forward="true" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -172,8 +160,29 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/webapp/documents.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="531">
-                  <caret line="356" selection-start-line="356" selection-end-line="356" />
+                <state relative-caret-position="587">
+                  <caret line="301" column="73" selection-start-line="301" selection-start-column="73" selection-end-line="301" selection-end-column="73" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/OpenRoute.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="420">
+                  <caret line="28" selection-start-line="28" selection-end-line="28" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/daoImpl/RouteDaoImpl.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-43">
+                  <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
                 </state>
               </provider>
             </entry>
@@ -181,24 +190,21 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/webapp/documentview/routes.jsp">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/LoginServlet.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="433">
-                  <caret line="362" column="73" selection-start-line="362" selection-start-column="73" selection-end-line="362" selection-end-column="73" />
-                  <folding>
-                    <element signature="n#style#0;n#h1#0;n#div#0;n#form#0;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
+                <state relative-caret-position="75">
+                  <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/LoginServlet.java">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/OpenDocument.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-114">
-                  <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+                <state relative-caret-position="90">
+                  <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
                 </state>
               </provider>
             </entry>
@@ -206,7 +212,74 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/webapp/registration.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-166" />
+                <state relative-caret-position="-78" />
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/style/documents-view.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="500">
+                  <caret line="216" selection-start-line="216" selection-end-line="216" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/documentview/routes.jsp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="371">
+                  <caret line="304" column="36" lean-forward="true" selection-start-line="304" selection-start-column="36" selection-end-line="304" selection-end-column="36" />
+                  <folding>
+                    <element signature="e#10830#10837#1#HTML" expanded="true" />
+                    <element signature="n#style#0;n#h1#0;n#div#0;n#form#0;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CreateDocument.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/entity/Route.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1133">
+                  <caret line="138" column="31" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#3149#3150#0" expanded="true" />
+                    <element signature="e#3177#3178#0" expanded="true" />
+                    <element signature="e#3294#3295#0" expanded="true" />
+                    <element signature="e#3327#3328#0" expanded="true" />
+                    <element signature="e#3841#3842#0" expanded="true" />
+                    <element signature="e#3878#3879#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/document.jsp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="162">
+                  <caret line="68" column="10" lean-forward="true" selection-start-line="68" selection-start-column="10" selection-end-line="68" selection-end-column="10" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/route.jsp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="177">
+                  <caret line="17" column="66" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="66" />
+                </state>
               </provider>
             </entry>
           </file>
@@ -234,11 +307,15 @@
         <option value="$PROJECT_DIR$/src/main/webapp/viewer.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/documentview/lifecycle.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/documentview/revisions.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/entity/Route.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/documents.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/style/documents-view.css" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CreateRoute.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/DocumentRoutes.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/documents.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/entity/Route.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CreateRoute.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/OpenDocument.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/OpenRoute.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/daoImpl/RouteDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/route.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/style/documents-view.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/documentview/routes.jsp" />
       </list>
     </option>
@@ -252,23 +329,21 @@
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="195" />
-    <option name="y" value="276" />
-    <option name="width" value="1687" />
-    <option name="height" value="726" />
+    <option name="x" value="964" />
+    <option name="y" value="34" />
+    <option name="width" value="956" />
+    <option name="height" value="1046" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -359,19 +434,30 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="jsscripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataManagementSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataManagementSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="style" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545767498338" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545837897857" />
     <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Pulpit/IdeaProjects" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -478,40 +564,40 @@
       <updated>1545740861684</updated>
       <workItem from="1545740873905" duration="175000" />
       <workItem from="1545741080480" duration="24629000" />
+      <workItem from="1545812552712" duration="18391000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24804000" />
+    <option name="totallyTimeSpent" value="43195000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="34" width="1920" height="1046" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.13514876" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Persistence" order="2" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19062833" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.29020235" />
+      <window_info id="Persistence" order="2" side_tool="true" weight="0.32960597" />
       <window_info id="Designer" order="3" />
       <window_info id="Image Layers" order="4" />
       <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Favorites" order="6" side_tool="true" weight="0.32960597" />
       <window_info id="Capture Tool" order="7" />
-      <window_info id="Web" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" weight="0.32900432" />
+      <window_info id="Web" order="8" side_tool="true" weight="0.32960597" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.06168831" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32359308" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.06168831" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946752" weight="0.31601733" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32900432" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32900432" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005325" side_tool="true" weight="0.32359308" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32900432" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" />
-      <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32900432" />
+      <window_info anchor="bottom" id="Database Changes" order="12" weight="0.32900432" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32900432" />
+      <window_info anchor="bottom" id="Database Console" order="14" weight="0.32900432" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -533,12 +619,27 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/documentview/routes.jsp</url>
-          <line>218</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CreateRoute.java</url>
+          <line>28</line>
           <properties />
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/route.jsp</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/OpenRoute.java</url>
+          <line>26</line>
+          <properties />
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -567,13 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-570">
           <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CreateDocument.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -615,13 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/document.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="69" column="48" lean-forward="true" selection-start-line="69" selection-start-column="38" selection-end-line="69" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/daoImpl/UserDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -634,64 +721,10 @@
         <state relative-caret-position="-1326" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/LoginServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-114">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/java/jdk1.8.0_192-i586/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="127" column="12" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/documents-view.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="91" column="1" lean-forward="true" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CreateRoute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/entity/Route.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1443">
-          <caret line="106" column="21" selection-start-line="106" selection-start-column="21" selection-end-line="106" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2845#2846#0" expanded="true" />
-            <element signature="e#2870#2871#0" expanded="true" />
-            <element signature="e#3101#3102#0" expanded="true" />
-            <element signature="e#3128#3129#0" expanded="true" />
-            <element signature="e#2902#2903#0" expanded="true" />
-            <element signature="e#2930#2931#0" expanded="true" />
-            <element signature="e#2972#2973#0" expanded="true" />
-            <element signature="e#3007#3008#0" expanded="true" />
-            <element signature="e#3047#3048#0" expanded="true" />
-            <element signature="e#3080#3081#0" expanded="true" />
-            <element signature="e#3118#3119#0" expanded="true" />
-            <element signature="e#3149#3150#0" expanded="true" />
-            <element signature="e#3199#3200#0" expanded="true" />
-            <element signature="e#3245#3246#0" expanded="true" />
-            <element signature="e#3294#3295#0" expanded="true" />
-            <element signature="e#3339#3340#0" expanded="true" />
-            <element signature="e#3389#3390#0" expanded="true" />
-            <element signature="e#3435#3436#0" expanded="true" />
-            <element signature="e#3470#3471#0" expanded="true" />
-            <element signature="e#3501#3502#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -702,25 +735,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/registration.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-166" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/DocumentRoutes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+    <entry file="das://3e955909-41e2-471f-9737-e15ed13729c4/schema/dms/table/User">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/documents.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/LoginServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="356" selection-start-line="356" selection-end-line="356" />
+        <state relative-caret-position="75">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/registration.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1-sources.jar!/javax/servlet/http/HttpServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="659" selection-start-line="659" selection-end-line="659" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CreateDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/document.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="68" column="10" lean-forward="true" selection-start-line="68" selection-start-column="10" selection-end-line="68" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -731,18 +782,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://3e955909-41e2-471f-9737-e15ed13729c4/schema/dms/table/User">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/entity/Route.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1133">
+          <caret line="138" column="31" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3149#3150#0" expanded="true" />
+            <element signature="e#3177#3178#0" expanded="true" />
+            <element signature="e#3294#3295#0" expanded="true" />
+            <element signature="e#3327#3328#0" expanded="true" />
+            <element signature="e#3841#3842#0" expanded="true" />
+            <element signature="e#3878#3879#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CreateRoute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/java/jdk1.8.0_192-i586/src.zip!/java/util/function/Predicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/DocumentRoutes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/OpenDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/daoImpl/RouteDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-43">
+          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/OpenRoute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/route.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="17" column="66" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/documents-view.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="216" selection-start-line="216" selection-end-line="216" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/documents.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="301" column="73" selection-start-line="301" selection-start-column="73" selection-end-line="301" selection-end-column="73" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/documentview/routes.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="362" column="73" selection-start-line="362" selection-start-column="73" selection-end-line="362" selection-end-column="73" />
+        <state relative-caret-position="371">
+          <caret line="304" column="36" lean-forward="true" selection-start-line="304" selection-start-column="36" selection-end-line="304" selection-end-column="36" />
           <folding>
+            <element signature="e#10830#10837#1#HTML" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#div#0;n#form#0;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>

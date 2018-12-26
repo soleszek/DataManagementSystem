@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @WebServlet("/OpenDocument")
 public class OpenDocument extends HttpServlet {
-    DocumentDao documentDao = DaoProvider.getInstance().getDocumentDao();
+    private DocumentDao documentDao = DaoProvider.getInstance().getDocumentDao();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

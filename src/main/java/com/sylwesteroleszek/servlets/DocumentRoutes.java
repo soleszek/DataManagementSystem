@@ -37,6 +37,10 @@ public class DocumentRoutes extends HttpServlet {
 
         List<User> users = userDao.findAll();
 
+        List<User> checkers = users.stream()
+                .filter(a -> a.getRole().equals("contributor") || a.getRole().equals("manager") || a.getRole().equals("admin"))
+                .collect(Collectors.toList());
+
         List<User> approvers = users.stream()
                 .filter(a -> a.getRole().equals("manager") || a.getRole().equals("admin"))
                 .collect(Collectors.toList());
@@ -51,6 +55,7 @@ public class DocumentRoutes extends HttpServlet {
 
         req.setAttribute("existingRoutes", existingRoutes);
         req.setAttribute("document", document);
+        req.setAttribute("checkers", checkers);
         req.setAttribute("approvers", approvers);
         RequestDispatcher rd = req.getRequestDispatcher("documentview/routes.jsp");
         rd.forward(req, resp);

@@ -20,7 +20,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $( function() {
-            $( "#datepicker" ).datepicker({
+            $( ".datepicker" ).datepicker({
                 dateFormat: "yy-mm-dd"});
         } );
     </script>
@@ -216,6 +216,7 @@
 
     <%
         Document document = (Document) request.getAttribute("document");
+        List<User> checkers = (List<User>) request.getAttribute("checkers");
         List<User> approvers = (List<User>) request.getAttribute("approvers");
     %>
 
@@ -286,7 +287,7 @@
             <col width="60">
 
             <%
-                List<Route> exisitingRoutes = (List<Route>) request.getAttribute("exisitingRoutes");
+                List<Route> existingRoutes = (List<Route>) request.getAttribute("existingRoutes");
             %>
 
             <tr>
@@ -301,33 +302,35 @@
                 <th>Responsible for checking</th>
                 <th>Responsible for approving</th>
                 <th>Comments</th>
+                <th>Finish date</th>
             </tr>
             <%
-                if (exisitingRoutes != null) {
-                    for (Route r : exisitingRoutes) {
+                if (existingRoutes != null) {
+                    for (Route r : existingRoutes) {
             %>
             <tr>
                 <td><input type="checkbox"></td>
-                <td><%=r.getId()%>
+                <td><a href="OpenRoute?routeId=<%=r.getId()%>" id="doc-link"><%=r.getId()%></a>
                 </td>
                 <td><%=r.getOwner()%>
                 </td>
                 <td>
-                    <div id="popup" onclick="openPopup('#')"><i class="far fa-window-restore"></i></div>
+                    <div id="popup" onclick="openPopup('OpenRoute?routeId=<%=r.getId()%>')"><i class="far fa-window-restore"></i></div>
                 </td>
                 <td><%=r.getState()%>
                 </td>
                 <td><%=r.getCreationDate()%>
                 </td>
-                <td><%=r.getFinishDate()%>
+                <td><%=r.getCheckingDueDate()%></td>
+                <td><%=r.getResponsibleForChecking()%>
                 </td>
                 <td><%=r.getDeadline()%>
-                </td>
-                <td><%=r.getResponsibleForChecking()%>
                 </td>
                 <td><%=r.getResponsibleForApproving()%>
                 </td>
                 <td><%=r.getComments()%>
+                </td>
+                <td><%=r.getFinishDate()%>
                 </td>
             </tr>
             <%
@@ -345,35 +348,53 @@
 
     <div id="modal-wrapper-routes" class="modal">
 
-        <form class="modal-content animate" action="CreateRoute" method="post" enctype="multipart/form-data">
-
+        <form class="modal-content animate" action="CreateRoute" method="post">
             <div class="imgcontainer">
-                <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                <span onclick="document.getElementById('modal-wrapper-routes').style.display='none'" class="close" title="Close PopUp">&times;</span>
                 <img src="style/route.png" alt="Document" class="avatar">
                 <h1 style="text-align:center">New promotion request</h1>
             </div>
-
             <div class="container">
-                <input type="text" disabled name="documentId" value="Id: <%=document.getId()%>">
-                <input type="text" disabled name="documentTitle" value="Title: <%=document.getTitle()%>">
-                <input type="text" disabled name="owner" value="<%=user%>">
+                <input type="text" readonly name="documentId" value="<%=document.getId()%>">
+                <c:set var="now" value="<%=new java.util.Date()%>"/>
+                <input type="text" readonly name="creation date" value="<fmt:formatDate type = "date" value = "${now}"/>">
+                <input type="text" disabled name="documentTitle" value="<%=document.getTitle()%>">
+                <input type="text" readonly name="owner" value="<%=user%>">
+
+                <div><input type="text" placeholder="Must be checked before" class="datepicker" name="checkingDueDate" required></div>
+
                 <div class="custom-select">
 
-                    <select name="doctype">
-                        <option value="approver">Sylwester Oleszek, admin</option>
+                    <select name="responsibleForChecking">
+                        <option value="soleszek">Sylwester Oleszek, admin</option>
                         <%
-                            for(User u: approvers){
+                            for(User c: checkers){
                         %>
-                        <option value="approver"><%=u.getName()%> <%=u.getLastName()%>, <%=u.getRole()%></option>
+                        <option value="<%=c.getUsername()%>"><%=c.getName()%> <%=c.getLastName()%>, <%=c.getRole()%></option>
                         <%
                             }
                         %>
                     </select>
 
                 </div>
-                <c:set var="now" value="<%=new java.util.Date()%>"/>
-                <input type="text" disabled name="creation date" value="<fmt:formatDate type = "date" value = "${now}"/>">
-                <input type="text" placeholder="Must be finished before" id="datepicker" required>
+
+                <br>
+                <div><input type="text" placeholder="Must be approved before" class="datepicker" name="deadline" required></div>
+
+                <div class="custom-select">
+
+                    <select name="responsibleForApproving">
+                        <option value="soleszek">Sylwester Oleszek, admin</option>
+                        <%
+                            for(User u: approvers){
+                        %>
+                        <option value="<%=u.getUsername()%>"><%=u.getName()%> <%=u.getLastName()%>, <%=u.getRole()%></option>
+                        <%
+                            }
+                        %>
+                    </select>
+
+                </div>
                 <input type="text" placeholder="Enter comment" name="description" required>
                 <button type="submit">Create</button>
             </div>
