@@ -113,6 +113,16 @@ body {
     text-align: justify;
 }
 
+#route-stages{
+    float: left;
+    border-top: 1px solid #751b1b;
+    padding: 40px;
+    width: 1340px;
+    background-color: #dedede;
+    min-height: 650px;
+    text-align: justify;
+}
+
 #footer {
     clear: both;
     color: white;
@@ -436,4 +446,84 @@ ul.lifecycle > li:not(:last-child):before {
     transform: translateY(-50%);
 }
 
+.link a {
+    text-decoration: none;
+    color: #696969;
+    font-weight: bold;
+}
 
+.link a:hover {
+    text-decoration: none;
+    color: #e91e63;
+}
+
+.route-table{
+    height: 60%;
+}
+
+.route-stages{
+    height: 40%;
+    border-top: 2px solid #751b1b;
+    background-color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.progressbar{
+    counter-reset: step;
+    box-shadow: none;
+    background-color: #dedede;
+    margin-top: 250px;
+}
+
+.progressbar li {
+    list-style-type: none;
+    width: 50%;
+    float: left;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: #7d7d7d;
+}
+
+.progressbar li:before {
+    width: 30px;
+    height: 30px;
+    content: counter(step);
+    counter-increment: step;
+    line-height: 30px;
+    border: 2px solid #7d7d7d;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.progressbar li:after{
+    width: 100%;
+    height: 2px;
+    content: '';
+    position: absolute;
+    background-color: #7d7d7d;
+    top: 15px;
+    left: -50%;
+    z-index: -1;
+}
+
+.route-lifecycle li:first-child:after{
+    content: none;
+}
+
+.route-lifecycle li:active{
+    color: green;
+}
+
+.route-lifecycle li:before{
+    border-color: #55b776;
+}
+
+.route-lifecycle li.active + li:after{
+    background-color: #55b776;
+}
