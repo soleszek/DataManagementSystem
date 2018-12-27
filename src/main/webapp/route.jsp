@@ -1,3 +1,5 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.sylwesteroleszek.entity.Document" %>
 <%@ page import="com.sylwesteroleszek.entity.Route" %>
 <!DOCTYPE html>
@@ -5,10 +7,177 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style/style.css" type="text/css">
+    <link rel="stylesheet" href="style/style-route.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <title>Route</title>
+
+    <style>
+        *{margin:0px; padding:0px; font-family:Helvetica, Arial, sans-serif;}
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 90%;
+            padding: 12px 20px;
+            margin: 8px 26px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size:16px;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #46b7ce;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 26px;
+            border: none;
+            cursor: pointer;
+            width: 90%;
+            font-size:20px;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .file{
+            background-color: #46b7ce;
+            color: white;
+            padding: 14px 20px;
+            margin-left: 24px;
+            margin-right: 50px;
+            border: none;
+            cursor: pointer;
+            font-size:15px;
+            width: 85%;
+        }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+        .avatar {
+            width: 150px;
+            height:150px;
+            border-radius: 50%;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display:none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        /* Modal Content Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 4% auto 15% auto;
+            border: 1px solid #888;
+            width: 40%;
+            padding-bottom: 30px;
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        .close:hover,.close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Add Zoom Animation */
+        .animate {
+            animation: zoom 0.6s
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+
+        .custom-select {
+            position: relative;
+        }
+
+        .custom-select select {
+            display: none; /*hide original SELECT element:*/
+        }
+
+        .select-selected {
+            background-color: #46b7ce;
+        }
+
+        /*style the arrow inside the select element:*/
+        .select-selected:after {
+            position: absolute;
+            content: "";
+            top: 14px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-color: #fff transparent transparent transparent;
+        }
+
+        /*point the arrow upwards when the select box is open (active):*/
+        .select-selected.select-arrow-active:after {
+            border-color: transparent transparent #fff transparent;
+            top: 7px;
+        }
+
+        /*style the items (options), including the selected item:*/
+        .select-items div,.select-selected {
+            color: #ffffff;
+            padding: 14px 20px;
+            margin-left: 24px;
+            margin-right: 50px;
+            border: 1px solid transparent;
+            border-color: transparent transparent #46b7ce transparent;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /*style items (options):*/
+        .select-items {
+            padding: 14px 20px;
+            margin-left: 24px;
+            margin-right: 50px;
+            position: absolute;
+            background-color: #46b7ce;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+        }
+
+        /*hide the items when the select box is closed:*/
+        .select-hide {
+            display: none;
+        }
+
+        .select-items div:hover, .same-as-selected {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+
+
+    </style>
+
 </head>
 <body>
 
@@ -33,8 +202,8 @@
     %>
 
     <%
-        Route route = (Route) request.getSession().getAttribute("route");
-        Document document = (Document) request.getSession().getAttribute("document");
+        Route route = (Route) request.getAttribute("route");
+        Document document = (Document) request.getAttribute("document");
     %>
 
     <div id="logo">
@@ -77,6 +246,36 @@
         <div style="clear: both"></div>
     </div>
 
+    <div id="navbar">
+        <ul>
+            <li>
+                <%
+                    if(route.getState().equals("not started")) {
+                %>
+                <a href="#">
+                    <div class="icon">
+                        <i class="fas fa-forward fa-2x"></i>
+                        <i class="fas fa-forward fa-2x" title="Start route" onclick="document.getElementById('modal-content-start-route').style.display='block'"></i>
+                    </div>
+                </a>
+                <%
+                    } else {
+                %>
+
+                <a href="#">
+                    <div class="icon-disabled">
+                        <i class="fas fa-forward fa-2x" title="You don't have privileges"></i>
+                    </div>
+                </a>
+
+                <%
+                    }
+                %>
+
+            </li>
+        </ul>
+    </div>
+
     <div id="content">
         <%--<col width="220">--%>
         <div class="route-table">
@@ -98,6 +297,11 @@
                     <td>Promoted document</td>
                     <td><span class="link"><a href="#"
                                               onclick="openPopup('OpenDocument?documentId=<%=document.getId()%>')"><%=document.getTitle()%></a></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State</td>
+                    <td><%=route.getState()%>
                     </td>
                 </tr>
                 <tr>
@@ -130,24 +334,64 @@
                     <td><%=route.getCreationDate()%>
                     </td>
                 </tr>
+                <tr>
+                    <td>Finish date</td>
+                    <td><%=route.getFinishDate()%>
+                    </td>
+                </tr>
 
             </table>
         </div>
 
         <div class="route-stages">
-            adfadsfasdfa
 
-            <ul class="progressbar">
+            <div class="pg-container">
 
-                <li class="active"><i class="fas fa-flag fa-3x"></i></li>
+                <ul class="progressbar">
 
-                <li>Check</li>
+                    <%
+                        if (route.getState().equals("not started")){
+                    %>
 
-                <li>Approve</li>
+                    <li><i class="fas fa-flag fa-3x"></i></li>
+                    <li>Checking</li>
+                    <li>Approving</li>
+                    <li><i class="fas fa-flag-checkered fa-3x"></i></li>
 
-                <li><i class="fas fa-flag-checkered fa-3x"></i></li>
+                    <%
+                        } else if (route.getState().equals("checking")){
+                    %>
 
-            </ul>
+                    <li class="active"><i class="fas fa-flag fa-3x"></i></li>
+                    <li>Checking</li>
+                    <li>Approving</li>
+                    <li><i class="fas fa-flag-checkered fa-3x"></i></li>
+                    <%
+                        } else if (route.getState().equals("approving")) {
+                    %>
+
+                    <li class="active"><i class="fas fa-flag fa-3x"></i></li>
+                    <li class="active">Checking</li>
+                    <li>Approving</li>
+                    <li><i class="fas fa-flag-checkered fa-3x"></i></li>
+
+                    <%
+                        } else if (route.getState().equals("completed")) {
+                    %>
+
+                    <li class="active"><i class="fas fa-flag fa-3x"></i></li>
+                    <li class="active">Checking</li>
+                    <li class="active">Approving</li>
+                    <li class="active"><i class="fas fa-flag-checkered fa-3x"></i></li>
+
+                    <%
+                        }
+                    %>
+
+                </ul>
+
+            </div>
+
         </div>
 
     </div>
@@ -156,7 +400,50 @@
         Sylwester Oleszek 2018 &copy;
     </div>
 
+    <div id="modal-content-start-route" class="modal">
+
+        <form class="modal-content animate" action="StartRoute" method="get">
+
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('modal-content-start-route').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                <img src="style/start-route.png" alt="Document" class="avatar">
+                <h1 style="text-align:center">Starting promotion request</h1>
+            </div>
+
+            <div class="container"><h3 style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">Choose state to promote:</h3></div>
+
+            <div class="container">
+                <div class="custom-select">
+                    <select name="state">
+                        <option value="release">Release</option>
+                        <option value="release">Release</option>
+                        <option value="cancel">Cancel</option>
+                    </select>
+                </div>
+
+                <<input type="hidden" name="routeId" value="<%=route.getId()%>">
+
+                <div class="container"><h2 style="text-align:center; margin-left: 24px; padding-top: 35px; padding-bottom: 20px">New task will be sent to <%=route.getResponsibleForChecking()%></h2></div>
+
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+    </div>
+
+    <script>
+        // If user clicks anywhere outside of the modal, Modal will close
+
+        var modal = document.getElementById('modal-content-start-route');
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
     <script src="jsscripts/popup.js"></script>
+    <script src="jsscripts/dropdownmenu.js"></script>
 
 </div>
 

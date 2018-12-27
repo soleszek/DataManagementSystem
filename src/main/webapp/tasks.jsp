@@ -58,6 +58,7 @@
 
     <div id="sidebar">
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
+        <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
         <div class="optionL"><a href="tasks.jsp">Tasks</a></div>
         <%
             if (role.equals("admin")) {

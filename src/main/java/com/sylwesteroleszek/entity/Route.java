@@ -150,4 +150,44 @@ public class Route extends DmsObject {
     public String getComments() {
         return comments;
     }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public void setFinishDate(LocalDate finishDate) {
+        this.finishDate = finishDate;
+    }
+
+    public void setDeadline(LocalDate deadline) {
+        this.deadline = deadline;
+    }
+
+    public void setDocumentBeingApprovedId(String documentBeingApprovedId) {
+        this.documentBeingApprovedId = documentBeingApprovedId;
+    }
+
+    public void setCheckingDueDate(LocalDate checkingDueDate) {
+        this.checkingDueDate = checkingDueDate;
+    }
+
+    public void setResponsibleForChecking(String responsibleForChecking) {
+        this.responsibleForChecking = responsibleForChecking;
+    }
+
+    public void setResponsibleForApproving(String responsibleForApproving) {
+        this.responsibleForApproving = responsibleForApproving;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
 }

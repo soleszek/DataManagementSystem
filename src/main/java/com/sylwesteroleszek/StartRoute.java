@@ -1,4 +1,4 @@
-package com.sylwesteroleszek.servlets;
+package com.sylwesteroleszek;
 
 import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.dao.RouteDao;
@@ -15,21 +15,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/OpenRoute")
-public class OpenRoute extends HttpServlet {
+@WebServlet("/StartRoute")
+public class StartRoute extends HttpServlet {
     private RouteDao routeDao = new RouteDaoImpl();
     private DocumentDao documentDao = new DocumentDaoImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String idRouteString = req.getParameter("routeId");
 
-        Long idRoute = Long.parseLong(idRouteString);
+        String routeIdString = req.getParameter("routeId");
 
-        Route route = routeDao.findBy(idRoute);
+        Long routeId = Long.parseLong(routeIdString);
 
-        Long idDocumentBeingApproved = Long.parseLong(route.getDocumentBeingApprovedId());
-        Document document = documentDao.findBy(idDocumentBeingApproved);
+        Route route = routeDao.findBy(routeId);
+
+        route.setState("checking");
+
+        routeDao.SaveOrUpdate(route);
+
+        String documentBeingApprovedIdString = route.getDocumentBeingApprovedId();
+        Long documentBeingApprovedId = Long.parseLong(documentBeingApprovedIdString);
+
+        Document document = documentDao.findBy(documentBeingApprovedId);
 
         req.setAttribute("route", route);
         req.setAttribute("document", document);

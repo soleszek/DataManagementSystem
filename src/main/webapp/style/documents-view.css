@@ -214,6 +214,18 @@ tr:nth-child(odd) {
     color: #e91e63;
 }
 
+.doc-link{
+    text-decoration: none;
+    color: #696969;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.doc-link:hover {
+    text-decoration: none;
+    color: #e91e63;
+}
+
 #popup{
     cursor: pointer;
 }

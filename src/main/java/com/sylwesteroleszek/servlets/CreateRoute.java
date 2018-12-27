@@ -4,6 +4,7 @@ import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.dao.RouteDao;
 import com.sylwesteroleszek.daoImpl.DocumentDaoImpl;
 import com.sylwesteroleszek.daoImpl.RouteDaoImpl;
+import com.sylwesteroleszek.entity.Document;
 import com.sylwesteroleszek.entity.Route;
 import com.sylwesteroleszek.entity.User;
 
@@ -40,7 +41,7 @@ public class CreateRoute extends HttpServlet {
 
         Route route = new Route.Builder()
                 .owner(username)
-                .state("start")
+                .state("not started")
                 .creationDate(LocalDate.now())
                 .finishDate(null)
                 .deadline(deadline)
@@ -53,7 +54,12 @@ public class CreateRoute extends HttpServlet {
 
         routeDao.SaveOrUpdate(route);
 
+        Long id = Long.parseLong(idString);
+
+        Document document = documentDao.findBy(id);
+
         req.setAttribute("route", route);
+        req.setAttribute("document", document);
         RequestDispatcher rd = req.getRequestDispatcher("route.jsp");
         rd.forward(req, resp);
 

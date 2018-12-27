@@ -292,16 +292,17 @@
 
             <tr>
                 <th><input type="checkbox"></th>
-                <th>Id</th>
+                <th>Promotion request id</th>
                 <th>Owner</th>
                 <th><i class="far fa-window-restore"></i></th>
+                <th>Promoted document id</th>
                 <th>State</th>
-                <th>Creation date</th>
-                <th>Finish date</th>
-                <th>Deadline</th>
-                <th>Responsible for checking</th>
+                <th>Check due date</th>
+                <th>Person assigned to check</th>
+                <th>Approve due date</th>
                 <th>Responsible for approving</th>
                 <th>Comments</th>
+                <th>Creation date</th>
                 <th>Finish date</th>
             </tr>
             <%
@@ -317,11 +318,12 @@
                 <td>
                     <div id="popup" onclick="openPopup('OpenRoute?routeId=<%=r.getId()%>')"><i class="far fa-window-restore"></i></div>
                 </td>
+                <td><span class="doc-link" onclick="openPopup('OpenDocument?documentId=<%=r.getDocumentBeingApprovedId()%>')"><%=r.getDocumentBeingApprovedId()%></span>
+                </td>
                 <td><%=r.getState()%>
                 </td>
-                <td><%=r.getCreationDate()%>
+                <td><%=r.getCheckingDueDate()%>
                 </td>
-                <td><%=r.getCheckingDueDate()%></td>
                 <td><%=r.getResponsibleForChecking()%>
                 </td>
                 <td><%=r.getDeadline()%>
@@ -329,6 +331,8 @@
                 <td><%=r.getResponsibleForApproving()%>
                 </td>
                 <td><%=r.getComments()%>
+                </td>
+                <td><%=r.getCreationDate()%>
                 </td>
                 <td><%=r.getFinishDate()%>
                 </td>
