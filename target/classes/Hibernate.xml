@@ -13,5 +13,6 @@
         <mapping class="com.sylwesteroleszek.entity.User"/>
         <mapping class="com.sylwesteroleszek.entity.Document"/>
         <mapping class="com.sylwesteroleszek.entity.Route"/>
+        <mapping class="com.sylwesteroleszek.entity.Task"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,11 +1,14 @@
-package com.sylwesteroleszek;
+package com.sylwesteroleszek.servlets;
 
 import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.dao.RouteDao;
+import com.sylwesteroleszek.dao.TaskDao;
 import com.sylwesteroleszek.daoImpl.DocumentDaoImpl;
 import com.sylwesteroleszek.daoImpl.RouteDaoImpl;
+import com.sylwesteroleszek.daoImpl.TaskDaoImpl;
 import com.sylwesteroleszek.entity.Document;
 import com.sylwesteroleszek.entity.Route;
+import com.sylwesteroleszek.entity.Task;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,6 +22,7 @@ import java.io.IOException;
 public class StartRoute extends HttpServlet {
     private RouteDao routeDao = new RouteDaoImpl();
     private DocumentDao documentDao = new DocumentDaoImpl();
+    private TaskDao taskDao = new TaskDaoImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,6 +41,19 @@ public class StartRoute extends HttpServlet {
         Long documentBeingApprovedId = Long.parseLong(documentBeingApprovedIdString);
 
         Document document = documentDao.findBy(documentBeingApprovedId);
+
+        Task task = new Task.Builder()
+                .owner(route.getOwner())
+                .assignedTo(route.getResponsibleForChecking())
+                .documentBeingApprovedId(route.getDocumentBeingApprovedId())
+                .state("active")
+                .dueDate(route.getCheckingDueDate())
+                .completionDate(null)
+                .comments("Please check")
+                .parent(String.valueOf(route.getId()))
+                .build();
+
+        taskDao.SaveOrUpdate(task);
 
         req.setAttribute("route", route);
         req.setAttribute("document", document);
