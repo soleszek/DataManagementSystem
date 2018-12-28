@@ -18,7 +18,7 @@ public class Task {
     private LocalDate dueDate;
     private LocalDate completionDate;
     private String comments;
-    private String parent;
+    private String parentId;
 
     public Task(){
 
@@ -32,7 +32,7 @@ public class Task {
         private LocalDate dueDate;
         private LocalDate completionDate;
         private String comments;
-        private String parent;
+        private String parentId;
 
         public Builder owner (String owner){
             this.owner = owner;
@@ -69,8 +69,8 @@ public class Task {
             return this;
         }
 
-        public Builder parent(String parent) {
-            this.parent = parent;
+        public Builder parentId(String parentId) {
+            this.parentId = parentId;
             return this;
         }
 
@@ -87,7 +87,7 @@ public class Task {
         this.dueDate = builder.dueDate;
         this.completionDate = builder.completionDate;
         this.comments = builder.comments;
-        this.parent = builder.parent;
+        this.parentId = builder.parentId;
     }
 
     public Long getId() {
@@ -122,7 +122,39 @@ public class Task {
         return comments;
     }
 
-    public String getParent() {
-        return parent;
+    public String getParentId() {
+        return parentId;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public void setAssignedTo(String assignedTo) {
+        this.assignedTo = assignedTo;
+    }
+
+    public void setDocumentBeingApprovedId(String documentBeingApprovedId) {
+        this.documentBeingApprovedId = documentBeingApprovedId;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public void setCompletionDate(LocalDate completionDate) {
+        this.completionDate = completionDate;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 }

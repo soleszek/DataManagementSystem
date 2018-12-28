@@ -1,6 +1,6 @@
 package com.sylwesteroleszek.entity;
 
-import com.sylwesteroleszek.factory.DmsObject;
+import com.sylwesteroleszek.factory.TaskFactory;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User extends DmsObject {
+public class User extends TaskFactory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

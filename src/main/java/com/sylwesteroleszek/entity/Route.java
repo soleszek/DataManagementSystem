@@ -1,6 +1,6 @@
 package com.sylwesteroleszek.entity;
 
-import com.sylwesteroleszek.factory.DmsObject;
+import com.sylwesteroleszek.factory.TaskFactory;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
-public class Route extends DmsObject {
+public class Route extends TaskFactory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

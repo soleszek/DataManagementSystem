@@ -2,7 +2,7 @@ package com.sylwesteroleszek.servlets;
 
 import com.sylwesteroleszek.dao.UserDao;
 import com.sylwesteroleszek.entity.User;
-import com.sylwesteroleszek.factory.DmsObject;
+import com.sylwesteroleszek.factory.TaskFactory;
 import com.sylwesteroleszek.providers.DaoProvider;
 
 import javax.servlet.RequestDispatcher;
@@ -17,7 +17,7 @@ import java.util.List;
 @WebServlet("/RegisterUser")
 public class RegisterUser extends HttpServlet {
 
-DmsObject dmsObject = new DmsObject();
+TaskFactory dmsObject = new TaskFactory();
 UserDao userDao = DaoProvider.getInstance().getUserDao();
 
     @Override

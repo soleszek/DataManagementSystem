@@ -1,5 +1,6 @@
 package com.sylwesteroleszek.servlets;
 
+import com.sylwesteroleszek.Classes.RouteOperations;
 import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.dao.RouteDao;
 import com.sylwesteroleszek.dao.TaskDao;
@@ -8,7 +9,6 @@ import com.sylwesteroleszek.daoImpl.RouteDaoImpl;
 import com.sylwesteroleszek.daoImpl.TaskDaoImpl;
 import com.sylwesteroleszek.entity.Document;
 import com.sylwesteroleszek.entity.Route;
-import com.sylwesteroleszek.entity.Task;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,16 +33,15 @@ public class StartRoute extends HttpServlet {
 
         Route route = routeDao.findBy(routeId);
 
-        route.setState("checking");
+        RouteOperations proceedRoute = new RouteOperations(route);
+
+        Route updatedRoute = proceedRoute.promoteRoute();
+
+       /* route.setState("checking");
 
         routeDao.SaveOrUpdate(route);
 
-        String documentBeingApprovedIdString = route.getDocumentBeingApprovedId();
-        Long documentBeingApprovedId = Long.parseLong(documentBeingApprovedIdString);
-
-        Document document = documentDao.findBy(documentBeingApprovedId);
-
-        Task task = new Task.Builder()
+        /*Task task = new Task.Builder()
                 .owner(route.getOwner())
                 .assignedTo(route.getResponsibleForChecking())
                 .documentBeingApprovedId(route.getDocumentBeingApprovedId())
@@ -50,12 +49,17 @@ public class StartRoute extends HttpServlet {
                 .dueDate(route.getCheckingDueDate())
                 .completionDate(null)
                 .comments("Please check")
-                .parent(String.valueOf(route.getId()))
+                .parentId(String.valueOf(route.getId()))
                 .build();
 
-        taskDao.SaveOrUpdate(task);
+        taskDao.SaveOrUpdate(task);*/
 
-        req.setAttribute("route", route);
+        String documentBeingApprovedIdString = route.getDocumentBeingApprovedId();
+        Long documentBeingApprovedId = Long.parseLong(documentBeingApprovedIdString);
+
+        Document document = documentDao.findBy(documentBeingApprovedId);
+
+        req.setAttribute("route", updatedRoute);
         req.setAttribute("document", document);
         RequestDispatcher rd = req.getRequestDispatcher("route.jsp");
         rd.forward(req, resp);

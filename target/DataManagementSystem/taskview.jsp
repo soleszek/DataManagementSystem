@@ -324,7 +324,7 @@
 
     <div id="modal-content-complete-task" class="modal">
 
-        <form class="modal-content animate" action="StartRoute" method="get">
+        <form class="modal-content animate" action="CompleteTask" method="get">
 
             <div class="imgcontainer">
                 <span onclick="document.getElementById('modal-content-complete-task').style.display='none'" class="close" title="Close PopUp">&times;</span>
@@ -332,20 +332,9 @@
                 <h1 style="text-align:center">Complete task</h1>
             </div>
 
-            <%--<div class="container"><h3 style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">Choose state to promote:</h3></div>
+            <div class="container"><h3 style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You are completing task <%=task.getId()%>, <%=task.getComments()%></h3></div>
 
-            <div class="container">
-                <div class="custom-select">
-                    <select name="state">
-                        <option value="release">Release</option>
-                        <option value="release">Release</option>
-                        <option value="cancel">Cancel</option>
-                    </select>
-                </div>--%>
-
-                <%--<<input type="hidden" name="routeId" value="<%=route.getId()%>">--%>
-
-                <%--<div class="container"><h2 style="text-align:center; margin-left: 24px; padding-top: 35px; padding-bottom: 20px">New task will be sent to <%=route.getResponsibleForChecking()%></h2></div>--%>
+                <input type="hidden" name="taskId" value="<%=task.getId()%>">
 
                 <button type="submit">Complete</button>
             </div>

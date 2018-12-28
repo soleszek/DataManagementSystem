@@ -421,7 +421,7 @@
                     </select>
                 </div>
 
-                <<input type="hidden" name="routeId" value="<%=route.getId()%>">
+                <input type="hidden" name="routeId" value="<%=route.getId()%>">
 
                 <div class="container"><h2 style="text-align:center; margin-left: 24px; padding-top: 35px; padding-bottom: 20px">New task will be sent to <%=route.getResponsibleForChecking()%></h2></div>
 
