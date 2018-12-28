@@ -1,16 +1,13 @@
 package com.sylwesteroleszek.factory;
 
-import com.sylwesteroleszek.dao.RouteDao;
 import com.sylwesteroleszek.dao.TaskDao;
-import com.sylwesteroleszek.daoImpl.RouteDaoImpl;
-import com.sylwesteroleszek.daoImpl.TaskDaoImpl;
-import com.sylwesteroleszek.entity.Document;
 import com.sylwesteroleszek.entity.Route;
 import com.sylwesteroleszek.entity.Task;
-import com.sylwesteroleszek.entity.User;
+import com.sylwesteroleszek.providers.DaoProvider;
 
 public class TaskFactory {
-    private TaskDao taskDao = new TaskDaoImpl();
+
+    private TaskDao taskDao = DaoProvider.getInstance().getTaskDao();
 
     public void createTask(Route route){
 
@@ -40,12 +37,14 @@ public class TaskFactory {
                     .state("active")
                     .dueDate(route.getCheckingDueDate())
                     .completionDate(null)
-                    .comments("Please check")
+                    .comments("Please approve")
                     .parentId(String.valueOf(route.getId()))
                     .build();
 
             taskDao.SaveOrUpdate(task);
+
         }
     }
+
 
 }

@@ -16,7 +16,6 @@ public class RouteOperations {
 
     private RouteDao routeDao = new RouteDaoImpl();
     private DocumentDao documentDao = new DocumentDaoImpl();
-    /*private TaskDao taskDao = new TaskDaoImpl();*/
 
     public RouteOperations(Route route) {
         this.route = route;
@@ -25,19 +24,6 @@ public class RouteOperations {
     public Route promoteRoute() {
 
         if(route.getState().equals("not started")) {
-
-            /*Task task = new Task.Builder()
-                    .owner(route.getOwner())
-                    .assignedTo(route.getResponsibleForChecking())
-                    .documentBeingApprovedId(route.getDocumentBeingApprovedId())
-                    .state("active")
-                    .dueDate(route.getCheckingDueDate())
-                    .completionDate(null)
-                    .comments("Please check")
-                    .parentId(String.valueOf(route.getId()))
-                    .build();
-
-            taskDao.SaveOrUpdate(task);*/
 
             TaskFactory taskFactory = new TaskFactory();
             taskFactory.createTask(route);
