@@ -31,3 +31,4 @@ form.invert>button:nth-of-type(2) {
 form.invert>button:nth-of-type(3) {
     display:none;
 }
+input[type="text"] { border: Window }

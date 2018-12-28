@@ -1,45 +1,41 @@
-(function (W) {
-    var D, form, bts, ipt;
+function edit(){
+    document.getElementById("editButton").style.visibility="hidden";
+    document.getElementById("saveButton").style.visibility="visible";
+    document.getElementById("cancelButton").style.visibility="visible";
+    var elements = document.getElementsByClassName("edit-text");
 
-    function init() {
-        D = W.document, previous = [];
-        form = D.getElementsByTagName('form')[0];
-        bts = form.getElementsByTagName('button');
-        ipt = form.getElementsByTagName('input');
-        form.addEventListener('submit', save, false);
-        bts[1].addEventListener('click', cancel, false);
-        bts[2].addEventListener('click', edit, false);
+    for (i=0; i<elements.length; i++){
+        elements[i].readOnly = false;
+        elements[i].style.border = "thin dotted red";
     }
+}
 
-    function save(e) {
-        e.preventDefault();
-        form.classList.remove('invert');
-        var l = ipt.length;
-        while (l--) {
-            ipt[l].readOnly = true;
-        };
-        previous = [];
-        //send your info here 
-    }
+function save(){
+    document.getElementById("editButton").style.visibility="visible";
+    document.getElementById("saveButton").style.visibility="hidden";
+    document.getElementById("cancelButton").style.visibility="hidden";
+    var elements = document.getElementsByClassName("edit-text");
 
-    function edit(e) {
-        e.preventDefault();
-        form.classList.add('invert');
-        var l = ipt.length;
-        while (l--) {
-            previous[l] = ipt[l].value;
-            ipt[l].readOnly = false;
-        }
+    for(i=0; i<elements.length; i++){
+        elements[i].readOnly = true;
+        elements[i].style.border = "none";
     }
+}
 
-    function cancel(e) {
-        form.classList.remove('invert');
-        e.preventDefault();
-        var l = ipt.length;
-        while (l--) {
-            ipt[l].value = previous[l];
-            ipt[l].readOnly = true;
-        }
+function cancel(){
+    document.getElementById("editButton").style.visibility="visible";
+    document.getElementById("saveButton").style.visibility="hidden";
+    document.getElementById("cancelButton").style.visibility="hidden";
+    var elements = document.getElementsByClassName("edit-text");
+
+    for(i=0; i<elements.length; i++){
+        elements[i].readOnly = true;
+        elements[i].style.border = "none";
     }
-    init();
-})(window)
+}
+
+var form = document.getElementById("edit-form");
+
+document.getElementById("saveButton").addEventListener("click", function () {
+    form.submit();
+});

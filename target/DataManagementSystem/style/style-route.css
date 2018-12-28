@@ -299,3 +299,10 @@ table td:nth-child(2) {
 .progressbar li.active + li:after{
     background: #3aac5d;
 }
+
+.edit-text {
+    border: none;
+    background-color: transparent;
+    font-family: sans-serif;
+    font-size: 20px;
+}

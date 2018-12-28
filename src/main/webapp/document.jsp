@@ -6,25 +6,27 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="style/style.css" type="text/css">
     <title>Document</title>
+
+    <script src="jsscripts/editform.js" type="text/javascript"></script>
 </head>
 <body>
 
 <div id="container">
 
     <%
-        String name = (String)request.getSession().getAttribute("name");
+        String name = (String) request.getSession().getAttribute("name");
 
-        String user = (String)request.getSession().getAttribute("username");
+        String user = (String) request.getSession().getAttribute("username");
         Cookie[] cookies = request.getCookies();
-        if(cookies != null) {
-            for (Cookie cookie : cookies){
-                if(cookie.getName().equals(user)){
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals(user)) {
                     user = cookie.getValue();
                 }
             }
         }
 
-        if(user == null) {
+        if (user == null) {
             response.sendRedirect("index.jsp");
         }
     %>
@@ -49,8 +51,9 @@
             </form>
         </div>
         <div class="option">
-            <form id = "usershow" action="UserShow" method="get">
-                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%></a>
+            <form id="usershow" action="UserShow" method="get">
+                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%>
+                </a>
             </form>
         </div>
         <div class="optionSO">
@@ -65,7 +68,7 @@
         <div class="optionL"><a href="DocumentRoutes?documentId=<%=document.getId()%>">Routes</a></div>
         <div class="optionL"><a href="Lifecycle?documentId=<%=document.getId()%>">Lifecycle</a></div>
         <%
-            if(document.getType().equals("2D drawing")){
+            if (document.getType().equals("2D drawing")) {
         %>
         <div class="optionL"><a href="viewer.jsp">Viewer</a></div>
         <% } %>
@@ -73,53 +76,76 @@
     </div>
 
     <div id="content">
-        <col width="220">
+        <%--<col width="220">--%>
 
-        <table class="user-table">
-            <col width="220">
+        <form id="edit-form" action="UpdateDocument" method="post">
 
-            <tr>
-                <td>Document id</td>
-                <td><%=document.getId()%></td>
-            </tr>
-            <tr>
-                <td>Title</td>
-                <td><%=document.getTitle()%></td>
-            </tr>
-            <tr>
-                <td>Type</td>
-                <td><%=document.getType()%></td>
-            </tr>
-            <tr>
-                <td>Revision</td>
-                <td><%=document.getRevision()%></td>
-            </tr>
-            <tr>
-                <td>State</td>
-                <td><%=document.getState()%></td>
-            </tr>
-            <tr>
-                <td>Owner</td>
-                <td><%=document.getOwner()%></td>
-            </tr>
-            <tr>
-                <td>Creation date</td>
-                <td><%=document.getCreationDate()%></td>
-            </tr>
-            <tr>
-                <td>Last modified</td>
-                <td><%=document.getLastModification()%></td>
-            </tr>
-            <tr>
-                <td>Attachement</td>
-                <td><%=document.getLink()%></td>
-            </tr>
-            <tr>
-                <td>Description</td>
-                <td><%=document.getDescription()%></td>
-            </tr>
+            <table class="user-table">
+                <col width="220">
 
-        </table>
+                <tr>
+                    <td>Document id</td>
+                    <td><%=document.getId()%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Title</td>
+                    <td><input type="text" class="edit-text" name="title" value="<%=document.getTitle()%>" readonly required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Type</td>
+                    <td><%=document.getType()%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Revision</td>
+                    <td><%=document.getRevision()%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State</td>
+                    <td><%=document.getState()%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Owner</td>
+                    <td><%=document.getOwner()%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Creation date</td>
+                    <td><%=document.getCreationDate()%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last modified</td>
+                    <td><%=document.getLastModification()%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Attachement</td>
+                    <td><%=document.getLink()%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><input type="text" class="edit-text" name="description" value="<%=document.getDescription()%>" readonly required>
+                    </td>
+                </tr>
+
+            </table>
+
+            <br><br>
+
+            <button type="button" id="editButton" style="visibility:visible" onclick="edit()">Edit</button>
+            <button type="button" id="saveButton" style="visibility:hidden" onclick="save()">Save</button>
+            <button type="button" id="cancelButton" style="visibility:hidden" onclick="cancel()">Cancel</button>
+
+            <script src="jsscripts/editform.js"></script>
+
+        </form>
+
 
     </div>
 

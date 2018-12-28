@@ -536,3 +536,10 @@ ul.lifecycle > li:not(:last-child):before {
 .progressbar li.active + li:after{
     background: #3aac5d;
 }
+
+.edit-text {
+    border: none;
+    background-color: transparent;
+    font-family: sans-serif;
+    font-size: 20px;
+}

@@ -7,7 +7,7 @@
 
 </head>
 <body>
-<form>
+<%--<form>
     <label>A:
         <input readonly>
     </label>
@@ -23,7 +23,7 @@
 
     <script src="jsscripts/editform.js"></script>
 
-</form>
+</form>--%>
 
 </body>
 </html>

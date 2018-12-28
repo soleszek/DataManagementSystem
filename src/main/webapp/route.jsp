@@ -13,7 +13,11 @@
     <title>Route</title>
 
     <style>
-        *{margin:0px; padding:0px; font-family:Helvetica, Arial, sans-serif;}
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: Helvetica, Arial, sans-serif;
+        }
 
         /* Full-width input fields */
         input[type=text], input[type=password] {
@@ -23,7 +27,7 @@
             display: inline-block;
             border: 1px solid #ccc;
             box-sizing: border-box;
-            font-size:16px;
+            font-size: 16px;
         }
 
         /* Set a style for all buttons */
@@ -35,13 +39,14 @@
             border: none;
             cursor: pointer;
             width: 90%;
-            font-size:20px;
+            font-size: 20px;
         }
+
         button:hover {
             opacity: 0.8;
         }
 
-        .file{
+        .file {
             background-color: #46b7ce;
             color: white;
             padding: 14px 20px;
@@ -49,7 +54,7 @@
             margin-right: 50px;
             border: none;
             cursor: pointer;
-            font-size:15px;
+            font-size: 15px;
             width: 85%;
         }
 
@@ -59,15 +64,16 @@
             margin: 24px 0 12px 0;
             position: relative;
         }
+
         .avatar {
             width: 150px;
-            height:150px;
+            height: 150px;
             border-radius: 50%;
         }
 
         /* The Modal (background) */
         .modal {
-            display:none;
+            display: none;
             position: fixed;
             z-index: 1;
             left: 0;
@@ -75,7 +81,7 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
         /* Modal Content Box */
@@ -96,7 +102,8 @@
             font-size: 35px;
             font-weight: bold;
         }
-        .close:hover,.close:focus {
+
+        .close:hover, .close:focus {
             color: red;
             cursor: pointer;
         }
@@ -105,9 +112,14 @@
         .animate {
             animation: zoom 0.6s
         }
+
         @keyframes zoom {
-            from {transform: scale(0)}
-            to {transform: scale(1)}
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
+            }
         }
 
         .custom-select {
@@ -141,7 +153,7 @@
         }
 
         /*style the items (options), including the selected item:*/
-        .select-items div,.select-selected {
+        .select-items div, .select-selected {
             color: #ffffff;
             padding: 14px 20px;
             margin-left: 24px;
@@ -173,7 +185,6 @@
         .select-items div:hover, .same-as-selected {
             background-color: rgba(0, 0, 0, 0.1);
         }
-
 
 
     </style>
@@ -250,16 +261,17 @@
         <ul>
             <li>
                 <%
-                    if(route.getState().equals("not started")) {
+                    if (route.getState().equals("not started")) {
                 %>
                 <a href="#">
                     <div class="icon">
                         <i class="fas fa-forward fa-2x"></i>
-                        <i class="fas fa-forward fa-2x" title="Start route" onclick="document.getElementById('modal-content-start-route').style.display='block'"></i>
+                        <i class="fas fa-forward fa-2x" title="Start route"
+                           onclick="document.getElementById('modal-content-start-route').style.display='block'"></i>
                     </div>
                 </a>
                 <%
-                    } else {
+                } else {
                 %>
 
                 <a href="#">
@@ -278,121 +290,133 @@
 
     <div id="content">
         <%--<col width="220">--%>
-        <div class="route-table">
 
-            <table class="user-table">
-                <col width="300">
+            <button type="button" id="editButton" style="visibility:visible" onclick="edit()">Edit</button>
+            <button type="button" id="saveButton" style="visibility:hidden" onclick="save()">Save</button>
+            <button type="button" id="cancelButton" style="visibility:hidden" onclick="cancel()">Cancel</button>
+            <br>
 
-                <tr>
-                    <td>Promotion request id</td>
-                    <td><%=route.getId()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Owner</td>
-                    <td><%=route.getOwner()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Promoted document</td>
-                    <td><span class="link"><a href="#"
-                                              onclick="openPopup('OpenDocument?documentId=<%=document.getId()%>')"><%=document.getTitle()%></a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>State</td>
-                    <td><%=route.getState()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Check due date</td>
-                    <td><%=route.getDeadline()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Person assigned to check</td>
-                    <td><%=route.getResponsibleForChecking()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Approve due date</td>
-                    <td><%=route.getDeadline()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Person assign to approve</td>
-                    <td><%=route.getResponsibleForApproving()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Comments</td>
-                    <td><%=route.getComments()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Date of creation</td>
-                    <td><%=route.getCreationDate()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Finish date</td>
-                    <td><%=route.getFinishDate()%>
-                    </td>
-                </tr>
+        <form id="edit-form" action="UpdateRoute" method="post">
 
-            </table>
-        </div>
+            <div class="route-table">
 
-        <div class="route-stages">
+                <table class="user-table">
+                    <col width="300">
 
-            <div class="pg-container">
+                    <tr>
+                        <td>Promotion request id</td>
+                        <td><%=route.getId()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Owner</td>
+                        <td><%=route.getOwner()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Promoted document</td>
+                        <td><span class="link"><a href="#"
+                                                  onclick="openPopup('OpenDocument?documentId=<%=document.getId()%>')"><%=document.getTitle()%></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td><%=route.getState()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Check due date</td>
+                        <td><input type="text" class="edit-text" name="checkingDueDate" value="<%=route.getCheckingDueDate()%>" readonly required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Person assigned to check</td>
+                        <td><input type="text" class="edit-text" name="responsibleForChecking" value="<%=route.getResponsibleForChecking()%>" readonly required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Approve due date</td>
+                        <td><input type="text" class="edit-text" name="deadline" value="<%=route.getDeadline()%>" readonly required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Person assign to approve</td>
+                        <td><input type="text" class="edit-text" name="responsibleForApproving" value="<%=route.getResponsibleForApproving()%>" readonly required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Comments</td>
+                        <td><input type="text" class="edit-text" name="description  " value="<%=route.getComments()%>" readonly required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date of creation</td>
+                        <td><%=route.getCreationDate()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Finish date</td>
+                        <td><%=route.getFinishDate()%>
+                        </td>
+                    </tr>
 
-                <ul class="progressbar">
+                    <script src="jsscripts/editform.js"></script>
 
-                    <%
-                        if (route.getState().equals("not started")){
-                    %>
+                </table>
+            </div>
 
-                    <li><i class="fas fa-flag fa-3x"></i></li>
-                    <li>Checking</li>
-                    <li>Approving</li>
-                    <li><i class="fas fa-flag-checkered fa-3x"></i></li>
+            <div class="route-stages">
 
-                    <%
-                        } else if (route.getState().equals("checking")){
-                    %>
+                <div class="pg-container">
 
-                    <li class="active"><i class="fas fa-flag fa-3x"></i></li>
-                    <li>Checking</li>
-                    <li>Approving</li>
-                    <li><i class="fas fa-flag-checkered fa-3x"></i></li>
-                    <%
+                    <ul class="progressbar">
+
+                        <%
+                            if (route.getState().equals("not started")) {
+                        %>
+
+                        <li><i class="fas fa-flag fa-3x"></i></li>
+                        <li>Checking</li>
+                        <li>Approving</li>
+                        <li><i class="fas fa-flag-checkered fa-3x"></i></li>
+
+                        <%
+                        } else if (route.getState().equals("checking")) {
+                        %>
+
+                        <li class="active"><i class="fas fa-flag fa-3x"></i></li>
+                        <li>Checking</li>
+                        <li>Approving</li>
+                        <li><i class="fas fa-flag-checkered fa-3x"></i></li>
+                        <%
                         } else if (route.getState().equals("approving")) {
-                    %>
+                        %>
 
-                    <li class="active"><i class="fas fa-flag fa-3x"></i></li>
-                    <li class="active">Checking</li>
-                    <li>Approving</li>
-                    <li><i class="fas fa-flag-checkered fa-3x"></i></li>
+                        <li class="active"><i class="fas fa-flag fa-3x"></i></li>
+                        <li class="active">Checking</li>
+                        <li>Approving</li>
+                        <li><i class="fas fa-flag-checkered fa-3x"></i></li>
 
-                    <%
+                        <%
                         } else if (route.getState().equals("completed")) {
-                    %>
+                        %>
 
-                    <li class="active"><i class="fas fa-flag fa-3x"></i></li>
-                    <li class="active">Checking</li>
-                    <li class="active">Approving</li>
-                    <li class="active"><i class="fas fa-flag-checkered fa-3x"></i></li>
+                        <li class="active"><i class="fas fa-flag fa-3x"></i></li>
+                        <li class="active">Checking</li>
+                        <li class="active">Approving</li>
+                        <li class="active"><i class="fas fa-flag-checkered fa-3x"></i></li>
 
-                    <%
-                        }
-                    %>
+                        <%
+                            }
+                        %>
 
-                </ul>
+                    </ul>
+
+                </div>
 
             </div>
 
-        </div>
+        </form>
 
     </div>
 
@@ -405,12 +429,15 @@
         <form class="modal-content animate" action="StartRoute" method="get">
 
             <div class="imgcontainer">
-                <span onclick="document.getElementById('modal-content-start-route').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                <span onclick="document.getElementById('modal-content-start-route').style.display='none'" class="close"
+                      title="Close PopUp">&times;</span>
                 <img src="style/start-route.png" alt="Document" class="avatar">
                 <h1 style="text-align:center">Starting promotion request</h1>
             </div>
 
-            <div class="container"><h3 style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">Choose state to promote:</h3></div>
+            <div class="container"><h3
+                    style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">Choose state to
+                promote:</h3></div>
 
             <div class="container">
                 <div class="custom-select">
@@ -423,7 +450,10 @@
 
                 <input type="hidden" name="routeId" value="<%=route.getId()%>">
 
-                <div class="container"><h2 style="text-align:center; margin-left: 24px; padding-top: 35px; padding-bottom: 20px">New task will be sent to <%=route.getResponsibleForChecking()%></h2></div>
+                <div class="container"><h2
+                        style="text-align:center; margin-left: 24px; padding-top: 35px; padding-bottom: 20px">New task
+                    will be sent to <%=route.getResponsibleForChecking()%>
+                </h2></div>
 
                 <button type="submit">Submit</button>
             </div>
@@ -435,7 +465,7 @@
         // If user clicks anywhere outside of the modal, Modal will close
 
         var modal = document.getElementById('modal-content-start-route');
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
