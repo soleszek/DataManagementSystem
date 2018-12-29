@@ -40,14 +40,14 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    public User findBy(String username) {
+    public User findBy(String login) {
         try{
             Session session = HibernateUtils.getInstance()
                     .getSessionFactory().getCurrentSession();
             session.beginTransaction();
             User user = (User)session
-                    .createQuery("from User where username=:username")
-                    .setParameter("username", username).getSingleResult();
+                    .createQuery("from User where login=:login")
+                    .setParameter("login", login).getSingleResult();
             /*List<User> users = session.createQuery("from User")
                     .list();
             Optional<User> user = users.stream()

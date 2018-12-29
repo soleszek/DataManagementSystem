@@ -184,20 +184,20 @@
 <div id="container">
 
     <%
-        String name = (String) request.getSession().getAttribute("name");
+        String userName = (String)request.getSession().getAttribute("userName");
         String role = (String) request.getSession().getAttribute("role");
 
-        String user = (String) request.getSession().getAttribute("username");
+        String login = (String) request.getSession().getAttribute("login");
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookie.getName().equals(user)) {
-                    user = cookie.getName();
+                if (cookie.getName().equals(login)) {
+                    userName = cookie.getValue();
                 }
             }
         }
 
-        if (user == null) {
+        if (login == null) {
             response.sendRedirect("index.jsp");
         }
     %>
@@ -213,13 +213,13 @@
     <div id="menu">
         <div class="optionSO">
             <form action="LogoutServlet" method="get">
-                <input type="hidden" name="username" value="<%=user%>"/>
+                <input type="hidden" name="login" value="<%=login%>"/>
                 <input type="submit" name="menu" value="Sign out">
             </form>
         </div>
         <div class="option">
             <form id="usershow" action="UserShow" method="get">
-                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%>
+                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
                 </a>
             </form>
         </div>
@@ -343,7 +343,7 @@
                     </select>
                 </div>
                 <input type="text" placeholder="Enter title" name="title" required>
-                <input type="text" readonly name="owner" value="<%=user%>">
+                <input type="text" readonly name="owner" value="<%=login%>">
                 <c:set var="now" value="<%=new java.util.Date()%>"/>
                 <input type="text" readonly name="creation date" value="<fmt:formatDate type = "date" value = "${now}"/>">
                 <input type="file" name="file" class="file" required>

@@ -197,19 +197,19 @@
 <div id="container">
 
     <%
-        String name = (String) request.getSession().getAttribute("name");
+        String userName = (String)request.getSession().getAttribute("userName");
 
-        String user = (String) request.getSession().getAttribute("username");
+        String login = (String) request.getSession().getAttribute("login");
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookie.getName().equals(user)) {
-                    user = cookie.getName();
+                if (cookie.getName().equals(login)) {
+                    userName = cookie.getValue();
                 }
             }
         }
 
-        if (user == null) {
+        if (login == null) {
             response.sendRedirect("index.jsp");
         }
     %>
@@ -231,13 +231,13 @@
     <div id="menu">
         <div class="optionSO">
             <form action="LogoutServlet" method="get">
-                <input type="hidden" name="username" value="<%=user%>"/>
+                <input type="hidden" name="login" value="<%=login%>"/>
                 <input type="submit" name="menu" value="Sign out">
             </form>
         </div>
         <div class="option">
             <form id="usershow" action="UserShow" method="get">
-                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%>
+                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
                 </a>
             </form>
         </div>
@@ -363,7 +363,7 @@
                 <c:set var="now" value="<%=new java.util.Date()%>"/>
                 <input type="text" readonly name="creation date" value="<fmt:formatDate type = "date" value = "${now}"/>">
                 <input type="text" disabled name="documentTitle" value="<%=document.getTitle()%>">
-                <input type="text" readonly name="owner" value="<%=user%>">
+                <input type="text" readonly name="owner" value="<%=login%>">
 
                 <div><input type="text" placeholder="Must be checked before" class="datepicker" name="checkingDueDate" required></div>
 
@@ -374,7 +374,7 @@
                         <%
                             for(User c: checkers){
                         %>
-                        <option value="<%=c.getUsername()%>"><%=c.getName()%> <%=c.getLastName()%>, <%=c.getRole()%></option>
+                        <option value="<%=c.getLogin()%>"><%=c.getUserName()%> <%=c.getLastName()%>, <%=c.getRole()%></option>
                         <%
                             }
                         %>
@@ -392,7 +392,7 @@
                         <%
                             for(User u: approvers){
                         %>
-                        <option value="<%=u.getUsername()%>"><%=u.getName()%> <%=u.getLastName()%>, <%=u.getRole()%></option>
+                        <option value="<%=u.getLogin()%>"><%=u.getUserName()%> <%=u.getLastName()%>, <%=u.getRole()%></option>
                         <%
                             }
                         %>

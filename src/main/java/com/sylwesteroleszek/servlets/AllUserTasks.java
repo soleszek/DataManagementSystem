@@ -21,12 +21,12 @@ public class AllUserTasks extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = (String) req.getSession().getAttribute("username");
+        String login = (String) req.getSession().getAttribute("login");
 
         List<Task> tasks = taskDao.findAll();
 
         List<Task> userTasks = tasks.stream()
-                .filter(t -> t.getAssignedTo().equals(username))
+                .filter(t -> t.getAssignedTo().equals(login))
                 .collect(Collectors.toList());
 
         req.setAttribute("usertasks", userTasks);

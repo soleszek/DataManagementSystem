@@ -28,7 +28,7 @@ public class CreateRoute extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idString = req.getParameter("documentId");
-        String username = req.getParameter("owner");
+        String login = req.getParameter("owner");
         String checkingDueDateString = req.getParameter("checkingDueDate");
         String checker = req.getParameter("responsibleForChecking");
         String approver = req.getParameter("responsibleForApproving");
@@ -40,7 +40,7 @@ public class CreateRoute extends HttpServlet {
         LocalDate deadline = LocalDate.parse(deadlineString, formatter);
 
         Route route = new Route.Builder()
-                .owner(username)
+                .owner(login)
                 .state("not started")
                 .creationDate(LocalDate.now())
                 .finishDate(null)

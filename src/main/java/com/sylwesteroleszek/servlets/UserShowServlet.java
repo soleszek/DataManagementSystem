@@ -18,9 +18,9 @@ public class UserShowServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = (String)req.getSession().getAttribute("username");
+        String login = (String)req.getSession().getAttribute("login");
 
-        User user = userDao.findBy(username);
+        User user = userDao.findBy(login);
 
         req.getSession().setAttribute("user", user);
         RequestDispatcher rd = req.getRequestDispatcher("user.jsp");

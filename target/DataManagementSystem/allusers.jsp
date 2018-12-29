@@ -13,20 +13,20 @@
 <div id="container">
 
     <%
-        String name = (String) request.getSession().getAttribute("name");
+        String userName = (String)request.getSession().getAttribute("userName");
         String role = (String) request.getSession().getAttribute("role");
 
-        String user = (String) request.getSession().getAttribute("username");
+        String login = (String) request.getSession().getAttribute("login");
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookie.getName().equals(user)) {
-                    user = cookie.getValue();
+                if (cookie.getName().equals(login)) {
+                    userName = cookie.getValue();
                 }
             }
         }
 
-        if (user == null) {
+        if (login == null) {
             response.sendRedirect("index.jsp");
         }
     %>
@@ -42,13 +42,13 @@
     <div id="menu">
         <div class="optionSO">
             <form action="LogoutServlet" method="get">
-                <input type="hidden" name="username" value="<%=user%>"/>
+                <input type="hidden" name="login" value="<%=login%>"/>
                 <input type="submit" name="menu" value="Sign out">
             </form>
         </div>
         <div class="option">
             <form id="usershow" action="UserShow" method="get">
-                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%>
+                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
                 </a>
             </form>
             <div class="optionSO">
@@ -82,8 +82,8 @@
             %>
 
             <tr>
-                <th>User id</th>
-                <th>Username</th>
+                <th>User name</th>
+                <th>Login</th>
                 <th>Name</th>
                 <th>Last name</th>
                 <th>Role</th>
@@ -92,9 +92,9 @@
             <% for (User u : users) {
             %>
             <tr>
-                <td><a href="AnyUserShow?userId=<%=u.getId()%>" id="doc-link"><%=u.getId()%></a></td>
-                <td><span class="doc-link" onclick="openPopup('AnyUserShow?userId=<%=u.getId()%>')"><%=u.getUsername()%></span></td>
-                <td><%=u.getName()%></td>
+                <td><a href="AnyUserShow?userId=<%=u.getId()%>" id="doc-link"><%=u.getName()%></a></td>
+                <td><span class="doc-link" onclick="openPopup('AnyUserShow?userId=<%=u.getId()%>')"><%=u.getLogin()%></span></td>
+                <td><%=u.getUserName()%></td>
                 <td><%=u.getLastName()%></td>
                 <td><%=u.getRole()%></td>
                 <td><%=u.getPassword()%></td>

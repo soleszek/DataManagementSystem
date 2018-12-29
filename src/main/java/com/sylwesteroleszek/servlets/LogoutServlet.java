@@ -13,12 +13,12 @@ public class LogoutServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String user = (String)req.getSession().getAttribute("username");
+        String login = (String)req.getSession().getAttribute("login");
         Cookie[] cookies = req.getCookies();
 
         if(cookies != null){
             for(Cookie cookie : cookies){
-                if(cookie.getName().equals(user)){
+                if(cookie.getName().equals(login)){
                     Cookie loginCookie = cookie;
                     loginCookie.setMaxAge(0);
                     req.getSession().invalidate();
@@ -29,7 +29,7 @@ public class LogoutServlet extends HttpServlet {
             }
         }
 
-        if(user == null || cookies == null) {
+        if(login == null || cookies == null) {
             resp.sendRedirect("index.jsp");
         }
 

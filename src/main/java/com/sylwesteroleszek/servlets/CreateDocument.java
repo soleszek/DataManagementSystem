@@ -29,7 +29,7 @@ public class CreateDocument extends HttpServlet {
         String documentType = req.getParameter("doctype");
         String title = req.getParameter("title");
         String description = req.getParameter("description");
-        String owner = (String)req.getSession().getAttribute("username");
+        String owner = (String)req.getSession().getAttribute("login");
         Part filePart = req.getPart("file");
         String path = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         InputStream fileContent = filePart.getInputStream();
