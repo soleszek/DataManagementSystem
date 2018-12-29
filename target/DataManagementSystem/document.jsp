@@ -138,9 +138,9 @@
 
             <br><br>
 
-            <button type="button" id="editButton" style="visibility:visible" onclick="edit()">Edit</button>
-            <button type="button" id="saveButton" style="visibility:hidden" onclick="save()">Save</button>
-            <button type="button" id="cancelButton" style="visibility:hidden" onclick="cancel()">Cancel</button>
+            <button type="button" id="editButton" class="button-edit" style="visibility:visible" onclick="edit()">Edit</button>
+            <button type="button" id="saveButton" class="button-edit" style="visibility:hidden" onclick="save()">Save</button>
+            <button type="button" id="cancelButton" class="button-edit" style="visibility:hidden" onclick="cancel()">Cancel</button>
 
             <script src="jsscripts/editform.js"></script>
 

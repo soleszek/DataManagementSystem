@@ -72,6 +72,8 @@
 
     <div id="content">
 
+        <form id="edit-form" action="UpdateUser" method="post">
+
         <table class="user-table">
             <col width="220">
 
@@ -85,26 +87,36 @@
             </tr>
             <tr>
                 <td>First Name</td>
-                <td><%=userObject.getName()%></td>
+                <td><input type="text" class="edit-text" name="name" value="<%=userObject.getName()%>" readonly required></td>
             </tr>
             <tr>
                 <td>Last Name</td>
-                <td><%=userObject.getLastName()%></td>
+                <td><input type="text" class="edit-text" name="lastname" value="<%=userObject.getLastName()%>" readonly required></td>
             </tr>
             <tr>
                 <td>Role</td>
-                <td><%=userObject.getRole()%></td>
+                <td><input type="text" class="edit-text" name="role" value="<%=userObject.getRole()%>" readonly required></td>
             </tr>
             <tr>
                 <td>User Name</td>
-                <td><%=userObject.getUsername()%></td>
+                <td><input type="text" class="edit-text" name="username" value="<%=userObject.getUsername()%>" readonly required></td>
             </tr>
             <tr>
                 <td>User Password</td>
-                <td><%=userObject.getPassword()%></td>
+                <td><input type="text" class="edit-text" name="password" value="<%=userObject.getPassword()%>" readonly required></td>
             </tr>
 
         </table>
+
+            <br><br>
+
+            <button type="button" id="editButton" class="button-edit" style="visibility:visible" onclick="edit()">Edit</button>
+            <button type="button" id="saveButton" class="button-edit" style="visibility:hidden" onclick="save()">Save</button>
+            <button type="button" id="cancelButton" class="button-edit" style="visibility:hidden" onclick="cancel()">Cancel</button>
+
+            <script src="jsscripts/editform.js"></script>
+
+        </form>
 
     </div>
 

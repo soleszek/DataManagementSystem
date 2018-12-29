@@ -19,7 +19,7 @@
             font-family: Helvetica, Arial, sans-serif;
         }
 
-        /* Full-width input fields */
+        /*!* Full-width input fields *!
         input[type=text], input[type=password] {
             width: 90%;
             padding: 12px 20px;
@@ -28,7 +28,7 @@
             border: 1px solid #ccc;
             box-sizing: border-box;
             font-size: 16px;
-        }
+        }*/
 
         /* Set a style for all buttons */
         button {
@@ -46,16 +46,21 @@
             opacity: 0.8;
         }
 
-        .file {
-            background-color: #46b7ce;
-            color: white;
-            padding: 14px 20px;
-            margin-left: 24px;
-            margin-right: 50px;
-            border: none;
-            cursor: pointer;
+        .button-edit {
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.16, rgb(207, 207, 207)), color-stop(0.79, rgb(252, 252, 252)));
+            background-image: linear-gradient(to top, rgb(207, 207, 207) 16%, rgb(252, 252, 252) 79%);
+            padding: 4px;
+            border: 1px solid #777777;
+            color: black;
+            text-decoration: none;
+            width: 75px;
+            height: 25px;
             font-size: 15px;
-            width: 85%;
+            margin: 2px 2px;
+            margin-top: 10px;
         }
 
         /* Center the image and position the close button */
@@ -284,137 +289,169 @@
                     }
                 %>
 
+
+            </li>
+
+            <li>
+                <%
+                    if (route.getState().equals("not started")) {
+                %>
+                <a href="#">
+                    <div class="icon">
+                        <i class="fas fa-edit fa-2x"></i>
+                        <i class="fas fa-edit fa-2x" title="Edit"></i>
+                    </div>
+                </a>
+                <%
+                } else {
+                %>
+
+                <a href="#">
+                    <div class="icon-disabled">
+                        <i class="fas fa-edit fa-2x" title="You don't have privileges"></i>
+                    </div>
+                </a>
+
+                <%
+                    }
+                %>
+
+
             </li>
         </ul>
     </div>
 
     <div id="content">
-        <%--<col width="220">--%>
-
-            <button type="button" id="editButton" style="visibility:visible" onclick="edit()">Edit</button>
-            <button type="button" id="saveButton" style="visibility:hidden" onclick="save()">Save</button>
-            <button type="button" id="cancelButton" style="visibility:hidden" onclick="cancel()">Cancel</button>
-            <br>
 
         <form id="edit-form" action="UpdateRoute" method="post">
 
-            <div class="route-table">
+        <div class="route-table">
 
-                <table class="user-table">
-                    <col width="300">
+            <table class="user-table">
+                <col width="300">
 
-                    <tr>
-                        <td>Promotion request id</td>
-                        <td><%=route.getId()%>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Owner</td>
-                        <td><%=route.getOwner()%>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Promoted document</td>
-                        <td><span class="link"><a href="#"
-                                                  onclick="openPopup('OpenDocument?documentId=<%=document.getId()%>')"><%=document.getTitle()%></a></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>State</td>
-                        <td><%=route.getState()%>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Check due date</td>
-                        <td><input type="text" class="edit-text" name="checkingDueDate" value="<%=route.getCheckingDueDate()%>" readonly required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Person assigned to check</td>
-                        <td><input type="text" class="edit-text" name="responsibleForChecking" value="<%=route.getResponsibleForChecking()%>" readonly required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Approve due date</td>
-                        <td><input type="text" class="edit-text" name="deadline" value="<%=route.getDeadline()%>" readonly required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Person assign to approve</td>
-                        <td><input type="text" class="edit-text" name="responsibleForApproving" value="<%=route.getResponsibleForApproving()%>" readonly required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Comments</td>
-                        <td><input type="text" class="edit-text" name="description  " value="<%=route.getComments()%>" readonly required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Date of creation</td>
-                        <td><%=route.getCreationDate()%>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Finish date</td>
-                        <td><%=route.getFinishDate()%>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>Promotion request id</td>
+                    <td><%=route.getId()%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Owner</td>
+                    <td><%=route.getOwner()%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Promoted document</td>
+                    <td><span class="link"><a href="#"
+                                              onclick="openPopup('OpenDocument?documentId=<%=document.getId()%>')"><%=document.getTitle()%></a></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State</td>
+                    <td><%=route.getState()%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Check due date</td>
+                    <td><input type="text" class="edit-text" name="checkingDueDate"
+                               value="<%=route.getCheckingDueDate()%>" readonly required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Person assigned to check</td>
+                    <td><input type="text" class="edit-text" name="responsibleForChecking"
+                               value="<%=route.getResponsibleForChecking()%>" readonly required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Approve due date</td>
+                    <td><input type="text" class="edit-text" name="deadline" value="<%=route.getDeadline()%>" readonly
+                               required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Person assign to approve</td>
+                    <td><input type="text" class="edit-text" name="responsibleForApproving"
+                               value="<%=route.getResponsibleForApproving()%>" readonly required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Comments</td>
+                    <td><input type="text" class="edit-text" name="description  " value="<%=route.getComments()%>"
+                               readonly required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of creation</td>
+                    <td><%=route.getCreationDate()%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Finish date</td>
+                    <td><%=route.getFinishDate()%>
+                    </td>
+                </tr>
 
-                    <script src="jsscripts/editform.js"></script>
+                <script src="jsscripts/editform.js"></script>
 
-                </table>
-            </div>
+            </table>
+        </div>
 
-            <div class="route-stages">
+        <div class="route-stages">
 
-                <div class="pg-container">
+            <div class="pg-container">
 
-                    <ul class="progressbar">
+                <ul class="progressbar">
 
-                        <%
-                            if (route.getState().equals("not started")) {
-                        %>
+                    <%
+                        if (route.getState().equals("not started")) {
+                    %>
 
-                        <li><i class="fas fa-flag fa-3x"></i></li>
-                        <li>Checking</li>
-                        <li>Approving</li>
-                        <li><i class="fas fa-flag-checkered fa-3x"></i></li>
+                    <li><i class="fas fa-flag fa-3x"></i></li>
+                    <li>Checking</li>
+                    <li>Approving</li>
+                    <li><i class="fas fa-flag-checkered fa-3x"></i></li>
 
-                        <%
+                    <%
                         } else if (route.getState().equals("checking")) {
-                        %>
+                    %>
 
-                        <li class="active"><i class="fas fa-flag fa-3x"></i></li>
-                        <li>Checking</li>
-                        <li>Approving</li>
-                        <li><i class="fas fa-flag-checkered fa-3x"></i></li>
-                        <%
+                    <li class="active"><i class="fas fa-flag fa-3x"></i></li>
+                    <li>Checking</li>
+                    <li>Approving</li>
+                    <li><i class="fas fa-flag-checkered fa-3x"></i></li>
+                    <%
                         } else if (route.getState().equals("approving")) {
-                        %>
+                    %>
 
-                        <li class="active"><i class="fas fa-flag fa-3x"></i></li>
-                        <li class="active">Checking</li>
-                        <li>Approving</li>
-                        <li><i class="fas fa-flag-checkered fa-3x"></i></li>
+                    <li class="active"><i class="fas fa-flag fa-3x"></i></li>
+                    <li class="active">Checking</li>
+                    <li>Approving</li>
+                    <li><i class="fas fa-flag-checkered fa-3x"></i></li>
 
-                        <%
+                    <%
                         } else if (route.getState().equals("completed")) {
-                        %>
+                    %>
 
-                        <li class="active"><i class="fas fa-flag fa-3x"></i></li>
-                        <li class="active">Checking</li>
-                        <li class="active">Approving</li>
-                        <li class="active"><i class="fas fa-flag-checkered fa-3x"></i></li>
+                    <li class="active"><i class="fas fa-flag fa-3x"></i></li>
+                    <li class="active">Checking</li>
+                    <li class="active">Approving</li>
+                    <li class="active"><i class="fas fa-flag-checkered fa-3x"></i></li>
 
-                        <%
-                            }
-                        %>
+                    <%
+                        }
+                    %>
 
-                    </ul>
-
-                </div>
+                </ul>
 
             </div>
+
+        </div>
+
+            <button type="button" id="editButton" class="button-edit" style="visibility:visible" onclick="edit()">Edit</button>
+            <button type="button" id="saveButton" class="button-edit" style="visibility:hidden" onclick="save()">Save</button>
+            <button type="button" id="cancelButton" class="button-edit" style="visibility:hidden" onclick="cancel()">Cancel</button>
+            <br>
 
         </form>
 

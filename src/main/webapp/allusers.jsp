@@ -92,8 +92,8 @@
             <% for (User u : users) {
             %>
             <tr>
-                <td><%=u.getId()%></td>
-                <td><%=u.getUsername()%></td>
+                <td><a href="AnyUserShow?userId=<%=u.getId()%>" id="doc-link"><%=u.getId()%></a></td>
+                <td><span class="doc-link" onclick="openPopup('AnyUserShow?userId=<%=u.getId()%>')"><%=u.getUsername()%></span></td>
                 <td><%=u.getName()%></td>
                 <td><%=u.getLastName()%></td>
                 <td><%=u.getRole()%></td>
@@ -110,6 +110,8 @@
     <div id="footer">
         Sylwester Oleszek 2018 &copy;
     </div>
+
+    <script src="jsscripts/popup.js"></script>
 
 </div>
 
