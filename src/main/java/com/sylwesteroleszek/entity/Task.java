@@ -11,6 +11,7 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String name;
     private String owner;
     private String assignedTo;
     private String documentBeingApprovedId;
@@ -25,6 +26,7 @@ public class Task {
     }
 
     public static class Builder {
+        private String name;
         private String owner;
         private String assignedTo;
         private String documentBeingApprovedId;
@@ -33,6 +35,11 @@ public class Task {
         private LocalDate completionDate;
         private String comments;
         private String parentId;
+
+        public Builder name(String name){
+            this.name = name;
+            return this;
+        }
 
         public Builder owner (String owner){
             this.owner = owner;
@@ -80,6 +87,7 @@ public class Task {
     }
 
     private Task (Builder builder){
+        this.name = builder.name;
         this.owner = builder.owner;
         this.assignedTo = builder.assignedTo;
         this.documentBeingApprovedId = builder.documentBeingApprovedId;
@@ -92,6 +100,10 @@ public class Task {
 
     public Long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getOwner() {
@@ -124,6 +136,10 @@ public class Task {
 
     public String getParentId() {
         return parentId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setOwner(String owner) {

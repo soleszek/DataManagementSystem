@@ -2,6 +2,7 @@ package com.sylwesteroleszek.servlets;
 
 import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.entity.Document;
+import com.sylwesteroleszek.factory.NameFactory;
 import com.sylwesteroleszek.providers.DaoProvider;
 import com.sylwesteroleszek.utils.DataOperations;
 
@@ -35,6 +36,7 @@ public class CreateDocument extends HttpServlet {
         InputStream fileContent = filePart.getInputStream();
 
         Document document = new Document.Builder()
+                .name(null)
                 .revision(1)
                 .type(documentType)
                 .title(title)
@@ -54,6 +56,13 @@ public class CreateDocument extends HttpServlet {
         String fileName = savedDocument.getId().toString();
 
         DataOperations.saveData(documentType, fileContent, fileName);
+
+        Long documentId = documentDao.findBy(document.getId()).getId();
+        NameFactory nameFactory = new NameFactory();
+        String name = nameFactory.createName(documentId, documentType);
+        document.setName(name);
+
+        documentDao.SaveOrUpdate(document);
 
         req.getSession().setAttribute("document", document);
         RequestDispatcher rd = req.getRequestDispatcher("document.jsp");

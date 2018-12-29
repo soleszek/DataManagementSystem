@@ -13,6 +13,7 @@ public class Document extends TaskFactory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String name;
     private int revision;
     private String type;
     private String title;
@@ -27,6 +28,7 @@ public class Document extends TaskFactory {
     }
 
     public static class Builder{
+        private String name;
         private int reivision;
         private String type;
         private String title;
@@ -36,6 +38,11 @@ public class Document extends TaskFactory {
         private LocalDate creationDate;
         private LocalDate lastModification;
         private String link;
+
+        public Builder name(String name){
+            this.name = name;
+            return this;
+        }
 
         public Builder revision(int reivision){
             this.reivision = reivision;
@@ -88,6 +95,7 @@ public class Document extends TaskFactory {
     }
 
     private Document(Builder builder){
+        this.name = builder.name;
         this.revision = builder.reivision;
         this.type = builder.type;
         this.title = builder.title;
@@ -101,6 +109,10 @@ public class Document extends TaskFactory {
 
     public Long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getRevision() {
@@ -137,6 +149,10 @@ public class Document extends TaskFactory {
 
     public String getLink() {
         return link;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setRevision(int revision) {

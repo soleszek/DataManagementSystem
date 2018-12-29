@@ -13,6 +13,7 @@ public class Route extends TaskFactory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String name;
     private String owner;
     private String state;
     private LocalDate creationDate;
@@ -28,6 +29,7 @@ public class Route extends TaskFactory {
     }
 
     public static class Builder {
+        private String name;
         private String owner;
         private String state;
         private LocalDate creationDate;
@@ -38,6 +40,11 @@ public class Route extends TaskFactory {
         private String responsibleForChecking;
         private String responsibleForApproving;
         private String comments;
+
+        public Builder name(String name){
+            this.name = name;
+            return this;
+        }
 
         public Builder owner(String owner){
             this.owner = owner;
@@ -95,6 +102,7 @@ public class Route extends TaskFactory {
     }
 
     private Route(Builder builder){
+        this.name = builder.name;
         this.owner = builder.owner;
         this.state = builder.state;
         this.creationDate = builder.creationDate;
@@ -109,6 +117,10 @@ public class Route extends TaskFactory {
 
     public Long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getOwner(){
@@ -149,6 +161,10 @@ public class Route extends TaskFactory {
 
     public String getComments() {
         return comments;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setOwner(String owner) {
