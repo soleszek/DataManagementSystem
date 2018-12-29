@@ -2,6 +2,7 @@ package com.sylwesteroleszek.servlets;
 
 import com.sylwesteroleszek.dao.UserDao;
 import com.sylwesteroleszek.entity.User;
+import com.sylwesteroleszek.factory.NameFactory;
 import com.sylwesteroleszek.factory.TaskFactory;
 import com.sylwesteroleszek.providers.DaoProvider;
 
@@ -22,9 +23,9 @@ UserDao userDao = DaoProvider.getInstance().getUserDao();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name");
-        String lastName = req.getParameter("lastname");
-        String username = req.getParameter("username");
+        String userName = req.getParameter("userName");
+        String lastName = req.getParameter("lastName");
+        String login = req.getParameter("login");
         String password = req.getParameter("password");
         String role = req.getParameter("role");
 
@@ -32,7 +33,7 @@ UserDao userDao = DaoProvider.getInstance().getUserDao();
         boolean isUserExist = false;
 
         for(User u : userList){
-            if(u.getUsername().equals(username)){
+            if(u.getLogin().equals(login)){
                 isUserExist = true;
 
                 RequestDispatcher rd = req.getRequestDispatcher("registration.jsp");
@@ -44,12 +45,23 @@ UserDao userDao = DaoProvider.getInstance().getUserDao();
 
         if(isUserExist == false){
             User user = new User.Builder()
-                    .name(name)
+                    .name(null)
+                    .userName(userName)
                     .lastName(lastName)
-                    .username(username)
+                    .login(login)
                     .password(password)
                     .role(role)
                     .build();
+
+            userDao.SaveOrUpdate(user);
+
+            Long userId = userDao.findBy(user.getId()).getId();
+
+            NameFactory nameFactory = new NameFactory();
+
+            String name = nameFactory.createName(userId, "user");
+
+            user.setName(name);
 
             userDao.SaveOrUpdate(user);
 

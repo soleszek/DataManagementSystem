@@ -10,19 +10,19 @@
 <body>
 
 <%
-    String name = (String)request.getSession().getAttribute("name");
+    String userName = (String)request.getSession().getAttribute("userName");
 
-    String user = (String)request.getSession().getAttribute("username");
+    String login = (String) request.getSession().getAttribute("login");
     Cookie[] cookies = request.getCookies();
-    if(cookies != null) {
-        for (Cookie cookie : cookies){
-            if(cookie.getName().equals(user)){
-                user = cookie.getValue();
+    if (cookies != null) {
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals(login)) {
+                userName = cookie.getValue();
             }
         }
     }
 
-    if(user == null) {
+    if (login == null) {
         response.sendRedirect("index.jsp");
     }
 %>
@@ -31,15 +31,15 @@
     <div class="login-box">
         <h1>Fill in user data</h1>
         <div class="textbox">
-            <input type="text" placeholder="Name" name="name" value="" required>
+            <input type="text" placeholder="Name" name="userName" value="" required>
         </div>
 
         <div class="textbox">
-            <input type="text" placeholder="Last name" name="lastname" value="" required>
+            <input type="text" placeholder="Last name" name="lastName" value="" required>
         </div>
 
         <div class="textbox">
-            <input type="text" placeholder="Username" name="username" value="" required>
+            <input type="text" placeholder="Login" name="login" value="" required>
         </div>
 
         <div class="textbox">

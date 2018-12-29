@@ -12,7 +12,7 @@
         <h1>Login</h1>
         <div class="textbox">
             <i class="fas fa-users"></i>
-            <input type="text" placeholder="Username" name="username" value="" required>
+            <input type="text" placeholder="Login" name="login" value="" required>
         </div>
 
         <div class="textbox">

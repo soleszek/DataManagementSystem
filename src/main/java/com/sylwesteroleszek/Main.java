@@ -18,7 +18,7 @@ public class Main {
 
         NameFactory nameFactory = new NameFactory();
 
-        String name = nameFactory.createName(22l, "image");
+        String name = nameFactory.createName(1l, "user");
 
         System.out.println(name);
     }

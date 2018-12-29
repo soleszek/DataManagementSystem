@@ -12,19 +12,19 @@
 <div id="container">
 
     <%
-        String name = (String)request.getSession().getAttribute("name");
+        String userName = (String)request.getSession().getAttribute("userName");
 
-        String user = (String)request.getSession().getAttribute("username");
+        String login = (String) request.getSession().getAttribute("login");
         Cookie[] cookies = request.getCookies();
-        if(cookies != null) {
-            for (Cookie cookie : cookies){
-                if(cookie.getName().equals(user)){
-                    user = cookie.getValue();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals(login)) {
+                    userName = cookie.getValue();
                 }
             }
         }
 
-        if(user == null) {
+        if (login == null) {
             response.sendRedirect("index.jsp");
         }
     %>
@@ -40,13 +40,13 @@
     <div id="menu">
         <div class="optionSO">
             <form id="signout" action="LogoutServlet" method="get">
-                <input type="hidden" name="username" value="<%=user%>"/>
+                <input type="hidden" name="login" value="<%=login%>"/>
                 <input type="submit" name="menu" value="Sign out">
             </form>
         </div>
         <div class="option">
             <form id = "usershow" action="UserShow" method="get">
-                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%></a>
+                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%></a>
             </form>
         </div>
         <div class="optionSO">

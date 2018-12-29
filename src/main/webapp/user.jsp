@@ -12,20 +12,20 @@
 <div id="container">
 
     <%
-        String name = (String)request.getSession().getAttribute("name");
+        String userName = (String)request.getSession().getAttribute("userName");
         String role = (String) request.getSession().getAttribute("role");
 
-        String user = (String)request.getSession().getAttribute("username");
+        String login = (String) request.getSession().getAttribute("login");
         Cookie[] cookies = request.getCookies();
-        if(cookies != null) {
-            for (Cookie cookie : cookies){
-                if(cookie.getName().equals(user)){
-                    user = cookie.getValue();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals(login)) {
+                    userName = cookie.getValue();
                 }
             }
         }
 
-        if(user == null) {
+        if (login == null) {
             response.sendRedirect("index.jsp");
         }
     %>
@@ -41,13 +41,13 @@
     <div id="menu">
         <div class="optionSO">
             <form action="LogoutServlet" method="get">
-                <input type="hidden" name="username" value="<%=user%>"/>
+                <input type="hidden" name="login" value="<%=login%>"/>
                 <input type="submit" name="menu" value="Sign out">
             </form>
         </div>
         <div class="option">
             <form id = "usershow" action="UserShow" method="get">
-                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=name%></a>
+                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%></a>
             </form>
         </div>
         <div class="optionSO">
@@ -82,12 +82,12 @@
             %>
 
             <tr>
-                <td>User id</td>
-                <td><%=userObject.getId()%></td>
+                <td>Name</td>
+                <td><%=userObject.getName()%></td>
             </tr>
             <tr>
                 <td>First Name</td>
-                <td><input type="text" class="edit-text" name="name" value="<%=userObject.getName()%>" readonly required></td>
+                <td><input type="text" class="edit-text" name="name" value="<%=userObject.getUserName()%>" readonly required></td>
             </tr>
             <tr>
                 <td>Last Name</td>
@@ -99,7 +99,7 @@
             </tr>
             <tr>
                 <td>User Name</td>
-                <td><input type="text" class="edit-text" name="username" value="<%=userObject.getUsername()%>" readonly required></td>
+                <td><input type="text" class="edit-text" name="login" value="<%=userObject.getLogin()%>" readonly required></td>
             </tr>
             <tr>
                 <td>User Password</td>

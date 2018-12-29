@@ -23,25 +23,25 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String user = req.getParameter("username");
+        String login = req.getParameter("login");
         String password = req.getParameter("password");
 
         Cookie loginCookie = null;
 
         List<User> users = userDao.findAll();
         Optional<User> userLoggedIn = users.stream()
-                .filter(u -> u.getUsername().equals(user)
+                .filter(u -> u.getLogin().equals(login)
                 && u.getPassword().equals(password))
                 .findFirst();
 
         if(userLoggedIn.isPresent()){
-            loginCookie = new Cookie(userLoggedIn.get().getUsername(), userLoggedIn.get().getName());
+            loginCookie = new Cookie(userLoggedIn.get().getLogin(), userLoggedIn.get().getUserName());
             loginCookie.setMaxAge(30*60);
 
             resp.addCookie(loginCookie);
 
-            req.getSession().setAttribute("username", userLoggedIn.get().getUsername());
-            req.getSession().setAttribute("name", userLoggedIn.get().getName());
+            req.getSession().setAttribute("login", userLoggedIn.get().getLogin());
+            req.getSession().setAttribute("userName", userLoggedIn.get().getUserName());
             req.getSession().setAttribute("role", userLoggedIn.get().getRole());
             RequestDispatcher rd = req.getRequestDispatcher("dashboard.jsp");
             rd.forward(req, resp);

@@ -13,8 +13,9 @@ public class User extends TaskFactory {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    private String userName;
     private String lastName;
-    private String username;
+    private String login;
     private String password;
     private String role;
 
@@ -23,8 +24,9 @@ public class User extends TaskFactory {
 
     public static class Builder{
         private String name;
+        private String userName;
         private String lastName;
-        private String username;
+        private String login;
         private String password;
         private String role;
 
@@ -33,13 +35,18 @@ public class User extends TaskFactory {
             return this;
         }
 
+        public Builder userName(String userName){
+            this.userName = userName;
+            return this;
+        }
+
         public Builder lastName(String lastName){
             this.lastName = lastName;
             return this;
         }
 
-        public Builder username(String username){
-            this.username = username;
+        public Builder login(String login){
+            this.login = login;
             return this;
         }
 
@@ -61,8 +68,9 @@ public class User extends TaskFactory {
 
     private User(Builder builder){
         this.name = builder.name;
+        this.userName = builder.userName;
         this.lastName = builder.lastName;
-        this.username = builder.username;
+        this.login = builder.login;
         this.password = builder.password;
         this.role = builder.role;
     }
@@ -75,12 +83,16 @@ public class User extends TaskFactory {
         return name;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
     public String getLastName() {
         return lastName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getLogin() {
+        return login;
     }
 
     public String getPassword() {
@@ -89,64 +101,9 @@ public class User extends TaskFactory {
 
     public String getRole() {
         return role;
-    }
-
-    /*public User() {
-    }
-
-    public User(String name, String lastName, String username, String password, String role) {
-        this.name = name;
-        this.lastName = lastName;
-        this.username = username;
-        this.password = password;
-        this.role = role;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }*/
 }
