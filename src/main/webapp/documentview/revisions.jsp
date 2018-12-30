@@ -81,7 +81,7 @@
                 <a href="#">
                     <div class="icon">
                         <i class="far fa-clone fa-2x"></i>
-                        <i class="far fa-clone fa-2x" title="Create new revision" onclick="document.getElementById('modal-wrapper').style.display='block'"></i>
+                        <i class="far fa-clone fa-2x" title="Create new revision" onclick="javascript:location.href='CreateNewRevision?documentId=<%=document.getId()%>'"></i>
                     </div>
                 </a>
             </li>

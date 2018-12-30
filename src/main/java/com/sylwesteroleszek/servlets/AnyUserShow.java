@@ -1,4 +1,4 @@
-package com.sylwesteroleszek;
+package com.sylwesteroleszek.servlets;
 
 import com.sylwesteroleszek.dao.UserDao;
 import com.sylwesteroleszek.entity.User;

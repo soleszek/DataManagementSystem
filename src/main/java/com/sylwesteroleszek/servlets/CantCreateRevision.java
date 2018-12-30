@@ -1,4 +1,4 @@
-package com.sylwesteroleszek;
+package com.sylwesteroleszek.servlets;
 
 import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.entity.Document;
@@ -14,14 +14,15 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@WebServlet("/DocumentRevisions")
-public class DocumentRevisions extends HttpServlet {
+@WebServlet("/CantCreateRevision")
+public class CantCreateRevision extends HttpServlet {
 
     private DocumentDao documentDao = DaoProvider.getInstance().getDocumentDao();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String documentIdString = req.getParameter("documentId");
+        String message = (String)req.getSession().getAttribute("message");
 
         Long documentId = Long.parseLong(documentIdString);
         Document document = documentDao.findBy(documentId);
@@ -29,14 +30,15 @@ public class DocumentRevisions extends HttpServlet {
 
         List<Document> documents = documentDao.findAll();
 
-
-
         List<Document> documentRevisions = documents.stream()
                 .filter(dR -> dR.getName().equals(name))
                 .collect(Collectors.toList());
 
         req.setAttribute("documentRevisions", documentRevisions);
         RequestDispatcher rd = req.getRequestDispatcher("documentview/revisions.jsp");
-        rd.forward(req, resp);
+        resp.getWriter()
+                .println(message);
+        rd.include(req, resp);
     }
+
 }
