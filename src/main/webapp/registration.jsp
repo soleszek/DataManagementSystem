@@ -58,6 +58,10 @@
 
         <input class="btn" type="submit" name="" value="Create">
 
+        <br>
+        <br>
+        <input class="btn" type="button" value="Return" onclick="location.href='adminpanel.jsp'">
+
     </div>
 </form>
 
