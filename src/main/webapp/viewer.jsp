@@ -66,7 +66,7 @@
         <div class="optionL"><a href="DocumentRoutes?documentId=<%=document.getId()%>">Routes</a></div>
         <div class="optionL"><a href="Lifecycle?documentId=<%=document.getId()%>">Lifecycle</a></div>
         <%
-            if(document.getType().equals("2D drawing")){
+            if(document.getType().equals("drawing")){
         %>
         <div class="optionL"><a href="documentview/viewer.jsp>">Viewer</a></div>
         <% } %>

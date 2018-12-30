@@ -292,10 +292,10 @@
 
             <tr>
                 <th><input type="checkbox"></th>
-                <th>Promotion request id</th>
+                <th>Promotion request name</th>
                 <th>Owner</th>
                 <th><i class="far fa-window-restore"></i></th>
-                <th>Promoted document id</th>
+                <th>Promoted document</th>
                 <th>State</th>
                 <th>Check due date</th>
                 <th>Person assigned to check</th>
@@ -311,14 +311,14 @@
             %>
             <tr>
                 <td><input type="checkbox"></td>
-                <td><a href="OpenRoute?routeId=<%=r.getId()%>" id="doc-link"><%=r.getId()%></a>
+                <td><a href="OpenRoute?routeId=<%=r.getId()%>" id="doc-link"><%=r.getName()%></a>
                 </td>
                 <td><%=r.getOwner()%>
                 </td>
                 <td>
                     <div id="popup" onclick="openPopup('OpenRoute?routeId=<%=r.getId()%>')"><i class="far fa-window-restore"></i></div>
                 </td>
-                <td><span class="doc-link" onclick="openPopup('OpenDocument?documentId=<%=r.getDocumentBeingApprovedId()%>')"><%=r.getDocumentBeingApprovedId()%></span>
+                <td><span class="doc-link" onclick="openPopup('OpenDocument?documentId=<%=r.getDocumentBeingApprovedId()%>')"><%=document.getName()%></span>
                 </td>
                 <td><%=r.getState()%>
                 </td>
@@ -359,7 +359,8 @@
                 <h1 style="text-align:center">New promotion request</h1>
             </div>
             <div class="container">
-                <input type="text" readonly name="documentId" value="<%=document.getId()%>">
+                <input type="text" disabled name="name" value="<%=document.getName()%>">
+                <input type="hidden" readonly name="documentId" value="<%=document.getId()%>">
                 <c:set var="now" value="<%=new java.util.Date()%>"/>
                 <input type="text" readonly name="creation date" value="<fmt:formatDate type = "date" value = "${now}"/>">
                 <input type="text" disabled name="documentTitle" value="<%=document.getTitle()%>">

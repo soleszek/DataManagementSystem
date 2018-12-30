@@ -13,7 +13,7 @@ public class DataOperations {
     public static final String imagesPath = "/home/sylwester/Dokumenty/DMSfiles/images/";
 
     public static void saveData(String docType, InputStream fileContent, String fileName){
-        if(docType.equals("2D drawing")){
+        if(docType.equals("drawing")){
 
             save(drawingsPath, fileContent, fileName);
 
@@ -28,7 +28,7 @@ public class DataOperations {
     }
 
     public static DataInputStream loadData(String docType, String fileName){
-        if(docType.equals("2D drawing")){
+        if(docType.equals("drawing")){
 
             return read(drawingsPath, fileName);
 

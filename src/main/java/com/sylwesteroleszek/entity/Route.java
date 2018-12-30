@@ -20,6 +20,7 @@ public class Route extends TaskFactory {
     private LocalDate finishDate;
     private LocalDate deadline;
     private String documentBeingApprovedId;
+    private String documentBeingApprovedName;
     private LocalDate checkingDueDate;
     private String responsibleForChecking;
     private String responsibleForApproving;
@@ -36,6 +37,7 @@ public class Route extends TaskFactory {
         private LocalDate finishDate;
         private LocalDate deadline;
         private String documentBeingApprovedId;
+        private String documentBeingApprovedName;
         private LocalDate checkingDueDate;
         private String responsibleForChecking;
         private String responsibleForApproving;
@@ -76,6 +78,11 @@ public class Route extends TaskFactory {
             return this;
         }
 
+        public Builder documentBeingApprovedName(String documentBeingApprovedName){
+            this.documentBeingApprovedName = documentBeingApprovedName;
+            return this;
+        }
+
         public Builder checkingDueDate(LocalDate checkingDueDate){
             this.checkingDueDate = checkingDueDate;
             return this;
@@ -109,6 +116,7 @@ public class Route extends TaskFactory {
         this.finishDate = builder.finishDate;
         this.deadline = builder.deadline;
         this.documentBeingApprovedId = builder.documentBeingApprovedId;
+        this.documentBeingApprovedName = builder.documentBeingApprovedName;
         this.checkingDueDate = builder.checkingDueDate;
         this.responsibleForChecking = builder.responsibleForChecking;
         this.responsibleForApproving = builder.responsibleForApproving;
@@ -145,6 +153,10 @@ public class Route extends TaskFactory {
 
     public String getDocumentBeingApprovedId() {
         return documentBeingApprovedId;
+    }
+
+    public String getDocumentBeingApprovedName() {
+        return documentBeingApprovedName;
     }
 
     public LocalDate getCheckingDueDate(){
@@ -189,6 +201,10 @@ public class Route extends TaskFactory {
 
     public void setDocumentBeingApprovedId(String documentBeingApprovedId) {
         this.documentBeingApprovedId = documentBeingApprovedId;
+    }
+
+    public void setDocumentBeingApprovedName(String documentBeingApprovedName) {
+        this.documentBeingApprovedName = documentBeingApprovedName;
     }
 
     public void setCheckingDueDate(LocalDate checkingDueDate) {

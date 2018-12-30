@@ -42,28 +42,6 @@ public class CompleteTask extends HttpServlet {
 
         routeOperations.promoteRoute();
 
-        /*if(route.getState().equals("checking"))
-        {
-            String documentTaskIdString = task.getDocumentBeingApprovedId();
-            Long documentTaskId = Long.parseLong(documentTaskIdString);
-            Document document = documentDao.findBy(documentTaskId);
-            document.setState("frozen");
-            documentDao.SaveOrUpdate(document);
-
-            route.setState("approving");
-            routeDao.SaveOrUpdate(route);
-
-        }  else if (route.getState().equals("approving")) {
-            String documentTaskIdString = task.getDocumentBeingApprovedId();
-            Long documentTaskId = Long.parseLong(documentTaskIdString);
-            Document document = documentDao.findBy(documentTaskId);
-            document.setState("released");
-            documentDao.SaveOrUpdate(document);
-
-            route.setState("completed");
-            routeDao.SaveOrUpdate(route);
-        }*/
-
         task.setState("completed");
         taskDao.SaveOrUpdate(task);
 

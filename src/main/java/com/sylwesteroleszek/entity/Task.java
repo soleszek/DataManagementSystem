@@ -15,6 +15,7 @@ public class Task {
     private String owner;
     private String assignedTo;
     private String documentBeingApprovedId;
+    private String documentBeingApprovedName;
     private String state; //Active, Completed
     private LocalDate dueDate;
     private LocalDate completionDate;
@@ -30,6 +31,7 @@ public class Task {
         private String owner;
         private String assignedTo;
         private String documentBeingApprovedId;
+        private String documentBeingApprovedName;
         private String state;
         private LocalDate dueDate;
         private LocalDate completionDate;
@@ -53,6 +55,11 @@ public class Task {
 
         public Builder documentBeingApprovedId(String documentBeingApprovedId){
             this.documentBeingApprovedId = documentBeingApprovedId;
+            return this;
+        }
+
+        public Builder documentBeingApprovedName(String documentBeingApprovedName){
+            this.documentBeingApprovedName = documentBeingApprovedName;
             return this;
         }
 
@@ -91,6 +98,7 @@ public class Task {
         this.owner = builder.owner;
         this.assignedTo = builder.assignedTo;
         this.documentBeingApprovedId = builder.documentBeingApprovedId;
+        this.documentBeingApprovedName = builder.documentBeingApprovedName;
         this.state = builder.state;
         this.dueDate = builder.dueDate;
         this.completionDate = builder.completionDate;
@@ -116,6 +124,10 @@ public class Task {
 
     public String getDocumentBeingApprovedId() {
         return documentBeingApprovedId;
+    }
+
+    public String getDocumentBeingApprovedName() {
+        return documentBeingApprovedName;
     }
 
     public String getState() {
@@ -152,6 +164,10 @@ public class Task {
 
     public void setDocumentBeingApprovedId(String documentBeingApprovedId) {
         this.documentBeingApprovedId = documentBeingApprovedId;
+    }
+
+    public void setDocumentBeingApprovedName(String documentBeingApprovedName) {
+        this.documentBeingApprovedName = documentBeingApprovedName;
     }
 
     public void setState(String state) {

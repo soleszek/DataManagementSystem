@@ -19,6 +19,7 @@ public class TaskFactory {
                     .owner(route.getOwner())
                     .assignedTo(route.getResponsibleForChecking())
                     .documentBeingApprovedId(route.getDocumentBeingApprovedId())
+                    .documentBeingApprovedName(route.getDocumentBeingApprovedName())
                     .state("active")
                     .dueDate(route.getCheckingDueDate())
                     .completionDate(null)
@@ -28,12 +29,23 @@ public class TaskFactory {
 
             taskDao.SaveOrUpdate(task);
 
+            Long taskId = taskDao.findBy(task.getId()).getId();
+            NameFactory nameFactory = new NameFactory();
+            String name = nameFactory.createName(taskId, "task");
+
+            task.setName(name);
+
+            taskDao.SaveOrUpdate(task);
+
+            assignTaskName(task);
+
         } else if (routeState.equals("checking")){
 
             Task task = new Task.Builder()
                     .owner(route.getOwner())
                     .assignedTo(route.getResponsibleForApproving())
                     .documentBeingApprovedId(route.getDocumentBeingApprovedId())
+                    .documentBeingApprovedName(route.getDocumentBeingApprovedName())
                     .state("active")
                     .dueDate(route.getCheckingDueDate())
                     .completionDate(null)
@@ -43,7 +55,20 @@ public class TaskFactory {
 
             taskDao.SaveOrUpdate(task);
 
+            assignTaskName(task);
+
         }
+    }
+
+
+    private void assignTaskName(Task task) {
+        Long taskId = taskDao.findBy(task.getId()).getId();
+        NameFactory nameFactory = new NameFactory();
+        String name = nameFactory.createName(taskId, "task");
+
+        task.setName(name);
+
+        taskDao.SaveOrUpdate(task);
     }
 
 

@@ -255,7 +255,7 @@
         <div class="optionL"><a href="DocumentRoutes?documentId=<%=document.getId()%>">Routes</a></div>
         <div class="optionL"><a href="Lifecycle?documentId=<%=document.getId()%>">Lifecycle</a></div>
         <%
-            if (document.getType().equals("2D drawing")) {
+            if (document.getType().equals("drawing")) {
         %>
         <div class="optionL"><a href="viewer.jsp">Viewer</a></div>
         <% } %>
@@ -331,8 +331,8 @@
                 <col width="300">
 
                 <tr>
-                    <td>Promotion request id</td>
-                    <td><%=route.getId()%>
+                    <td>Promotion request name</td>
+                    <td><%=route.getName()%>
                     </td>
                 </tr>
                 <tr>
@@ -343,7 +343,7 @@
                 <tr>
                     <td>Promoted document</td>
                     <td><span class="link"><a href="#"
-                                              onclick="openPopup('OpenDocument?documentId=<%=document.getId()%>')"><%=document.getTitle()%></a></span>
+                                              onclick="openPopup('OpenDocument?documentId=<%=document.getId()%>')"><%=document.getName()%></a></span>
                     </td>
                 </tr>
                 <tr>

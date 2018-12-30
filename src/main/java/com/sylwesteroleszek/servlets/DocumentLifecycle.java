@@ -21,7 +21,6 @@ public class DocumentLifecycle extends HttpServlet {
         String idString = (String)req.getParameter("documentId");
 
         Long id = Long.parseLong(idString);
-
         Document document = documentDao.findBy(id);
 
         req.getSession().setAttribute("document", document);

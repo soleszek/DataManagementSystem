@@ -273,8 +273,8 @@
             %>
 
             <tr>
-                <td>Task id</td>
-                <td><%=task.getId()%>
+                <td>Task name</td>
+                <td><%=task.getName()%>
                 </td>
             </tr>
             <tr>
@@ -285,7 +285,7 @@
             <tr>
                 <td>Promoted document</td>
                 <td><span class="link"><a href="#"
-                                          onclick="openPopup('OpenDocument?documentId=<%=task.getDocumentBeingApprovedId()%>')"><%=task.getDocumentBeingApprovedId()%></a></span>
+                                          onclick="openPopup('OpenDocument?documentId=<%=task.getDocumentBeingApprovedId()%>')"><%=task.getDocumentBeingApprovedName()%></a></span>
                 </td>
             </tr>
             <tr>

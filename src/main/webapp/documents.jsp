@@ -283,7 +283,7 @@
 
             <tr>
                 <th><input type="checkbox"></th>
-                <th>Id</th>
+                <th>Name</th>
                 <th>Title</th>
                 <th><i class="far fa-window-restore"></i></th>
                 <th>Type</th>
@@ -299,8 +299,8 @@
             %>
             <tr>
                 <td><input type="checkbox"></td>
-                <td><%=d.getId()%></td>
-                <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getTitle()%></a></td>
+                <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getName()%></a></td>
+                <td><%=d.getTitle()%></td>
                 <td><div id="popup" onclick="openPopup('OpenDocument?documentId=<%=d.getId()%>')"><i class="far fa-window-restore"></i></div></td>
                 <td><%=d.getType()%></td>
                 <td><%=d.getState()%></td>

@@ -96,7 +96,7 @@
             %>
 
             <tr>
-                <th>Task id</th>
+                <th>Task name</th>
                 <th>Owner</th>
                 <th>Submitted document</th>
                 <th>State</th>
@@ -107,9 +107,9 @@
             <% for (Task t : userTasks) {
             %>
             <tr>
-                <td><a href="OpenTask?taskId=<%=t.getId()%>" id="doc-link"><%=t.getId()%></a></td>
+                <td><a href="OpenTask?taskId=<%=t.getId()%>" id="doc-link"><%=t.getName()%></a></td>
                 <td><%=t.getOwner()%></td>
-                <td><span class="doc-link" onclick="openPopup('OpenDocument?documentId=<%=t.getDocumentBeingApprovedId()%>')"><%=t.getDocumentBeingApprovedId()%></span></td>
+                <td><span class="doc-link" onclick="openPopup('OpenDocument?documentId=<%=t.getDocumentBeingApprovedId()%>')"><%=t.getDocumentBeingApprovedName()%></span></td>
                 <td><%=t.getState()%></td>
                 <td><%=t.getDueDate()%></td>
                 <td><%=t.getComments()%></td>

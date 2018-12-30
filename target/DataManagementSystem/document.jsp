@@ -68,7 +68,7 @@
         <div class="optionL"><a href="DocumentRoutes?documentId=<%=document.getId()%>">Routes</a></div>
         <div class="optionL"><a href="Lifecycle?documentId=<%=document.getId()%>">Lifecycle</a></div>
         <%
-            if (document.getType().equals("2D drawing")) {
+            if (document.getType().equals("drawing")) {
         %>
         <div class="optionL"><a href="viewer.jsp">Viewer</a></div>
         <% } %>
@@ -84,8 +84,8 @@
                 <col width="220">
 
                 <tr>
-                    <td>Document id</td>
-                    <td><%=document.getId()%>
+                    <td>Name</td>
+                    <td><%=document.getName()%>
                     </td>
                 </tr>
                 <tr>

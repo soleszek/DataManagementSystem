@@ -7,6 +7,7 @@ import com.sylwesteroleszek.daoImpl.RouteDaoImpl;
 import com.sylwesteroleszek.entity.Document;
 import com.sylwesteroleszek.entity.Route;
 import com.sylwesteroleszek.entity.User;
+import com.sylwesteroleszek.factory.NameFactory;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,13 +40,18 @@ public class CreateRoute extends HttpServlet {
         LocalDate checkingDueDate = LocalDate.parse(checkingDueDateString, formatter);
         LocalDate deadline = LocalDate.parse(deadlineString, formatter);
 
+        Long id = Long.parseLong(idString);
+        Document document = documentDao.findBy(id);
+
         Route route = new Route.Builder()
+                .name(null)
                 .owner(login)
                 .state("not started")
                 .creationDate(LocalDate.now())
                 .finishDate(null)
                 .deadline(deadline)
                 .documentBeingApprovedId(idString)
+                .documentBeingApprovedName(document.getName())
                 .checkingDueDate(checkingDueDate)
                 .responsibleForChecking(checker)
                 .responsibleForApproving(approver)
@@ -54,9 +60,12 @@ public class CreateRoute extends HttpServlet {
 
         routeDao.SaveOrUpdate(route);
 
-        Long id = Long.parseLong(idString);
+        Long routeId = routeDao.findBy(route.getId()).getId();
+        NameFactory nameFactory = new NameFactory();
+        String name = nameFactory.createName(routeId, "route");
+        route.setName(name);
 
-        Document document = documentDao.findBy(id);
+        routeDao.SaveOrUpdate(route);
 
         req.setAttribute("route", route);
         req.setAttribute("document", document);

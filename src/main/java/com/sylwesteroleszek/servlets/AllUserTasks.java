@@ -1,7 +1,10 @@
 package com.sylwesteroleszek.servlets;
 
+import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.dao.TaskDao;
+import com.sylwesteroleszek.daoImpl.DocumentDaoImpl;
 import com.sylwesteroleszek.daoImpl.TaskDaoImpl;
+import com.sylwesteroleszek.entity.Document;
 import com.sylwesteroleszek.entity.Task;
 import com.sylwesteroleszek.entity.User;
 
@@ -17,7 +20,7 @@ import java.util.stream.Collectors;
 
 @WebServlet("/AllUserTasks")
 public class AllUserTasks extends HttpServlet {
-    TaskDao taskDao = new TaskDaoImpl();
+    private TaskDao taskDao = new TaskDaoImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
