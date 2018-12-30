@@ -116,6 +116,23 @@ ul li a:hover .icon .fal{
     transform: translateY(-100%);
 }
 
+ul li a .icon .far{
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
+    font-size: 34px;
+    transition: 0.5s;
+    color: #000;
+}
+
+ul li a .icon .far:last-child{
+    color: #e91e63;
+}
+
+ul li a:hover .icon .far{
+    transform: translateY(-100%);
+}
+
 .option{
     float: right;
     min-width: 50px;
