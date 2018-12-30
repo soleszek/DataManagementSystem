@@ -232,7 +232,13 @@
     <div id="sidebar">
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
         <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
+
+        <% if (!role.equals("viewer")) { %>
+
         <div class="optionL"><a href="AllUserTasks">Tasks</a></div>
+
+        <% } %>
+
         <%
             if (role.equals("admin")) {
         %>

@@ -54,7 +54,7 @@
             </form>
         </div>
         <div class="optionSO">
-                <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+            <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
         </div>
         <div style="clear: both"></div>
     </div>
@@ -62,7 +62,13 @@
     <div id="sidebar">
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
         <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
+
+        <% if (!role.equals("viewer")) { %>
+
         <div class="optionL"><a href="AllUserTasks">Tasks</a></div>
+
+        <% } %>
+
         <%
             if (role.equals("admin")) {
         %>
@@ -74,7 +80,28 @@
     </div>
 
     <div id="content">
+        <div class="square">
+            <div class="tile1"><H1><a href="#" class="tilelink">Your new tasks</a></H1></div>
+            <div class="tile1"><H1><a href="AllUsers" class="tilelink">New routes</a></H1><</div>
+            <div style="clear: both"></div>
 
+            <div class="tile2"><H1><a href="registration.jsp" class="tilelink">New documents</a></H1></div>
+            <div class="tile3"><H1><a href="registration.jsp" class="tilelink">Clock</a></H1></div>
+            <div style="clear: both"></div>
+
+            <div class="tile4">4</div>
+
+        </div>
+        <div class="square">
+            <div class="tile5">Sentense</div>
+
+            <div class="tile6">You spend ... in the systeme</div>
+            <div class="tile7">7</div>
+            <div class="tile8">8</div>
+            <div class="tile9">9</div>
+            <div style="clear: both"></div>
+        </div>
+        <div style="clear: both"></div>
     </div>
 
     <div id="footer">
