@@ -31,6 +31,7 @@
 
     <%
         Document document = (Document) request.getSession().getAttribute("document");
+        String role = (String) request.getSession().getAttribute("role");
 
     %>
 
@@ -63,7 +64,13 @@
     <div id="sidebar">
         <div class="optionL"><a href="OpenDocument?documentId=<%=document.getId()%>">Properties</a></div>
         <div class="optionL"><a href="DocumentRevisions?documentId=<%=document.getId()%>">Revisions</a></div>
+
+        <% if (!role.equals("viewer")) { %>
+
         <div class="optionL"><a href="DocumentRoutes?documentId=<%=document.getId()%>">Routes</a></div>
+
+        <% } %>
+
         <div class="optionL"><a href="Lifecycle?documentId=<%=document.getId()%>">Lifecycle</a></div>
         <%
             if(document.getType().equals("drawing")){

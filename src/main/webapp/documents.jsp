@@ -231,10 +231,10 @@
 
     <div id="sidebar">
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
-        <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
 
         <% if (!role.equals("viewer")) { %>
 
+        <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
         <div class="optionL"><a href="AllUserTasks">Tasks</a></div>
 
         <% } %>
@@ -252,20 +252,51 @@
     <div id="navbar">
         <ul>
             <li>
+                <%
+                    if(!role.equals("viewer")){
+                %>
                 <a href="#">
                     <div class="icon">
                         <i class="fas fa-plus-square fa-2x"></i>
                         <i class="fas fa-plus-square fa-2x" title="Create new document" onclick="document.getElementById('modal-wrapper').style.display='block'"></i>
                     </div>
                 </a>
+                <%
+                    } else {
+                %>
+
+                <a href="#">
+                    <div class="icon-disabled">
+                        <i class="fas fa-plus-square fa-2x" title="You don't have privileges"></i>
+                    </div>
+                </a>
+                <%
+                    }
+                %>
+
             </li>
             <li>
+                <%
+                    if(!role.equals("viewer")){
+                %>
                 <a href="#">
                     <div class="icon">
                         <i class="fas fa-minus-square fa-2x"></i>
                         <i class="fas fa-minus-square fa-2x" title="Delete"></i>
                     </div>
                 </a>
+                <%
+                } else {
+                %>
+                <a href="#">
+                    <div class="icon-disabled">
+                        <i class="fas fa-minus-square fa-2x" title="You don't have privileges"></i>
+                    </div>
+                </a>
+                <%
+                    }
+                %>
+
             </li>
             <li>
                 <a href="#">

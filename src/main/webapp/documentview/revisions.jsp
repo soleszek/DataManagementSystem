@@ -34,6 +34,7 @@
 
     <%
         Document document = (Document) request.getSession().getAttribute("document");
+        String role = (String) request.getSession().getAttribute("role");
     %>
 
     <div id="logo">
@@ -65,7 +66,13 @@
     <div id="sidebar">
         <div class="optionL"><a href="OpenDocument?documentId=<%=document.getId()%>">Properties</a></div>
         <div class="optionL"><a href="DocumentRevisions?documentId=<%=document.getId()%>">Revisions</a></div>
+
+        <% if (!role.equals("viewer")) { %>
+
         <div class="optionL"><a href="DocumentRoutes?documentId=<%=document.getId()%>">Routes</a></div>
+
+        <% } %>
+
         <div class="optionL"><a href="Lifecycle?documentId=<%=document.getId()%>">Lifecycle</a></div>
         <%
             if(document.getType().equals("drawing")){
@@ -78,20 +85,50 @@
     <div id="navbar">
         <ul>
             <li>
+                <%
+                    if(!role.equals("viewer")){
+                %>
                 <a href="#">
                     <div class="icon">
                         <i class="far fa-clone fa-2x"></i>
                         <i class="far fa-clone fa-2x" title="Create new revision" onclick="javascript:location.href='CreateNewRevision?documentId=<%=document.getId()%>'"></i>
                     </div>
                 </a>
+                <%
+                } else {
+                %>
+
+                <a href="#">
+                    <div class="icon-disabled">
+                        <i class="far fa-clone fa-2x" title="You don't have privileges"></i>
+                    </div>
+                </a>
+                <%
+                    }
+                %>
             </li>
             <li>
+                <%
+                    if(!role.equals("viewer")){
+                %>
                 <a href="#">
                     <div class="icon">
                         <i class="fas fa-minus-square fa-2x"></i>
                         <i class="fas fa-minus-square fa-2x" title="Delete"></i>
                     </div>
                 </a>
+                <%
+                } else {
+                %>
+                <a href="#">
+                    <div class="icon-disabled">
+                        <i class="fas fa-minus-square fa-2x" title="You don't have privileges"></i>
+                    </div>
+                </a>
+                <%
+                    }
+                %>
+
             </li>
             <li>
                 <a href="#">

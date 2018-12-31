@@ -62,6 +62,7 @@
 
         <% if (!role.equals("viewer")) { %>
 
+        <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
         <div class="optionL"><a href="AllUserTasks">Tasks</a></div>
 
         <% } %>
