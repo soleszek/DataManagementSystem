@@ -106,4 +106,24 @@ public class User extends TaskFactory {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }

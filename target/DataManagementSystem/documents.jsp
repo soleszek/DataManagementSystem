@@ -1,5 +1,6 @@
 <%@ page import="com.sylwesteroleszek.entity.Document" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
@@ -13,7 +14,11 @@
     <title>Documents</title>
 
     <style>
-        *{margin:0px; padding:0px; font-family:Helvetica, Arial, sans-serif;}
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: Helvetica, Arial, sans-serif;
+        }
 
         /* Full-width input fields */
         input[type=text], input[type=password] {
@@ -23,7 +28,7 @@
             display: inline-block;
             border: 1px solid #ccc;
             box-sizing: border-box;
-            font-size:16px;
+            font-size: 16px;
         }
 
         /* Set a style for all buttons */
@@ -35,13 +40,14 @@
             border: none;
             cursor: pointer;
             width: 90%;
-            font-size:20px;
+            font-size: 20px;
         }
+
         button:hover {
             opacity: 0.8;
         }
 
-        .file{
+        .file {
             background-color: #46b7ce;
             color: white;
             padding: 14px 20px;
@@ -49,7 +55,7 @@
             margin-right: 50px;
             border: none;
             cursor: pointer;
-            font-size:15px;
+            font-size: 15px;
             width: 85%;
         }
 
@@ -59,15 +65,16 @@
             margin: 24px 0 12px 0;
             position: relative;
         }
+
         .avatar {
             width: 150px;
-            height:150px;
+            height: 150px;
             border-radius: 50%;
         }
 
         /* The Modal (background) */
         .modal {
-            display:none;
+            display: none;
             position: fixed;
             z-index: 1;
             left: 0;
@@ -75,7 +82,7 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
         /* Modal Content Box */
@@ -96,7 +103,8 @@
             font-size: 35px;
             font-weight: bold;
         }
-        .close:hover,.close:focus {
+
+        .close:hover, .close:focus {
             color: red;
             cursor: pointer;
         }
@@ -105,9 +113,14 @@
         .animate {
             animation: zoom 0.6s
         }
+
         @keyframes zoom {
-            from {transform: scale(0)}
-            to {transform: scale(1)}
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
+            }
         }
 
         .custom-select {
@@ -119,8 +132,8 @@
         }
 
         .select-selected {
-             background-color: #46b7ce;
-         }
+            background-color: #46b7ce;
+        }
 
         /*style the arrow inside the select element:*/
         .select-selected:after {
@@ -141,7 +154,7 @@
         }
 
         /*style the items (options), including the selected item:*/
-        .select-items div,.select-selected {
+        .select-items div, .select-selected {
             color: #ffffff;
             padding: 14px 20px;
             margin-left: 24px;
@@ -175,7 +188,6 @@
         }
 
 
-
     </style>
 
 </head>
@@ -184,7 +196,7 @@
 <div id="container">
 
     <%
-        String userName = (String)request.getSession().getAttribute("userName");
+        String userName = (String) request.getSession().getAttribute("userName");
         String role = (String) request.getSession().getAttribute("role");
 
         String login = (String) request.getSession().getAttribute("login");
@@ -253,16 +265,17 @@
         <ul>
             <li>
                 <%
-                    if(!role.equals("viewer")){
+                    if (!role.equals("viewer")) {
                 %>
                 <a href="#">
                     <div class="icon">
                         <i class="fas fa-plus-square fa-2x"></i>
-                        <i class="fas fa-plus-square fa-2x" title="Create new document" onclick="document.getElementById('modal-wrapper').style.display='block'"></i>
+                        <i class="fas fa-plus-square fa-2x" title="Create new document"
+                           onclick="document.getElementById('modal-wrapper').style.display='block'"></i>
                     </div>
                 </a>
                 <%
-                    } else {
+                } else {
                 %>
 
                 <a href="#">
@@ -277,7 +290,7 @@
             </li>
             <li>
                 <%
-                    if(!role.equals("viewer")){
+                    if (!role.equals("viewer")) {
                 %>
                 <a href="#">
                     <div class="icon">
@@ -316,6 +329,14 @@
 
             <%
                 List<Document> documents = (List<Document>) request.getAttribute("documents");
+                List<Document> approvedDocuments = new ArrayList<>();
+
+                for (Document d : documents) {
+                    if (d.getState().equals("released")) {
+                        approvedDocuments.add(d);
+                    }
+                }
+
             %>
 
             <tr>
@@ -332,23 +353,72 @@
                 <th>Attachement</th>
                 <th>Description</th>
             </tr>
-            <% for (Document d : documents) {
+            <% if (role.equals("viewer")) {
+                for (Document d : approvedDocuments) {
             %>
             <tr>
                 <td><input type="checkbox"></td>
-                <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getName()%></a></td>
-                <td><%=d.getTitle()%></td>
-                <td><div id="popup" onclick="openPopup('OpenDocument?documentId=<%=d.getId()%>')"><i class="far fa-window-restore"></i></div></td>
-                <td><%=d.getType()%></td>
-                <td><%=d.getState()%></td>
-                <td><%=d.getRevision()%></td>
-                <td><%=d.getOwner()%></td>
-                <td><%=d.getCreationDate()%></td>
-                <td><%=d.getLastModification()%></td>
-                <td><%=d.getLink()%></td>
-                <td><%=d.getDescription()%></td>
+                <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getName()%>
+                </a></td>
+                <td><%=d.getTitle()%>
+                </td>
+                <td>
+                    <div id="popup" onclick="openPopup('OpenDocument?documentId=<%=d.getId()%>')"><i
+                            class="far fa-window-restore"></i></div>
+                </td>
+                <td><%=d.getType()%>
+                </td>
+                <td><%=d.getState()%>
+                </td>
+                <td><%=d.getRevision()%>
+                </td>
+                <td><%=d.getOwner()%>
+                </td>
+                <td><%=d.getCreationDate()%>
+                </td>
+                <td><%=d.getLastModification()%>
+                </td>
+                <td><%=d.getLink()%>
+                </td>
+                <td><%=d.getDescription()%>
+                </td>
             </tr>
             <%
+                }
+            } else {
+                for (Document d : documents) {
+            %>
+
+            <tr>
+                <td><input type="checkbox"></td>
+                <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getName()%>
+                </a></td>
+                <td><%=d.getTitle()%>
+                </td>
+                <td>
+                    <div id="popup" onclick="openPopup('OpenDocument?documentId=<%=d.getId()%>')"><i
+                            class="far fa-window-restore"></i></div>
+                </td>
+                <td><%=d.getType()%>
+                </td>
+                <td><%=d.getState()%>
+                </td>
+                <td><%=d.getRevision()%>
+                </td>
+                <td><%=d.getOwner()%>
+                </td>
+                <td><%=d.getCreationDate()%>
+                </td>
+                <td><%=d.getLastModification()%>
+                </td>
+                <td><%=d.getLink()%>
+                </td>
+                <td><%=d.getDescription()%>
+                </td>
+            </tr>
+
+            <%
+                    }
                 }
             %>
 
@@ -365,7 +435,8 @@
         <form class="modal-content animate" action="CreateDocument" method="post" enctype="multipart/form-data">
 
             <div class="imgcontainer">
-                <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close"
+                      title="Close PopUp">&times;</span>
                 <img src="style/document.jpg" alt="Document" class="avatar">
                 <h1 style="text-align:center">Create new document</h1>
             </div>
@@ -382,7 +453,8 @@
                 <input type="text" placeholder="Enter title" name="title" required>
                 <input type="text" readonly name="owner" value="<%=login%>">
                 <c:set var="now" value="<%=new java.util.Date()%>"/>
-                <input type="text" readonly name="creation date" value="<fmt:formatDate type = "date" value = "${now}"/>">
+                <input type="text" readonly name="creation date"
+                       value="<fmt:formatDate type = "date" value = "${now}"/>">
                 <input type="file" name="file" class="file" required>
                 <input type="text" placeholder="Enter description" name="description" required>
                 <button type="submit">Create</button>
@@ -395,7 +467,7 @@
         // If user clicks anywhere outside of the modal, Modal will close
 
         var modal = document.getElementById('modal-wrapper');
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }

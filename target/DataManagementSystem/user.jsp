@@ -58,7 +58,6 @@
 
     <div id="sidebar">
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
-        <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
 
         <% if (!role.equals("viewer")) { %>
 
@@ -94,24 +93,34 @@
             </tr>
             <tr>
                 <td>First Name</td>
-                <td><input type="text" class="edit-text" name="name" value="<%=userObject.getUserName()%>" readonly required></td>
+                <td><input type="text" class="edit-text" name="userName" value="<%=userObject.getUserName()%>" readonly required></td>
             </tr>
             <tr>
                 <td>Last Name</td>
-                <td><input type="text" class="edit-text" name="lastname" value="<%=userObject.getLastName()%>" readonly required></td>
+                <td><input type="text" class="edit-text" name="lastName" value="<%=userObject.getLastName()%>" readonly required></td>
             </tr>
             <tr>
                 <td>Role</td>
-                <td><input type="text" class="edit-text" name="role" value="<%=userObject.getRole()%>" readonly required></td>
+                <td><input type="text" class="noedit-text" id="role" name="role" value="<%=userObject.getRole()%>" readonly required>
+                <select name="role" id="select-role" style="visibility: hidden;" onchange="replaceValue(event)">
+                    <option value="viewer">Viewer</option>
+                    <option value="viewer">Viewer</option>
+                    <option value="contributor">Contributor</option>
+                    <option value="manager">Manager</option>
+                    <option value="admin">Admin</option>
+                </select>
+                </td>
             </tr>
             <tr>
                 <td>User Name</td>
-                <td><input type="text" class="edit-text" name="login" value="<%=userObject.getLogin()%>" readonly required></td>
+                <td><input type="text" class="edit-text" name="login" value="<%=userObject.getLogin()%>" readonly required>
+                </td>
             </tr>
             <tr>
                 <td>User Password</td>
                 <td><input type="text" class="edit-text" name="password" value="<%=userObject.getPassword()%>" readonly required></td>
             </tr>
+            <input type="hidden" name="userId" value="<%=userObject.getId()%>">
 
         </table>
 
@@ -126,6 +135,7 @@
             <button type="button" id="cancelButton" class="button-edit" style="visibility:hidden" onclick="cancel()">Cancel</button>
 
             <script src="jsscripts/editform.js"></script>
+            <script src="jsscripts/dropdownToInput.js"></script>
 
             <%
                 }

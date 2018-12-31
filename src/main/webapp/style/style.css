@@ -544,6 +544,13 @@ ul.lifecycle > li:not(:last-child):before {
     font-size: 20px;
 }
 
+.noedit-text {
+    border: none;
+    background-color: transparent;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
 .button-edit {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
