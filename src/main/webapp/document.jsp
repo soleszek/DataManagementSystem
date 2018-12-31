@@ -97,7 +97,7 @@
                 </tr>
                 <tr>
                     <td>Title</td>
-                    <td><input type="text" class="edit-text" name="title" value="<%=document.getTitle()%>" readonly required>
+                    <td><input type="text" class="edit-text" name="title" value="<%=document.getTitle()%>" readonly required size="35">
                     </td>
                 </tr>
                 <tr>
@@ -137,14 +137,16 @@
                 </tr>
                 <tr>
                     <td>Description</td>
-                    <td><input type="text" class="edit-text" name="description" value="<%=document.getDescription()%>" readonly required>
+                    <td><input type="text" class="edit-text" name="description" value="<%=document.getDescription()%>" readonly required size="35">
                     </td>
                 </tr>
+
+                <input type="hidden" name="documentId" value="<%=document.getId()%>">
 
             </table>
 
             <%
-                if(!role.equals("viewer")) {
+                if(!role.equals("viewer") && !document.getState().equals("frozen") && !document.getState().equals("released") || role.equals("admin")) {
             %>
 
             <br><br>

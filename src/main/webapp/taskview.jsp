@@ -332,7 +332,7 @@
                 <h1 style="text-align:center">Complete task</h1>
             </div>
 
-            <div class="container"><h3 style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You are completing task <%=task.getId()%>, <%=task.getComments()%></h3></div>
+            <div class="container"><h3 style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You are completing task <%=task.getId()%>, <%=task.getComments()%></h3>
 
                 <input type="hidden" name="taskId" value="<%=task.getId()%>">
 

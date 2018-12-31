@@ -134,7 +134,7 @@
             <button type="button" id="saveButton" class="button-edit" style="visibility:hidden" onclick="save()">Save</button>
             <button type="button" id="cancelButton" class="button-edit" style="visibility:hidden" onclick="cancel()">Cancel</button>
 
-            <script src="jsscripts/editform.js"></script>
+            <script src="jsscripts/editform-user.js"></script>
             <script src="jsscripts/dropdownToInput.js"></script>
 
             <%

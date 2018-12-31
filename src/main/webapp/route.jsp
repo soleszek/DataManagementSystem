@@ -200,7 +200,7 @@
 <div id="container">
 
     <%
-        String userName = (String)request.getSession().getAttribute("userName");
+        String userName = (String) request.getSession().getAttribute("userName");
 
         String login = (String) request.getSession().getAttribute("login");
         Cookie[] cookies = request.getCookies();
@@ -220,6 +220,7 @@
     <%
         Route route = (Route) request.getAttribute("route");
         Document document = (Document) request.getAttribute("document");
+        String role = (String)request.getSession().getAttribute("role");
     %>
 
     <div id="logo">
@@ -323,78 +324,104 @@
 
     <div id="content">
 
-        <form id="edit-form" action="UpdateRoute" method="post">
-
         <div class="route-table">
 
-            <table class="user-table">
-                <col width="300">
+            <form id="edit-form" action="UpdateRoute" method="post">
 
-                <tr>
-                    <td>Promotion request name</td>
-                    <td><%=route.getName()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Owner</td>
-                    <td><%=route.getOwner()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Promoted document</td>
-                    <td><span class="link"><a href="#"
-                                              onclick="openPopup('OpenDocument?documentId=<%=document.getId()%>')"><%=document.getName()%></a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>State</td>
-                    <td><%=route.getState()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Check due date</td>
-                    <td><input type="text" class="edit-text" name="checkingDueDate"
-                               value="<%=route.getCheckingDueDate()%>" readonly required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Person assigned to check</td>
-                    <td><input type="text" class="edit-text" name="responsibleForChecking"
-                               value="<%=route.getResponsibleForChecking()%>" readonly required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Approve due date</td>
-                    <td><input type="text" class="edit-text" name="deadline" value="<%=route.getDeadline()%>" readonly
-                               required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Person assign to approve</td>
-                    <td><input type="text" class="edit-text" name="responsibleForApproving"
-                               value="<%=route.getResponsibleForApproving()%>" readonly required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Comments</td>
-                    <td><input type="text" class="edit-text" name="description  " value="<%=route.getComments()%>"
-                               readonly required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Date of creation</td>
-                    <td><%=route.getCreationDate()%>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Finish date</td>
-                    <td><%=route.getFinishDate()%>
-                    </td>
-                </tr>
+                <table class="user-table">
+                    <col width="300">
 
-                <script src="jsscripts/editform.js"></script>
+                    <tr>
+                        <td>Promotion request name</td>
+                        <td><%=route.getName()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Owner</td>
+                        <td><%=route.getOwner()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Promoted document</td>
+                        <td><span class="link"><a href="#"
+                                                  onclick="openPopup('OpenDocument?documentId=<%=document.getId()%>')"><%=document.getName()%></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td><%=route.getState()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Check due date</td>
+                        <td><input type="text" class="edit-text" name="checkingDueDate"
+                                   value="<%=route.getCheckingDueDate()%>" readonly required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Person assigned to check</td>
+                        <td><input type="text" class="edit-text" name="responsibleForChecking"
+                                   value="<%=route.getResponsibleForChecking()%>" readonly required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Approve due date</td>
+                        <td><input type="text" class="edit-text" name="deadline" value="<%=route.getDeadline()%>"
+                                   readonly
+                                   required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Person assign to approve</td>
+                        <td><input type="text" class="edit-text" name="responsibleForApproving"
+                                   value="<%=route.getResponsibleForApproving()%>" readonly required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Comments</td>
+                        <td><input type="text" class="edit-text" name="comments" value="<%=route.getComments()%>"
+                                   readonly required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date of creation</td>
+                        <td><%=route.getCreationDate()%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Finish date</td>
+                        <td><%=route.getFinishDate()%>
+                        </td>
+                    </tr>
 
-            </table>
+                    <input type="hidden" name="routeId" value="<%=route.getId()%>">
+                    <input type="hidden" name="documentId" value="<%=document.getId()%>">
+
+                    <script src="jsscripts/editform.js"></script>
+
+                </table>
+
+                <%
+                    if(!route.getState().equals("checking") && !route.getState().equals("approving") && !route.getState().equals("completed") || role.equals("admin")) {
+                %>
+
+                <button type="button" id="editButton" class="button-edit" style="visibility:visible" onclick="edit()">
+                    Edit
+                </button>
+                <button type="submit" id="saveButton" class="button-edit" style="visibility:hidden" onclick="save()">
+                    Save
+                </button>
+                <button type="button" id="cancelButton" class="button-edit" style="visibility:hidden"
+                        onclick="cancel()">Cancel
+                </button>
+                <br>
+
+                <%
+                    }
+                %>
+
+            </form>
+
         </div>
 
         <div class="route-stages">
@@ -413,7 +440,7 @@
                     <li><i class="fas fa-flag-checkered fa-3x"></i></li>
 
                     <%
-                        } else if (route.getState().equals("checking")) {
+                    } else if (route.getState().equals("checking")) {
                     %>
 
                     <li class="active"><i class="fas fa-flag fa-3x"></i></li>
@@ -421,7 +448,7 @@
                     <li>Approving</li>
                     <li><i class="fas fa-flag-checkered fa-3x"></i></li>
                     <%
-                        } else if (route.getState().equals("approving")) {
+                    } else if (route.getState().equals("approving")) {
                     %>
 
                     <li class="active"><i class="fas fa-flag fa-3x"></i></li>
@@ -430,7 +457,7 @@
                     <li><i class="fas fa-flag-checkered fa-3x"></i></li>
 
                     <%
-                        } else if (route.getState().equals("completed")) {
+                    } else if (route.getState().equals("completed")) {
                     %>
 
                     <li class="active"><i class="fas fa-flag fa-3x"></i></li>
@@ -447,13 +474,6 @@
             </div>
 
         </div>
-
-            <button type="button" id="editButton" class="button-edit" style="visibility:visible" onclick="edit()">Edit</button>
-            <button type="button" id="saveButton" class="button-edit" style="visibility:hidden" onclick="save()">Save</button>
-            <button type="button" id="cancelButton" class="button-edit" style="visibility:hidden" onclick="cancel()">Cancel</button>
-            <br>
-
-        </form>
 
     </div>
 

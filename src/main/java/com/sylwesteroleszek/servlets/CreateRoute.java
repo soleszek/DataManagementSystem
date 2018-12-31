@@ -23,8 +23,8 @@ import java.util.List;
 
 @WebServlet("/CreateRoute")
 public class CreateRoute extends HttpServlet {
-    RouteDao routeDao = new RouteDaoImpl();
-    DocumentDao documentDao = new DocumentDaoImpl();
+    private RouteDao routeDao = new RouteDaoImpl();
+    private DocumentDao documentDao = new DocumentDaoImpl();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

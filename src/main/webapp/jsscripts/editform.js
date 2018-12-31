@@ -2,7 +2,6 @@ function edit(){
     document.getElementById("editButton").style.visibility="hidden";
     document.getElementById("saveButton").style.visibility="visible";
     document.getElementById("cancelButton").style.visibility="visible";
-    document.getElementById("select-role").style.visibility="visible";
     var elements = document.getElementsByClassName("edit-text");
 
     for (i=0; i<elements.length; i++){
@@ -15,7 +14,6 @@ function save(){
     document.getElementById("editButton").style.visibility="visible";
     document.getElementById("saveButton").style.visibility="hidden";
     document.getElementById("cancelButton").style.visibility="hidden";
-    document.getElementById("select-role").style.visibility="hidden";
     var elements = document.getElementsByClassName("edit-text");
 
     for(i=0; i<elements.length; i++){
@@ -28,7 +26,6 @@ function cancel(){
     document.getElementById("editButton").style.visibility="visible";
     document.getElementById("saveButton").style.visibility="hidden";
     document.getElementById("cancelButton").style.visibility="hidden";
-    document.getElementById("select-role").style.visibility="hidden";
     var elements = document.getElementsByClassName("edit-text");
 
     for(i=0; i<elements.length; i++){
