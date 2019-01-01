@@ -27,6 +27,21 @@ public class DataOperations {
         }
     }
 
+    public static void deleteData(String docType, String fileName){
+        if(docType.equals("drawing")){
+
+            delete(drawingsPath, fileName);
+
+        } else if (docType.equals("document")){
+
+            delete(documentsPath, fileName);
+
+        } else if(docType.equals("image")) {
+
+            delete(imagesPath, fileName);
+        }
+    }
+
     public static DataInputStream loadData(String docType, String fileName){
         if(docType.equals("drawing")){
 
@@ -45,7 +60,14 @@ public class DataOperations {
         return null;
     }
 
-    public static void deleteData(String docType){
+    private static boolean delete(String path, String fileName){
+
+        File targetFile = new File(path + fileName);
+        boolean isFileDeleted = false;
+
+        isFileDeleted = targetFile.delete();
+
+        return isFileDeleted;
 
     }
 

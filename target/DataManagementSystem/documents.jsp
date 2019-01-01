@@ -289,29 +289,6 @@
 
             </li>
             <li>
-                <%
-                    if (!role.equals("viewer")) {
-                %>
-                <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-minus-square fa-2x"></i>
-                        <i class="fas fa-minus-square fa-2x" title="Delete"></i>
-                    </div>
-                </a>
-                <%
-                } else {
-                %>
-                <a href="#">
-                    <div class="icon-disabled">
-                        <i class="fas fa-minus-square fa-2x" title="You don't have privileges"></i>
-                    </div>
-                </a>
-                <%
-                    }
-                %>
-
-            </li>
-            <li>
                 <a href="#">
                     <div class="icon">
                         <i class="fas fa-filter fa-2x"></i>

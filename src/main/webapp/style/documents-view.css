@@ -302,3 +302,41 @@ tr:nth-child(odd) {
     margin: 2px 2px;
     margin-top: 10px;
 }
+
+table.user-table td {
+    border-bottom: 1px solid #000;
+    border-collapse: collapse;
+    padding: 8px;
+    font-size: 20px;
+    background-color: #dedede;
+}
+
+table.user-table td:nth-child(2) {
+    background-color: #e7e9ec;
+}
+
+table.document-table td {
+    border-bottom: 1px solid #000;
+    border-collapse: collapse;
+    padding: 8px;
+    font-size: 20px;
+    background-color: #dedede;
+}
+
+table.document-table td:nth-child(2) {
+    background-color: #e7e9ec;
+}
+
+.edit-text {
+    border: none;
+    background-color: transparent;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.noedit-text {
+    border: none;
+    background-color: transparent;
+    font-family: sans-serif;
+    font-size: 20px;
+}

@@ -16,17 +16,6 @@
             font-family: Helvetica, Arial, sans-serif;
         }
 
-        /* Full-width input fields */
-        input[type=text], input[type=password] {
-            width: 90%;
-            padding: 12px 20px;
-            margin: 8px 26px;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
         /* Set a style for all buttons */
         button {
             background-color: #46b7ce;
@@ -286,11 +275,11 @@
             </tr>
             <tr>
                 <td>First Name</td>
-                <td><input type="text" class="edit-text" name="userName" value="<%=userObject.getUserName()%>" readonly required></td>
+                <td><input type="text" class="edit-text" name="userName" value="<%=userObject.getUserName()%>" readonly required size="35"></td>
             </tr>
             <tr>
                 <td>Last Name</td>
-                <td><input type="text" class="edit-text" name="lastName" value="<%=userObject.getLastName()%>" readonly required></td>
+                <td><input type="text" class="edit-text" name="lastName" value="<%=userObject.getLastName()%>" readonly required size="35"></td>
             </tr>
             <tr>
                 <td>Role</td>
@@ -305,7 +294,7 @@
                 </td>
             </tr>
             <tr>
-                <td>User Name</td>
+                <td>Login</td>
                 <td><input type="text" class="edit-text" name="login" value="<%=userObject.getLogin()%>" readonly required>
                 </td>
             </tr>
@@ -353,7 +342,7 @@
                 <h1 style="text-align:center">Delete user</h1>
             </div>
 
-            <div class="container"><h3 style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You about to delete <%=userObject.getLogin()%></h3>
+            <div class="container"><h3 style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You are about to delete <%=userObject.getLogin()%></h3>
 
                 <input type="hidden" name="userId" value="<%=userObject.getId()%>">
 

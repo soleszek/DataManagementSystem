@@ -31,9 +31,12 @@ public class DocumentRoutes extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Long id = Long.parseLong(req.getParameter("documentId"));
 
-        Document document = documentDao.findBy(id);
+        String documentIdString = req.getParameter("documentId");
+
+        Long documentId = Long.parseLong(documentIdString);
+
+        Document document = documentDao.findBy(documentId);
 
         List<User> users = userDao.findAll();
 
@@ -50,7 +53,7 @@ public class DocumentRoutes extends HttpServlet {
         List<Route> existingRoutes;
 
         existingRoutes = routes.stream()
-                    .filter(r -> r.getDocumentBeingApprovedId().equals(String.valueOf(id)))
+                    .filter(r -> r.getDocumentBeingApprovedId().equals(String.valueOf(documentId)))
                     .collect(Collectors.toList());
 
         req.setAttribute("existingRoutes", existingRoutes);

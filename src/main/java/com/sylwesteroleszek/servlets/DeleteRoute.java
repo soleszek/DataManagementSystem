@@ -1,6 +1,7 @@
 package com.sylwesteroleszek.servlets;
 
 import com.sylwesteroleszek.dao.RouteDao;
+import com.sylwesteroleszek.entity.Route;
 import com.sylwesteroleszek.providers.DaoProvider;
 
 import javax.servlet.RequestDispatcher;
@@ -21,9 +22,15 @@ public class DeleteRoute extends HttpServlet {
 
         Long routeId = Long.parseLong(routeIdString);
 
+        Route route = routeDao.findBy(routeId);
+
+        String documentIdString = route.getDocumentBeingApprovedId();
+        Long documentId = Long.parseLong(documentIdString);
+
         routeDao.delete(routeId);
 
-        RequestDispatcher rd = req.getRequestDispatcher("DocumentRoutes");
+        req.setAttribute("documentId", documentId);
+        RequestDispatcher rd = req.getRequestDispatcher("DocumentRoutes?documentId=" + documentId);
         rd.forward(req, resp);
     }
 }
