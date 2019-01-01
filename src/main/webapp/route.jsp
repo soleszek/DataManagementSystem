@@ -299,8 +299,8 @@
                 %>
                 <a href="#">
                     <div class="icon">
-                        <i class="fas fa-edit fa-2x"></i>
-                        <i class="fas fa-edit fa-2x" title="Edit"></i>
+                        <i class="fas fa-minus-square fa-2x"></i>
+                        <i class="fas fa-minus-square fa-2x" title="Delete" onclick="document.getElementById('modal-wrapper-deleteroute').style.display='block'"></i>
                     </div>
                 </a>
                 <%
@@ -309,7 +309,7 @@
 
                 <a href="#">
                     <div class="icon-disabled">
-                        <i class="fas fa-edit fa-2x" title="You don't have privileges"></i>
+                        <i class="fas fa-minus-square fa-2x" title="You don't have privileges"></i>
                     </div>
                 </a>
 
@@ -518,10 +518,42 @@
 
     </div>
 
+    <div id="modal-wrapper-deleteroute" class="modal">
+
+        <form class="modal-content animate" action="DeleteRoute" method="get">
+
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('modal-wrapper-deleteroute').style.display='none'" class="close"
+                      title="Close PopUp">&times;</span>
+                <img src="style/delete-route.jpeg" alt="Document" class="avatar">
+                <h1 style="text-align:center">Delete route</h1>
+            </div>
+
+            <div class="container"><h3 style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You are about to delete route nr <%=route.getName()%></h3>
+
+                <input type="hidden" name="routeId" value="<%=route.getId()%>">
+
+                <button type="submit">Complete</button>
+            </div>
+        </form>
+
+    </div>
+
     <script>
         // If user clicks anywhere outside of the modal, Modal will close
 
         var modal = document.getElementById('modal-content-start-route');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+        // If user clicks anywhere outside of the modal, Modal will close
+
+        var modal = document.getElementById('modal-wrapper-deleteroute');
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";

@@ -1,6 +1,6 @@
 package com.sylwesteroleszek.servlets;
 
-import com.sylwesteroleszek.dao.UserDao;
+import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.providers.DaoProvider;
 
 import javax.servlet.RequestDispatcher;
@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/DeleteUser")
-public class DeleteUser extends HttpServlet {
-    private UserDao userDao = DaoProvider.getInstance().getUserDao();
+@WebServlet("/DeleteDocument")
+public class DeleteDocument extends HttpServlet {
+    private DocumentDao documentDao = DaoProvider.getInstance().getDocumentDao();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String userIdString = req.getParameter("userId");
+        String documentIdString = req.getParameter("documentId");
 
-        Long userId = Long.parseLong(userIdString);
+        Long documentId = Long.parseLong(documentIdString);
 
-        userDao.delete(userId);
+        documentDao.delete(documentId);
 
-        RequestDispatcher rd = req.getRequestDispatcher("AllUsers");
+        RequestDispatcher rd = req.getRequestDispatcher("AllDocuments");
         rd.forward(req, resp);
     }
 }
