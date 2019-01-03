@@ -248,12 +248,26 @@
     <div id="navbar">
         <ul>
             <li>
+                <%
+                    if(role.equals("admin")) {
+                %>
                 <a href="#">
                     <div class="icon">
                         <i class="fas fa-minus-square fa-2x"></i>
                         <i class="fas fa-minus-square fa-2x" title="Delete user" onclick="document.getElementById('modal-wrapper-deleteuser').style.display='block'"></i>
                     </div>
                 </a>
+                <%
+                } else {
+                %>
+                <a href="#">
+                    <div class="icon-disabled">
+                        <i class="fas fa-minus-square fa-2x" title="You don't have privileges"></i>
+                    </div>
+                </a>
+                <%
+                    }
+                %>
             </li>
         </ul>
     </div>

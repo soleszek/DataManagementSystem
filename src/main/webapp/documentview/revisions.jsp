@@ -86,7 +86,7 @@
         <ul>
             <li>
                 <%
-                    if(!role.equals("viewer")){
+                    if(!role.equals("viewer") && !document.getState().equals("in work") && !document.getState().equals("frozen")) {
                 %>
                 <a href="#">
                     <div class="icon">
@@ -107,7 +107,7 @@
                     }
                 %>
             </li>
-            <li>
+           <%-- <li>
                 <%
                     if(!role.equals("viewer")){
                 %>
@@ -129,7 +129,7 @@
                     }
                 %>
 
-            </li>
+            </li>--%>
             <li>
                 <a href="#">
                     <div class="icon">
