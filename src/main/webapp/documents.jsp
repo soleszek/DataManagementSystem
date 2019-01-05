@@ -262,7 +262,7 @@
     </div>
 
     <div id="navbar">
-        <ul>
+        <ul class="sliding-icons">
             <li>
                 <%
                     if (!role.equals("viewer")) {
@@ -292,7 +292,31 @@
                 <a href="#">
                     <div class="icon">
                         <i class="fas fa-filter fa-2x"></i>
-                        <i class="fas fa-filter fa-2x" title="Filter"></i>
+                        <i class="fas fa-filter fa-2x" title="Show all"></i>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="icon">
+                        <i class="fas fa-filter fa-2x"></i>
+                        <i class="fas fa-filter fa-2x" title="Show in work"></i>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="icon">
+                        <i class="fas fa-filter fa-2x"></i>
+                        <i class="fas-orange fa-filter fa-2x" title="Show frozen"></i>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="icon">
+                        <i class="fas fa-filter fa-2x"></i>
+                        <i class="fas-blue fa-filter fa-2x" title="Show released"></i>
                     </div>
                 </a>
             </li>
