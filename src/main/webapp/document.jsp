@@ -260,7 +260,7 @@
                 <a href="#">
                     <div class="icon">
                         <i class="fas fa-minus-square fa-2x"></i>
-                        <i class="fas fa-minus-square fa-2x" title="Delete user" onclick="document.getElementById('modal-wrapper-deletedocument').style.display='block'"></i>
+                        <i class="fas fa-minus-square fa-2x" title="Delete document" onclick="document.getElementById('modal-wrapper-deletedocument').style.display='block'"></i>
                     </div>
                 </a>
                 <%
