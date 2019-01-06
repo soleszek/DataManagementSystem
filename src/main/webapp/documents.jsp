@@ -15,8 +15,8 @@
 
     <style>
         * {
-            margin: 0px;
-            padding: 0px;
+            margin: 0;
+            padding: 0;
             font-family: Helvetica, Arial, sans-serif;
         }
 
