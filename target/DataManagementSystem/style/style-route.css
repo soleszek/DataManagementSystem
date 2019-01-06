@@ -19,11 +19,94 @@ body {
     letter-spacing: 3px;
 }
 
-#menu {
+.menu {
     background-color: #303030;
+    color: white;
+    padding: 6px;
     margin-top: 20px;
-    color: #ffffff;
+    height: 65px;
+}
+
+.topmenu{
+    float: left;
     padding: 10px;
+    width: 496px;
+}
+
+#search{
+    float: left;
+    padding: 10px;
+    width: 496px;
+    /*border: 2px solid white;*/
+}
+
+.thing{
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    border: 1px solid #000;
+    width: 400px;
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.thing .thing-label{
+    width: 100%;
+    position: absolute;
+    line-height: 40px;
+    color: #000;
+    left: 50px;
+    z-index: 1;
+    font-size: 20px;
+}
+
+.thing .thing-text{
+    padding-left: 40px;
+    width: 0;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 11;
+    background: #e91e63;
+    font-size: 20px;
+}
+
+.thing .thing-text:focus{
+    width: 90%;
+    outline: none;
+    cursor: text;
+    background: #fff;
+}
+
+.thing .thing-text:focus + .thing-btn{
+    opacity: 1;
+    left: 320px;
+    z-index: 11;
+    background: #e91e63;
+    font-size: 20px;
+}
+
+.thing .thing-btn{
+    position: absolute;
+    z-index: -11;
+    opacity: 0;
+    left: 0;
+    border: none;
+    top: 0;
+    cursor: pointer;
+    width: 80px;
+    height: 50px;
+    color: white;
+}
+
+.thing .thing-label, .thing .thing-text, .thing .thing-btn{
+    display: inline-block;
+    height: 100%;
+    transition: 0.4s ease;
+    cursor: pointer;
 }
 
 #sidebar{
@@ -38,9 +121,9 @@ body {
 }
 
 #navbar{
-    width: 1600px;
+    width: 1416px;
+    height: 40px;
     background-color: #dedede;
-    min-height: 20px;
     border-bottom: 2px dotted #666666;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -48,8 +131,8 @@ body {
 
 #content {
     float: left;
-    padding: 40px;
-    width: 1340px;
+    padding: 2px;
+    width: 1416px;
     background-color: #dedede;
     min-height: 650px;
     text-align: justify;
@@ -61,6 +144,7 @@ ul {
     padding: 4px 0;
     display: flex;
     transform: translate(0, 0%);
+    float: left;
 }
 
 ul li{
@@ -222,13 +306,17 @@ table td:nth-child(2) {
 }
 
 .route-stages{
-    height: 40%;
-    border-top: 2px solid #751b1b;
-    background-color: white;
+ /*   height: 40%;*/
+    height: 164px;
+    z-index: 1;
+    padding-top: 60px;
+    padding-left: 100px;
+    width: 100%;
 }
 
 .pg-container{
-    position: absolute;
+    /*position: absolute;*/
+    height: 150px;
     z-index: 1;
     margin-top: 50px;
     width: 65%;

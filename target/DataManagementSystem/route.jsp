@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="style/style-route.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
     <title>Route</title>
 
     <style>
@@ -18,17 +24,6 @@
             padding: 0px;
             font-family: Helvetica, Arial, sans-serif;
         }
-
-        /*!* Full-width input fields *!
-        input[type=text], input[type=password] {
-            width: 90%;
-            padding: 12px 20px;
-            margin: 8px 26px;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            font-size: 16px;
-        }*/
 
         /* Set a style for all buttons */
         button {
@@ -220,35 +215,62 @@
     <%
         Route route = (Route) request.getAttribute("route");
         Document document = (Document) request.getAttribute("document");
-        String role = (String)request.getSession().getAttribute("role");
+        String role = (String) request.getSession().getAttribute("role");
     %>
 
     <div id="logo">
         <span style="color:#c34f4f">Data</span> Management System
     </div>
 
-    <div id="search">
+    <div class="menu">
+
+        <div class="topmenu">
+            <label>Name</label>
+        </div>
+        <div id="search">
+            <ul class="sliding-icons">
+                <li>
+                    <a href="#">
+                        <div class="icon">
+                            <i class="fas fa-search fa-2x"></i>
+                            <i class="fas fa-search fa-2x" title="Advanced search"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <form action="" class="thing">
+                <label for="ddd" class="thing-label">
+                    Type to search...
+                </label>
+                <input type="text" name="ddd" id="ddd" class="thing-text">
+                <input type="submit" value="search" class="thing-btn">
+            </form>
+            <div style="clear: both"></div>
+        </div>
+
+        <div class="topmenu">
+            <div class="optionSO">
+                <form action="LogoutServlet" method="get">
+                    <input type="hidden" name="login" value="<%=login%>"/>
+                    <input type="submit" name="menu" value="Sign out">
+                </form>
+            </div>
+            <div class="option">
+                <form id="usershow" action="UserShow" method="get">
+                    <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
+                    </a>
+                </form>
+            </div>
+            <div class="optionSO">
+                <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+            </div>
+            <div style="clear: both"></div>
+
+        </div>
+        <div style="clear:both;"></div>
 
     </div>
-
-    <div id="menu">
-        <div class="optionSO">
-            <form action="LogoutServlet" method="get">
-                <input type="hidden" name="login" value="<%=login%>"/>
-                <input type="submit" name="menu" value="Sign out">
-            </form>
-        </div>
-        <div class="option">
-            <form id="usershow" action="UserShow" method="get">
-                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
-                </a>
-            </form>
-        </div>
-        <div class="optionSO">
-            <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
-        </div>
-        <div style="clear: both"></div>
-    </div>
+    <div style="clear:both"></div>
 
     <div id="sidebar">
         <div class="optionL"><a href="OpenDocument?documentId=<%=document.getId()%>">Properties</a></div>
@@ -263,72 +285,73 @@
         <div style="clear: both"></div>
     </div>
 
-    <div id="navbar">
-        <ul>
-            <li>
-                <%
-                    if (route.getState().equals("not started")) {
-                %>
-                <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-forward fa-2x"></i>
-                        <i class="fas fa-forward fa-2x" title="Start route"
-                           onclick="document.getElementById('modal-content-start-route').style.display='block'"></i>
-                    </div>
-                </a>
-                <%
-                } else {
-                %>
-
-                <a href="#">
-                    <div class="icon-disabled">
-                        <i class="fas fa-forward fa-2x" title="You don't have privileges"></i>
-                    </div>
-                </a>
-
-                <%
-                    }
-                %>
-
-
-            </li>
-
-            <li>
-                <%
-                    if (route.getState().equals("not started")) {
-                %>
-                <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-minus-square fa-2x"></i>
-                        <i class="fas fa-minus-square fa-2x" title="Delete" onclick="document.getElementById('modal-wrapper-deleteroute').style.display='block'"></i>
-                    </div>
-                </a>
-                <%
-                } else {
-                %>
-
-                <a href="#">
-                    <div class="icon-disabled">
-                        <i class="fas fa-minus-square fa-2x" title="You don't have privileges"></i>
-                    </div>
-                </a>
-
-                <%
-                    }
-                %>
-
-
-            </li>
-        </ul>
-    </div>
-
     <div id="content">
+
+        <div id="navbar">
+            <ul>
+                <li>
+                    <%
+                        if (route.getState().equals("not started")) {
+                    %>
+                    <a href="#">
+                        <div class="icon">
+                            <i class="fas fa-forward fa-2x"></i>
+                            <i class="fas fa-forward fa-2x" title="Start route"
+                               onclick="document.getElementById('modal-content-start-route').style.display='block'"></i>
+                        </div>
+                    </a>
+                    <%
+                    } else {
+                    %>
+
+                    <a href="#">
+                        <div class="icon-disabled">
+                            <i class="fas fa-forward fa-2x" title="You don't have privileges"></i>
+                        </div>
+                    </a>
+
+                    <%
+                        }
+                    %>
+
+
+                </li>
+
+                <li>
+                    <%
+                        if (route.getState().equals("not started")) {
+                    %>
+                    <a href="#">
+                        <div class="icon">
+                            <i class="fas fa-minus-square fa-2x"></i>
+                            <i class="fas fa-minus-square fa-2x" title="Delete"
+                               onclick="document.getElementById('modal-wrapper-deleteroute').style.display='block'"></i>
+                        </div>
+                    </a>
+                    <%
+                    } else {
+                    %>
+
+                    <a href="#">
+                        <div class="icon-disabled">
+                            <i class="fas fa-minus-square fa-2x" title="You don't have privileges"></i>
+                        </div>
+                    </a>
+
+                    <%
+                        }
+                    %>
+
+
+                </li>
+            </ul>
+        </div>
 
         <div class="route-table">
 
             <form id="edit-form" action="UpdateRoute" method="post">
 
-                <table class="user-table">
+                <table <%--class="user-table"--%> id="example" class="display" style="width:100%">
                     <col width="300">
 
                     <tr>
@@ -402,7 +425,7 @@
                 </table>
 
                 <%
-                    if(!route.getState().equals("checking") && !route.getState().equals("approving") && !route.getState().equals("completed") || role.equals("admin")) {
+                    if (!route.getState().equals("checking") && !route.getState().equals("approving") && !route.getState().equals("completed") || role.equals("admin")) {
                 %>
 
                 <button type="button" id="editButton" class="button-edit" style="visibility:visible" onclick="edit()">
@@ -426,7 +449,7 @@
 
         <div class="route-stages">
 
-            <div class="pg-container">
+            <%--<div class="pg-container">--%>
 
                 <ul class="progressbar">
 
@@ -471,7 +494,7 @@
 
                 </ul>
 
-            </div>
+            <%--</div>--%>
 
         </div>
 
@@ -529,7 +552,10 @@
                 <h1 style="text-align:center">Delete route</h1>
             </div>
 
-            <div class="container"><h3 style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You are about to delete route nr <%=route.getName()%></h3>
+            <div class="container"><h3
+                    style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You are about to
+                delete route nr <%=route.getName()%>
+            </h3>
 
                 <input type="hidden" name="routeId" value="<%=route.getId()%>">
 
@@ -563,6 +589,50 @@
 
     <script src="jsscripts/popup.js"></script>
     <script src="jsscripts/dropdownmenu.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Setup - add a text input to each footer cell
+            $('#example tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+            });
+
+            // DataTable
+            var table = $('#example').DataTable({
+                "lengthMenu": [[10, 20], [10, 20]]
+            });
+
+            /*// Apply the search
+            table.columns().every(function () {
+                var that = this;
+
+                $('input', this.footer()).on('keyup change', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });*/
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable();
+
+            $('#example_filter').hide(); // Hide default search datatables where example is the ID of table
+
+            $('#txtSearch').on('keyup', function () {
+                $('#example')
+                    .DataTable()
+                    .search($('#txtSearch').val(), false, true)
+                    .draw();
+            });
+        });
+    </script>
 
 </div>
 
