@@ -7,14 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c36d803-88fe-41d2-bf65-efca6c6a5f84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/document.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/document.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/documents.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/documents.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/style/documents-view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/documents-view.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/document.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/document.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/documents.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/documents.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/style/documents-view.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/style/documents-view.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -96,19 +90,19 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cell" value="137" />
-          <entry key="css" value="1658" />
+          <entry key="css" value="1692" />
           <entry key="dummy" value="34" />
           <entry key="java" value="13433" />
           <entry key="js" value="88" />
-          <entry key="jsp" value="7045" />
+          <entry key="jsp" value="7079" />
           <entry key="xml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1658" />
+          <entry key="CSS" value="1692" />
           <entry key="JAVA" value="13433" />
-          <entry key="JSP" value="7045" />
+          <entry key="JSP" value="7079" />
           <entry key="JavaScript" value="88" />
           <entry key="PLAIN_TEXT" value="34" />
           <entry key="Scratch" value="137" />
@@ -125,8 +119,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/documents.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="766">
-              <caret line="520" column="13" selection-start-line="520" selection-start-column="13" selection-end-line="520" selection-end-column="13" />
+            <state relative-caret-position="316">
+              <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -143,8 +137,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/style/documents-view.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="173" column="6" selection-start-line="173" selection-start-column="4" selection-end-line="174" selection-end-column="22" />
+            <state relative-caret-position="1335">
+              <caret line="89" column="1" lean-forward="true" selection-start-line="89" selection-start-column="1" selection-end-line="89" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -214,8 +208,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/search.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/style/style.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/style/style-route.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/style/documents-view.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/document.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/style/documents-view.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/documents.jsp" />
       </list>
     </option>
@@ -383,7 +377,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546780389435" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546785023476" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Pulpit" />
   </component>
@@ -525,12 +519,12 @@
       <workItem from="1546119737854" duration="21334000" />
       <workItem from="1546243914880" duration="3097000" />
       <workItem from="1546279362934" duration="50220000" />
-      <workItem from="1546678980466" duration="17418000" />
+      <workItem from="1546678980466" duration="20390000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220042000" />
+    <option name="totallyTimeSpent" value="223014000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="34" width="1920" height="1046" extended-state="6" />
@@ -937,15 +931,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/style/documents-view.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="173" column="6" selection-start-line="173" selection-start-column="4" selection-end-line="174" selection-end-column="22" />
+        <state relative-caret-position="1335">
+          <caret line="89" column="1" lean-forward="true" selection-start-line="89" selection-start-column="1" selection-end-line="89" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/documents.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="766">
-          <caret line="520" column="13" selection-start-line="520" selection-start-column="13" selection-end-line="520" selection-end-column="13" />
+        <state relative-caret-position="316">
+          <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />

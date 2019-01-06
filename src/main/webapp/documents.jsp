@@ -26,7 +26,17 @@
         }
 
         /* Full-width input fields */
-        input[type=text], input[type=password] {
+/*        input[type=text], input[type=password] {
+            width: 90%;
+            padding: 12px 20px;
+            margin: 8px 26px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+        }*/
+
+        .modal-text{
             width: 90%;
             padding: 12px 20px;
             margin: 8px 26px;
@@ -81,7 +91,7 @@
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 12;
             left: 0;
             top: 0;
             width: 100%;
@@ -455,13 +465,13 @@
                         <option value="image">Image (jpg, png)</option>
                     </select>
                 </div>
-                <input type="text" placeholder="Enter title" name="title" required>
-                <input type="text" readonly name="owner" value="<%=login%>">
+                <input type="text" class="modal-text" placeholder="Enter title" name="title" required>
+                <input type="text" class="modal-text" preadonly name="owner" value="<%=login%>">
                 <c:set var="now" value="<%=new java.util.Date()%>"/>
-                <input type="text" readonly name="creation date"
+                <input type="text" class="modal-text" preadonly name="creation date"
                        value="<fmt:formatDate type = "date" value = "${now}"/>">
-                <input type="file" name="file" class="file" required>
-                <input type="text" placeholder="Enter description" name="description" required>
+                <input type="file" class="modal-text" pname="file" class="file" required>
+                <input type="text" class="modal-text" pplaceholder="Enter description" name="description" required>
                 <button type="submit">Create</button>
             </div>
         </form>
@@ -485,24 +495,30 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            // DataTable
-            var table = $('#example').DataTable({
-                "lengthMenu": [[10, 20], [10, 20]]
-            });
-
-            // Apply the search
-            table.columns().every(function () {
-                var that = this;
-
-                $('input', this.footer()).on('keyup change', function () {
-                    if (that.search() !== this.value) {
-                        that
-                            .search(this.value)
-                            .draw();
-                    }
+                // Setup - add a text input to each footer cell
+                $('#example tfoot th').each(function () {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" placeholder="Search ' + title + '" />');
                 });
+
+                // DataTable
+                var table = $('#example').DataTable({
+                    "lengthMenu": [[10, 20], [10, 20]]
+                });
+
+                /*// Apply the search
+                table.columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change', function () {
+                        if (that.search() !== this.value) {
+                            that
+                                .search(this.value)
+                                .draw();
+                        }
+                    });
+                });*/
             });
-        });
     </script>
 
     <script type="text/javascript">
