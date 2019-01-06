@@ -224,7 +224,7 @@
     %>
 
     <div id="logo">
-        Data Management System
+        <span style="color:#c34f4f">Data</span> Management System
     </div>
 
     <div id="search">

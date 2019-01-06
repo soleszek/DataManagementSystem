@@ -7,19 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c36d803-88fe-41d2-bf65-efca6c6a5f84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/document.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/document.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/documents.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/documents.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/documentview/revisions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/documentview/revisions.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/documentview/routes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/documentview/routes.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/routeslist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/routeslist.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/tasks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/tasks.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/taskview.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/taskview.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/documents.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/documents.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/documentview/routes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/documentview/routes.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/adminpanel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/adminpanel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/allusers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/allusers.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/documentview/lifecycle.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/documentview/lifecycle.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/route.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/route.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewer.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -79,21 +73,21 @@
           <entry key="Route" value="24" />
           <entry key="Task" value="15" />
           <entry key="User" value="19" />
-          <entry key="css" value="47" />
+          <entry key="css" value="49" />
           <entry key="java" value="225" />
           <entry key="js" value="6" />
-          <entry key="jsp" value="263" />
+          <entry key="jsp" value="272" />
           <entry key="png" value="3" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="47" />
+          <entry key="CSS" value="49" />
           <entry key="Database Element" value="67" />
           <entry key="Image" value="3" />
           <entry key="JAVA" value="225" />
-          <entry key="JSP" value="263" />
+          <entry key="JSP" value="272" />
           <entry key="JavaScript" value="6" />
           <entry key="XML" value="1" />
         </counts>
@@ -101,19 +95,19 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cell" value="137" />
-          <entry key="css" value="1692" />
+          <entry key="css" value="1729" />
           <entry key="dummy" value="34" />
           <entry key="java" value="13433" />
           <entry key="js" value="88" />
-          <entry key="jsp" value="7307" />
+          <entry key="jsp" value="7341" />
           <entry key="xml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1692" />
+          <entry key="CSS" value="1729" />
           <entry key="JAVA" value="13433" />
-          <entry key="JSP" value="7307" />
+          <entry key="JSP" value="7341" />
           <entry key="JavaScript" value="88" />
           <entry key="PLAIN_TEXT" value="34" />
           <entry key="Scratch" value="137" />
@@ -126,26 +120,52 @@
     <favorites_list name="DataManagementSystem" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/style/documents-view.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="729">
-              <caret line="401" lean-forward="true" selection-start-line="401" selection-end-line="401" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/dashboard.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="44" column="54" lean-forward="true" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/style/documents-view.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="489">
+                  <caret line="185" column="1" lean-forward="true" selection-start-line="147" selection-end-line="185" selection-end-column="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/allusers.jsp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="105">
+                  <caret line="111" column="25" selection-start-line="111" selection-start-column="25" selection-end-line="111" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/documents.jsp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="468">
+                  <caret line="336" column="14" lean-forward="true" selection-start-line="307" selection-start-column="8" selection-end-line="336" selection-end-column="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/style/style.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="7920">
+                  <caret line="528" column="20" selection-start-line="528" selection-start-column="20" selection-end-line="528" selection-end-column="20" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -183,9 +203,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/CantCreateRevision.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CantCreateRevision.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/registration.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/viewer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/documentview/lifecycle.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/entity/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/UpdateUser.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsscripts/dropdownToInput.js" />
@@ -193,16 +210,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/UpdateDocument.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/CreateRoute.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/UpdateRoute.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/adminpanel.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/allusers.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/DeleteUser.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/route.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/DocumentRoutes.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/DeleteRoute.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/utils/DataOperations.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/DeleteDocument.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/search.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/style/style.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/style/style-route.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/style/documents-view.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/user.jsp" />
@@ -213,6 +226,13 @@
         <option value="$PROJECT_DIR$/src/main/webapp/routeslist.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/tasks.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/taskview.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/route.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/style/style.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/adminpanel.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/viewer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/documentview/lifecycle.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/allusers.jsp" />
       </list>
     </option>
   </component>
@@ -379,7 +399,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546791949611" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546793998832" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Pulpit" />
   </component>
@@ -521,18 +541,17 @@
       <workItem from="1546119737854" duration="21334000" />
       <workItem from="1546243914880" duration="3097000" />
       <workItem from="1546279362934" duration="50220000" />
-      <workItem from="1546678980466" duration="27542000" />
+      <workItem from="1546678980466" duration="29362000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230166000" />
+    <option name="totallyTimeSpent" value="231986000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="34" width="1920" height="1046" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21512248" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.21512248" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.29020235" />
       <window_info id="Persistence" order="2" side_tool="true" weight="0.32960597" />
       <window_info id="Designer" order="3" />
@@ -807,13 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="164" selection-start-line="164" selection-end-line="166" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/search.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -856,36 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/documentview/lifecycle.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminpanel.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/allusers.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="95" column="16" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/registration.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/route.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3300">
-          <caret line="220" selection-start-line="220" selection-end-line="220" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/viewer.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/documentview/revisions.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -904,13 +886,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="246" column="106" selection-start-line="246" selection-start-column="106" selection-end-line="246" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/documents.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="271" column="106" selection-start-line="271" selection-start-column="106" selection-end-line="271" selection-end-column="106" />
         </state>
       </provider>
     </entry>
@@ -945,17 +920,71 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/documents-view.css">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/registration.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="401" lean-forward="true" selection-start-line="401" selection-end-line="401" />
+        <state relative-caret-position="-195" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/route.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3390">
+          <caret line="226" column="65" selection-start-line="226" selection-start-column="65" selection-end-line="226" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7920">
+          <caret line="528" column="20" selection-start-line="528" selection-start-column="20" selection-end-line="528" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/dashboard.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="44" column="54" lean-forward="true" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
+        <state relative-caret-position="-36">
+          <caret line="86" column="34" selection-start-line="86" selection-start-column="34" selection-end-line="86" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminpanel.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="118" selection-start-line="8" selection-start-column="118" selection-end-line="8" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/documentview/lifecycle.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1191">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/viewer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="118" selection-start-line="8" selection-start-column="118" selection-end-line="8" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/documents-view.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="185" column="1" lean-forward="true" selection-start-line="147" selection-end-line="185" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/documents.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="336" column="14" lean-forward="true" selection-start-line="307" selection-start-column="8" selection-end-line="336" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/allusers.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="111" column="25" selection-start-line="111" selection-start-column="25" selection-end-line="111" selection-end-column="25" />
         </state>
       </provider>
     </entry>

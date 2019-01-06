@@ -86,7 +86,7 @@
             </div>
             <div class="option">
                 <form id="usershow" action="UserShow" method="get">
-                    <a href="#">Witaj Sylwester
+                    <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
                     </a>
                 </form>
             </div>
