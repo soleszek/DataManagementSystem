@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style/documents-view.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
@@ -26,17 +27,17 @@
         }
 
         /* Full-width input fields */
-/*        input[type=text], input[type=password] {
-            width: 90%;
-            padding: 12px 20px;
-            margin: 8px 26px;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            font-size: 16px;
-        }*/
+        /*        input[type=text], input[type=password] {
+                    width: 90%;
+                    padding: 12px 20px;
+                    margin: 8px 26px;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                    font-size: 16px;
+                }*/
 
-        .modal-text{
+        .modal-text {
             width: 90%;
             padding: 12px 20px;
             margin: 8px 26px;
@@ -268,7 +269,7 @@
             </div>
             <div class="option">
                 <form id="usershow" action="UserShow" method="get">
-                    <a href="#">Witaj Sylwester
+                    <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
                     </a>
                 </form>
             </div>
@@ -350,92 +351,102 @@
 
             %>
             <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Title</th>
-                    <th><i class="far fa-window-restore"></i></th>
-                    <th>Type</th>
-                    <th>State</th>
-                    <th>Revision</th>
-                    <th>Owner</th>
-                    <th>Creation date</th>
-                    <th>Last modified</th>
-                    <th>Attachement</th>
-                    <th>Description</th>
-                </tr>
+            <tr>
+                <th>Name</th>
+                <th>Title</th>
+                <th><i class="far fa-window-restore"></i></th>
+                <th>Type</th>
+                <th>State</th>
+                <th>Revision</th>
+                <th>Owner</th>
+                <th>Creation date</th>
+                <th>Last modified</th>
+                <th>Attachement</th>
+                <th>Description</th>
+            </tr>
             </thead>
-            <%--<% if (role.equals("viewer")) {
+            <%
+                if (role.equals("viewer")) {
+            %>
+            <tbody>
+            <%
                 for (Document d : approvedDocuments) {
             %>
-            <tbody>
-                <tr>
-                    <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getName()%>
-                    </a></td>
-                    <td><%=d.getTitle()%>
-                    </td>
-                    <td>
-                        <div id="popup" onclick="openPopup('OpenDocument?documentId=<%=d.getId()%>')"><i
-                                class="far fa-window-restore"></i></div>
-                    </td>
-                    <td><%=d.getType()%>
-                    </td>
-                    <td><%=d.getState()%>
-                    </td>
-                    <td><%=d.getRevision()%>
-                    </td>
-                    <td><%=d.getOwner()%>
-                    </td>
-                    <td><%=d.getCreationDate()%>
-                    </td>
-                    <td><%=d.getLastModification()%>
-                    </td>
-                    <td><%=d.getLink()%>
-                    </td>
-                    <td><%=d.getDescription()%>
-                    </td>
-                </tr>
-            </tbody>--%>
-            <tbody>
+            <tr>
+                <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getName()%>
+                </a></td>
+                <td><%=d.getTitle()%>
+                </td>
+                <td>
+                    <div id="popup" onclick="openPopup('OpenDocument?documentId=<%=d.getId()%>')"><i
+                            class="far fa-window-restore"></i></div>
+                </td>
+                <td><%=d.getType()%>
+                </td>
+                <td><%=d.getState()%>
+                </td>
+                <td><%=d.getRevision()%>
+                </td>
+                <td><%=d.getOwner()%>
+                </td>
+                <td><%=d.getCreationDate()%>
+                </td>
+                <td><%=d.getLastModification()%>
+                </td>
+                <td><%=d.getLink()%>
+                </td>
+                <td><%=d.getDescription()%>
+                </td>
+            </tr>
             <%
-             /*   }
-            } else {*/
-                for (Document d : documents) {
-            %>
-
-
-                <tr>
-                    <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getName()%>
-                    </a></td>
-                    <td><%=d.getTitle()%>
-                    </td>
-                    <td>
-                        <div id="popup" onclick="openPopup('OpenDocument?documentId=<%=d.getId()%>')"><i
-                                class="far fa-window-restore"></i></div>
-                    </td>
-                    <td><%=d.getType()%>
-                    </td>
-                    <td><%=d.getState()%>
-                    </td>
-                    <td><%=d.getRevision()%>
-                    </td>
-                    <td><%=d.getOwner()%>
-                    </td>
-                    <td><%=d.getCreationDate()%>
-                    </td>
-                    <td><%=d.getLastModification()%>
-                    </td>
-                    <td><%=d.getLink()%>
-                    </td>
-                    <td><%=d.getDescription()%>
-                    </td>
-                </tr>
-
-
-            <%
-                   /* }*/
                 }
             %>
             </tbody>
+
+            <%
+            } else {
+            %>
+
+            <tbody>
+            <%
+                for (Document d : documents) {
+            %>
+
+            <tr>
+                <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getName()%>
+                </a></td>
+                <td><%=d.getTitle()%>
+                </td>
+                <td>
+                    <div id="popup" onclick="openPopup('OpenDocument?documentId=<%=d.getId()%>')"><i
+                            class="far fa-window-restore"></i></div>
+                </td>
+                <td><%=d.getType()%>
+                </td>
+                <td><%=d.getState()%>
+                </td>
+                <td><%=d.getRevision()%>
+                </td>
+                <td><%=d.getOwner()%>
+                </td>
+                <td><%=d.getCreationDate()%>
+                </td>
+                <td><%=d.getLastModification()%>
+                </td>
+                <td><%=d.getLink()%>
+                </td>
+                <td><%=d.getDescription()%>
+                </td>
+            </tr>
+
+            <%
+                }
+            %>
+            </tbody>
+
+            <%
+                }
+            %>
 
         </table>
 
@@ -495,30 +506,30 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-                // Setup - add a text input to each footer cell
-                $('#example tfoot th').each(function () {
-                    var title = $(this).text();
-                    $(this).html('<input type="text" placeholder="Search ' + title + '" />');
-                });
-
-                // DataTable
-                var table = $('#example').DataTable({
-                    "lengthMenu": [[10, 20], [10, 20]]
-                });
-
-                /*// Apply the search
-                table.columns().every(function () {
-                    var that = this;
-
-                    $('input', this.footer()).on('keyup change', function () {
-                        if (that.search() !== this.value) {
-                            that
-                                .search(this.value)
-                                .draw();
-                        }
-                    });
-                });*/
+            // Setup - add a text input to each footer cell
+            $('#example tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
             });
+
+            // DataTable
+            var table = $('#example').DataTable({
+                "lengthMenu": [[10, 20], [10, 20]]
+            });
+
+            /*// Apply the search
+            table.columns().every(function () {
+                var that = this;
+
+                $('input', this.footer()).on('keyup change', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });*/
+        });
     </script>
 
     <script type="text/javascript">
@@ -535,7 +546,6 @@
             });
         });
     </script>
-
 
 </div>
 

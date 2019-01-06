@@ -12,21 +12,31 @@
     <link rel="stylesheet" href="style/documents-view.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
     <title>Task view</title>
 
     <style>
-        *{margin:0px; padding:0px; font-family:Helvetica, Arial, sans-serif;}
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: Helvetica, Arial, sans-serif;
+        }
 
         /* Full-width input fields */
-        input[type=text], input[type=password] {
-            width: 90%;
-            padding: 12px 20px;
-            margin: 8px 26px;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            font-size:16px;
-        }
+        /*        input[type=text], input[type=password] {
+                    width: 90%;
+                    padding: 12px 20px;
+                    margin: 8px 26px;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                    font-size:16px;
+                }*/
 
         /* Set a style for all buttons */
         button {
@@ -37,13 +47,14 @@
             border: none;
             cursor: pointer;
             width: 90%;
-            font-size:20px;
+            font-size: 20px;
         }
+
         button:hover {
             opacity: 0.8;
         }
 
-        .file{
+        .file {
             background-color: #46b7ce;
             color: white;
             padding: 14px 20px;
@@ -51,7 +62,7 @@
             margin-right: 50px;
             border: none;
             cursor: pointer;
-            font-size:15px;
+            font-size: 15px;
             width: 85%;
         }
 
@@ -61,23 +72,24 @@
             margin: 24px 0 12px 0;
             position: relative;
         }
+
         .avatar {
             width: 150px;
-            height:150px;
+            height: 150px;
             border-radius: 50%;
         }
 
         /* The Modal (background) */
         .modal {
-            display:none;
+            display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 12;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
         /* Modal Content Box */
@@ -98,7 +110,8 @@
             font-size: 35px;
             font-weight: bold;
         }
-        .close:hover,.close:focus {
+
+        .close:hover, .close:focus {
             color: red;
             cursor: pointer;
         }
@@ -107,9 +120,14 @@
         .animate {
             animation: zoom 0.6s
         }
+
         @keyframes zoom {
-            from {transform: scale(0)}
-            to {transform: scale(1)}
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
+            }
         }
 
         .custom-select {
@@ -143,7 +161,7 @@
         }
 
         /*style the items (options), including the selected item:*/
-        .select-items div,.select-selected {
+        .select-items div, .select-selected {
             color: #ffffff;
             padding: 14px 20px;
             margin-left: 24px;
@@ -177,7 +195,6 @@
         }
 
 
-
     </style>
 
 </head>
@@ -186,7 +203,7 @@
 <div id="container">
 
     <%
-        String userName = (String)request.getSession().getAttribute("userName");
+        String userName = (String) request.getSession().getAttribute("userName");
         String role = (String) request.getSession().getAttribute("role");
 
         String login = (String) request.getSession().getAttribute("login");
@@ -209,31 +226,62 @@
     %>
 
     <div id="logo">
-        Data Management System
+        <span style="color:#c34f4f">Data</span> Management System
     </div>
 
     <div id="search">
 
     </div>
 
-    <div id="menu">
-        <div class="optionSO">
-            <form action="LogoutServlet" method="get">
-                <input type="hidden" name="login" value="<%=login%>"/>
-                <input type="submit" name="menu" value="Sign out">
+    <div class="menu">
+
+        <div class="topmenu">
+            <label>Name</label>
+        </div>
+        <div id="search">
+            <ul class="sliding-icons">
+                <li>
+                    <a href="#">
+                        <div class="icon">
+                            <i class="fas fa-search fa-2x"></i>
+                            <i class="fas fa-search fa-2x" title="Advanced search"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <form action="" class="thing">
+                <label for="ddd" class="thing-label">
+                    Type to search...
+                </label>
+                <input type="text" name="ddd" id="ddd" class="thing-text">
+                <input type="submit" value="search" class="thing-btn">
             </form>
+            <div style="clear: both"></div>
         </div>
-        <div class="option">
-            <form id="usershow" action="UserShow" method="get">
-                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
-                </a>
-            </form>
+
+        <div class="topmenu">
+            <div class="optionSO">
+                <form action="LogoutServlet" method="get">
+                    <input type="hidden" name="login" value="<%=login%>"/>
+                    <input type="submit" name="menu" value="Sign out">
+                </form>
+            </div>
+            <div class="option">
+                <form id="usershow" action="UserShow" method="get">
+                    <a href="#">Witaj Sylwester
+                    </a>
+                </form>
+            </div>
+            <div class="optionSO">
+                <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+            </div>
+            <div style="clear: both"></div>
+
         </div>
-        <div class="optionSO">
-            <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
-        </div>
-        <div style="clear: both"></div>
+        <div style="clear:both;"></div>
+
     </div>
+    <div style="clear:both"></div>
 
     <div id="sidebar">
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
@@ -249,23 +297,24 @@
         <div style="clear: both"></div>
     </div>
 
-    <div id="navbar">
-        <ul>
-            <li>
-                <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-check-square fa-2x"></i>
-                        <i class="fas fa-check-square fa-2x" title="Complete" onclick="document.getElementById('modal-content-complete-task').style.display='block'"></i>
-                    </div>
-                </a>
-            </li>
-        </ul>
-
-    </div>
-
     <div id="content">
 
-        <table>
+        <div id="navbar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="icon">
+                            <i class="fas fa-check-square fa-2x"></i>
+                            <i class="fas fa-check-square fa-2x" title="Complete"
+                               onclick="document.getElementById('modal-content-complete-task').style.display='block'"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+        <table id="example" class="display" style="width:100%">
             <col width="300">
 
             <%
@@ -327,12 +376,16 @@
         <form class="modal-content animate" action="CompleteTask" method="get">
 
             <div class="imgcontainer">
-                <span onclick="document.getElementById('modal-content-complete-task').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                <span onclick="document.getElementById('modal-content-complete-task').style.display='none'"
+                      class="close" title="Close PopUp">&times;</span>
                 <img src="style/complete-task.png" alt="Document" class="avatar">
                 <h1 style="text-align:center">Complete task</h1>
             </div>
 
-            <div class="container"><h3 style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You are completing task <%=task.getId()%>, <%=task.getComments()%></h3>
+            <div class="container"><h3
+                    style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You are
+                completing task <%=task.getId()%>, <%=task.getComments()%>
+            </h3>
 
                 <input type="hidden" name="taskId" value="<%=task.getId()%>">
 
@@ -346,7 +399,7 @@
         // If user clicks anywhere outside of the modal, Modal will close
 
         var modal = document.getElementById('modal-content-complete-task');
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
@@ -354,6 +407,50 @@
     </script>
 
     <script src="jsscripts/popup.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Setup - add a text input to each footer cell
+            $('#example tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+            });
+
+            // DataTable
+            var table = $('#example').DataTable({
+                "lengthMenu": [[10, 20], [10, 20]]
+            });
+
+            /*// Apply the search
+            table.columns().every(function () {
+                var that = this;
+
+                $('input', this.footer()).on('keyup change', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });*/
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable();
+
+            $('#example_filter').hide(); // Hide default search datatables where example is the ID of table
+
+            $('#txtSearch').on('keyup', function () {
+                $('#example')
+                    .DataTable()
+                    .search($('#txtSearch').val(), false, true)
+                    .draw();
+            });
+        });
+    </script>
 
 </div>
 

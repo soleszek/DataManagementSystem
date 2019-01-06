@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
     <style>
         * {
             margin: 0px;
@@ -61,7 +66,7 @@
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 12;
             left: 0;
             top: 0;
             width: 100%;
@@ -181,7 +186,7 @@
 <div id="container">
 
     <%
-        String userName = (String)request.getSession().getAttribute("userName");
+        String userName = (String) request.getSession().getAttribute("userName");
         String role = (String) request.getSession().getAttribute("role");
 
         String login = (String) request.getSession().getAttribute("login");
@@ -200,30 +205,62 @@
     %>
 
     <div id="logo">
-        Data Management System
+        <span style="color:#c34f4f">Data</span> Management System
     </div>
 
     <div id="search">
 
     </div>
 
-    <div id="menu">
-        <div class="optionSO">
-            <form action="LogoutServlet" method="get">
-                <input type="hidden" name="login" value="<%=login%>"/>
-                <input type="submit" name="menu" value="Sign out">
+    <div class="menu">
+
+        <div class="topmenu">
+            <label>Name</label>
+        </div>
+        <div id="search">
+            <ul class="sliding-icons">
+                <li>
+                    <a href="#">
+                        <div class="icon">
+                            <i class="fas fa-search fa-2x"></i>
+                            <i class="fas fa-search fa-2x" title="Advanced search"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <form action="" class="thing">
+                <label for="ddd" class="thing-label">
+                    Type to search...
+                </label>
+                <input type="text" name="ddd" id="ddd" class="thing-text">
+                <input type="submit" value="search" class="thing-btn">
             </form>
+            <div style="clear: both"></div>
         </div>
-        <div class="option">
-            <form id = "usershow" action="UserShow" method="get">
-                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%></a>
-            </form>
+
+        <div class="topmenu">
+            <div class="optionSO">
+                <form action="LogoutServlet" method="get">
+                    <input type="hidden" name="login" value="<%=login%>"/>
+                    <input type="submit" name="menu" value="Sign out">
+                </form>
+            </div>
+            <div class="option">
+                <form id="usershow" action="UserShow" method="get">
+                    <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>>
+                    </a>
+                </form>
+            </div>
+            <div class="optionSO">
+                <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+            </div>
+            <div style="clear: both"></div>
+
         </div>
-        <div class="optionSO">
-            <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
-        </div>
-        <div style="clear: both"></div>
+        <div style="clear:both;"></div>
+
     </div>
+    <div style="clear:both"></div>
 
     <div id="sidebar">
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
@@ -245,90 +282,102 @@
         <div style="clear: both"></div>
     </div>
 
-    <div id="navbar">
-        <ul>
-            <li>
-                <%
-                    if(role.equals("admin")) {
-                %>
-                <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-minus-square fa-2x"></i>
-                        <i class="fas fa-minus-square fa-2x" title="Delete user" onclick="document.getElementById('modal-wrapper-deleteuser').style.display='block'"></i>
-                    </div>
-                </a>
-                <%
-                } else {
-                %>
-                <a href="#">
-                    <div class="icon-disabled">
-                        <i class="fas fa-minus-square fa-2x" title="You don't have privileges"></i>
-                    </div>
-                </a>
-                <%
-                    }
-                %>
-            </li>
-        </ul>
-    </div>
-
     <div id="content">
+
+        <div id="navbar">
+            <ul>
+                <li>
+                    <%
+                        if (role.equals("admin")) {
+                    %>
+                    <a href="#">
+                        <div class="icon">
+                            <i class="fas fa-minus-square fa-2x"></i>
+                            <i class="fas fa-minus-square fa-2x" title="Delete user"
+                               onclick="document.getElementById('modal-wrapper-deleteuser').style.display='block'"></i>
+                        </div>
+                    </a>
+                    <%
+                    } else {
+                    %>
+                    <a href="#">
+                        <div class="icon-disabled">
+                            <i class="fas fa-minus-square fa-2x" title="You don't have privileges"></i>
+                        </div>
+                    </a>
+                    <%
+                        }
+                    %>
+                </li>
+            </ul>
+        </div>
+
 
         <form id="edit-form" action="UpdateUser" method="post">
 
-        <table class="user-table">
-            <col width="220">
+            <table <%--class="user-table"--%> id="example" class="display" style="width:100%">
+                <col width="220">
+
+                <%
+                    User userObject = (User) request.getSession().getAttribute("user");
+                %>
+
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" class="noedit-text" name="name" value="<%=userObject.getName()%>" readonly disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" class="edit-text" name="userName" value="<%=userObject.getUserName()%>"
+                               readonly required size="35"></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" class="edit-text" name="lastName" value="<%=userObject.getLastName()%>"
+                               readonly required size="35"></td>
+                </tr>
+                <tr>
+                    <td>Role</td>
+                    <td><input type="text" class="noedit-text" id="role" name="role" value="<%=userObject.getRole()%>"
+                               readonly required>
+                        <select name="role" id="select-role" style="visibility: hidden;" onchange="replaceValue(event)">
+                            <option value="viewer">Viewer</option>
+                            <option value="viewer">Viewer</option>
+                            <option value="contributor">Contributor</option>
+                            <option value="manager">Manager</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Login</td>
+                    <td><input type="text" class="edit-text" name="login" value="<%=userObject.getLogin()%>" readonly
+                               required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>User Password</td>
+                    <td><input type="text" class="edit-text" name="password" value="<%=userObject.getPassword()%>"
+                               readonly required></td>
+                </tr>
+                <input type="hidden" name="userId" value="<%=userObject.getId()%>">
+
+            </table>
 
             <%
-                User userObject = (User)request.getSession().getAttribute("user");
-            %>
-
-            <tr>
-                <td>Name</td>
-                <td><%=userObject.getName()%></td>
-            </tr>
-            <tr>
-                <td>First Name</td>
-                <td><input type="text" class="edit-text" name="userName" value="<%=userObject.getUserName()%>" readonly required size="35"></td>
-            </tr>
-            <tr>
-                <td>Last Name</td>
-                <td><input type="text" class="edit-text" name="lastName" value="<%=userObject.getLastName()%>" readonly required size="35"></td>
-            </tr>
-            <tr>
-                <td>Role</td>
-                <td><input type="text" class="noedit-text" id="role" name="role" value="<%=userObject.getRole()%>" readonly required>
-                <select name="role" id="select-role" style="visibility: hidden;" onchange="replaceValue(event)">
-                    <option value="viewer">Viewer</option>
-                    <option value="viewer">Viewer</option>
-                    <option value="contributor">Contributor</option>
-                    <option value="manager">Manager</option>
-                    <option value="admin">Admin</option>
-                </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Login</td>
-                <td><input type="text" class="edit-text" name="login" value="<%=userObject.getLogin()%>" readonly required>
-                </td>
-            </tr>
-            <tr>
-                <td>User Password</td>
-                <td><input type="text" class="edit-text" name="password" value="<%=userObject.getPassword()%>" readonly required></td>
-            </tr>
-            <input type="hidden" name="userId" value="<%=userObject.getId()%>">
-
-        </table>
-
-            <%
-                if(role.equals("admin")) {
+                if (role.equals("admin")) {
             %>
 
             <br><br>
 
-            <button type="button" id="editButton" class="button-edit" style="visibility:visible" onclick="edit()">Edit</button>
-            <button type="button" id="saveButton" class="button-edit" style="visibility:hidden" onclick="save()">Save</button>
-            <button type="button" id="cancelButton" class="button-edit" style="visibility:hidden" onclick="cancel()">Cancel</button>
+            <button type="button" id="editButton" class="button-edit" style="visibility:visible" onclick="edit()">Edit
+            </button>
+            <button type="button" id="saveButton" class="button-edit" style="visibility:hidden" onclick="save()">Save
+            </button>
+            <button type="button" id="cancelButton" class="button-edit" style="visibility:hidden" onclick="cancel()">
+                Cancel
+            </button>
 
             <script src="jsscripts/editform-user.js"></script>
             <script src="jsscripts/dropdownToInput.js"></script>
@@ -356,7 +405,10 @@
                 <h1 style="text-align:center">Delete user</h1>
             </div>
 
-            <div class="container"><h3 style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You are about to delete <%=userObject.getLogin()%></h3>
+            <div class="container"><h3
+                    style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You are about to
+                delete <%=userObject.getLogin()%>
+            </h3>
 
                 <input type="hidden" name="userId" value="<%=userObject.getId()%>">
 
@@ -369,12 +421,56 @@
     <script>
         // If user clicks anywhere outside of the modal, Modal will close
 
-        var modal = document.getElementById('modal-wrapper');
+        var modal = document.getElementById('modal-wrapper-deleteuser');
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
         }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Setup - add a text input to each footer cell
+            $('#example tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+            });
+
+            // DataTable
+            var table = $('#example').DataTable({
+                "lengthMenu": [[10, 20], [10, 20]]
+            });
+
+            /*// Apply the search
+            table.columns().every(function () {
+                var that = this;
+
+                $('input', this.footer()).on('keyup change', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });*/
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable();
+
+            $('#example_filter').hide(); // Hide default search datatables where example is the ID of table
+
+            $('#txtSearch').on('keyup', function () {
+                $('#example')
+                    .DataTable()
+                    .search($('#txtSearch').val(), false, true)
+                    .draw();
+            });
+        });
     </script>
 
 </div>
