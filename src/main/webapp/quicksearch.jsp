@@ -1,5 +1,8 @@
 <%@ page import="com.sylwesteroleszek.entity.Document" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -14,7 +17,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
-    <title>Revisions</title>
+    <title>Quick search results</title>
+
 </head>
 <body>
 
@@ -22,6 +26,7 @@
 
     <%
         String userName = (String) request.getSession().getAttribute("userName");
+        String role = (String) request.getSession().getAttribute("role");
 
         String login = (String) request.getSession().getAttribute("login");
         Cookie[] cookies = request.getCookies();
@@ -36,11 +41,6 @@
         if (login == null) {
             response.sendRedirect("index.jsp");
         }
-    %>
-
-    <%
-        Document document = (Document) request.getSession().getAttribute("document");
-        String role = (String) request.getSession().getAttribute("role");
     %>
 
     <div id="logo">
@@ -98,37 +98,37 @@
     <div style="clear:both"></div>
 
     <div id="sidebar">
-        <div class="optionL"><a href="OpenDocument?documentId=<%=document.getId()%>">Properties</a></div>
-        <div class="optionL"><a href="DocumentRevisions?documentId=<%=document.getId()%>">Revisions</a></div>
+        <div class="optionL"><a href="AllDocuments">Documents</a></div>
 
         <% if (!role.equals("viewer")) { %>
 
-        <div class="optionL"><a href="DocumentRoutes?documentId=<%=document.getId()%>">Routes</a></div>
+        <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
+        <div class="optionL"><a href="AllUserTasks">Tasks</a></div>
 
         <% } %>
 
-        <div class="optionL"><a href="Lifecycle?documentId=<%=document.getId()%>">Lifecycle</a></div>
         <%
-            if (document.getType().equals("drawing")) {
+            if (role.equals("admin")) {
         %>
-        <div class="optionL"><a href="viewer.jsp">Viewer</a></div>
-        <% } %>
+        <div class="optionL"><a href="adminpanel.jsp">Admin Panel</a></div>
+        <%
+            }
+        %>
         <div style="clear: both"></div>
     </div>
 
     <div id="content">
-
         <div id="navbar">
-            <ul>
+            <ul class="sliding-icons">
                 <li>
                     <%
-                        if (!role.equals("viewer") && !document.getState().equals("in work") && !document.getState().equals("frozen")) {
+                        if (!role.equals("viewer")) {
                     %>
                     <a href="#">
                         <div class="icon">
-                            <i class="far fa-clone fa-2x"></i>
-                            <i class="far fa-clone fa-2x" title="Create new revision"
-                               onclick="javascript:location.href='CreateNewRevision?documentId=<%=document.getId()%>'"></i>
+                            <i class="fas fa-plus-square fa-2x"></i>
+                            <i class="fas fa-plus-square fa-2x" title="Create new document"
+                               onclick="document.getElementById('modal-wrapper').style.display='block'"></i>
                         </div>
                     </a>
                     <%
@@ -137,25 +137,31 @@
 
                     <a href="#">
                         <div class="icon-disabled">
-                            <i class="far fa-clone fa-2x" title="You don't have privileges"></i>
+                            <i class="fas fa-plus-square fa-2x" title="You don't have privileges"></i>
                         </div>
                     </a>
                     <%
                         }
                     %>
+
                 </li>
             </ul>
-
             <input id="txtSearch" placeholder="Filter table" class="form-control"/>
-
         </div>
-
 
         <table id="example" class="display" style="width:100%">
             <col width="60">
 
             <%
-                List<Document> documentRevisions = (List<Document>) request.getAttribute("documentRevisions");
+                List<Document> matchingDocuments = (List<Document>) request.getAttribute("matchingDocuments");
+                List<Document> approvedDocuments = new ArrayList<>();
+
+                for (Document d : matchingDocuments) {
+                    if (d.getState().equals("released")) {
+                        approvedDocuments.add(d);
+                    }
+                }
+
             %>
             <thead>
             <tr>
@@ -172,39 +178,88 @@
                 <th>Description</th>
             </tr>
             </thead>
+            <%
+                if (role.equals("viewer")) {
+            %>
             <tbody>
-            <% for (Document dR : documentRevisions) {
+            <%
+                for (Document d : approvedDocuments) {
             %>
             <tr>
-                <td><a href="OpenDocument?documentId=<%=dR.getId()%>" id="doc-link"><%=dR.getName()%>
+                <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getName()%>
                 </a></td>
-                <td><%=dR.getTitle()%>
+                <td><%=d.getTitle()%>
                 </td>
                 <td>
-                    <div id="popup" onclick="openPopup('OpenDocument?documentId=<%=dR.getId()%>')"><i
+                    <div id="popup" onclick="openPopup('OpenDocument?documentId=<%=d.getId()%>')"><i
                             class="far fa-window-restore"></i></div>
                 </td>
-                <td><%=dR.getType()%>
+                <td><%=d.getType()%>
                 </td>
-                <td><%=dR.getState()%>
+                <td><%=d.getState()%>
                 </td>
-                <td><%=dR.getRevision()%>
+                <td><%=d.getRevision()%>
                 </td>
-                <td><%=dR.getOwner()%>
+                <td><%=d.getOwner()%>
                 </td>
-                <td><%=dR.getCreationDate()%>
+                <td><%=d.getCreationDate()%>
                 </td>
-                <td><%=dR.getLastModification()%>
+                <td><%=d.getLastModification()%>
                 </td>
-                <td><%=dR.getLink()%>
+                <td><%=d.getLink()%>
                 </td>
-                <td><%=dR.getDescription()%>
+                <td><%=d.getDescription()%>
                 </td>
             </tr>
             <%
                 }
             %>
             </tbody>
+
+            <%
+            } else {
+            %>
+
+            <tbody>
+            <%
+                for (Document d : matchingDocuments) {
+            %>
+
+            <tr>
+                <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getName()%>
+                </a></td>
+                <td><%=d.getTitle()%>
+                </td>
+                <td>
+                    <div id="popup" onclick="openPopup('OpenDocument?documentId=<%=d.getId()%>')"><i
+                            class="far fa-window-restore"></i></div>
+                </td>
+                <td><%=d.getType()%>
+                </td>
+                <td><%=d.getState()%>
+                </td>
+                <td><%=d.getRevision()%>
+                </td>
+                <td><%=d.getOwner()%>
+                </td>
+                <td><%=d.getCreationDate()%>
+                </td>
+                <td><%=d.getLastModification()%>
+                </td>
+                <td><%=d.getLink()%>
+                </td>
+                <td><%=d.getDescription()%>
+                </td>
+            </tr>
+
+            <%
+                }
+            %>
+            </tbody>
+
+            <%
+                }
+            %>
 
         </table>
 
@@ -213,6 +268,17 @@
     <div id="footer">
         Sylwester Oleszek 2018 &copy;
     </div>
+
+    <script>
+        // If user clicks anywhere outside of the modal, Modal will close
+
+        var modal = document.getElementById('modal-wrapper');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
     <script src="jsscripts/popup.js"></script>
 
@@ -229,19 +295,6 @@
             var table = $('#example').DataTable({
                 "lengthMenu": [[10, 20], [10, 20]]
             });
-
-            /*// Apply the search
-            table.columns().every(function () {
-                var that = this;
-
-                $('input', this.footer()).on('keyup change', function () {
-                    if (that.search() !== this.value) {
-                        that
-                            .search(this.value)
-                            .draw();
-                    }
-                });
-            });*/
         });
     </script>
 
@@ -263,4 +316,5 @@
 </div>
 
 </body>
+
 </html>

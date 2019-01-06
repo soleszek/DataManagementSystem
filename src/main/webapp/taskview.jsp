@@ -249,11 +249,11 @@
                     </a>
                 </li>
             </ul>
-            <form action="" class="thing">
+            <form class="thing" action="QuickSearch" method="get">
                 <label for="ddd" class="thing-label">
                     Type to search...
                 </label>
-                <input type="text" name="ddd" id="ddd" class="thing-text">
+                <input type="text" name="phrase" id="ddd" class="thing-text">
                 <input type="submit" value="search" class="thing-btn">
             </form>
             <div style="clear: both"></div>

@@ -26,17 +26,6 @@
             font-family: Helvetica, Arial, sans-serif;
         }
 
-        /* Full-width input fields */
-        /*        input[type=text], input[type=password] {
-                    width: 90%;
-                    padding: 12px 20px;
-                    margin: 8px 26px;
-                    display: inline-block;
-                    border: 1px solid #ccc;
-                    box-sizing: border-box;
-                    font-size: 16px;
-                }*/
-
         .modal-text {
             width: 90%;
             padding: 12px 20px;
@@ -250,11 +239,11 @@
                     </a>
                 </li>
             </ul>
-            <form action="" class="thing">
+            <form class="thing" action="QuickSearch" method="get">
                 <label for="ddd" class="thing-label">
                     Type to search...
                 </label>
-                <input type="text" name="ddd" id="ddd" class="thing-text">
+                <input type="text" name="phrase" id="ddd" class="thing-text">
                 <input type="submit" value="search" class="thing-btn">
             </form>
             <div style="clear: both"></div>
