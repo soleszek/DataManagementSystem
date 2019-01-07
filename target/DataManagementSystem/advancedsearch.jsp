@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
     <title>Advanced search</title>
 
 </head>
@@ -113,7 +123,7 @@
     </div>
 
     <div id="content">
-        <div id="navbar">
+        <%--<div id="navbar">
             <ul class="sliding-icons">
                 <li>
                     <%
@@ -141,47 +151,254 @@
 
                 </li>
             </ul>
-        </div>
+        </div>--%>
 
-        <select id="select" onChange="handleSelection(value)">
+        <select id="object">
             <option selected>Select type of object</option>
-            <option value="div1">Document</option>
-            <option value="div2">Route</option>
-            <option value="div3">Task</option>
-            <option value="div4">User</option>
+            <option value="div1">Documents</option>
+            <option value="div2">Routes</option>
+            <option value="div3">Tasks</option>
+            <option value="div4">Users</option>
         </select>
-        <div class="hide" id="div1">
-            <form>
-                <label>Name</label><input type="text"></input><br/>
-                <input type="checkbox"/><br/>
-                <input type="text"></input><br/>
+        <div class="form-div1" id="div1">
+            <form class="edit-form" action="AdvancedSearchDocument" method="post">
+
+                <table id="example1" class="display" style="width:100%">
+                    <col width="220">
+
+                    <tr>
+                        <td>Name</td>
+                        <td><input type="text" name="name" value=""><td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Title</td>
+                        <td><input type="text" name="title" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td><input type="text" id=doctype name="doctype" value="" readonly>
+                            <select name="docstate" id="select-doctype" onchange="replaceValueDocType(event)">
+                                <option value="drawing">drawing</option>
+                                <option value="document">document</option>
+                                <option value="image">image</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Revision</td>
+                        <td><input type="text" name="revision" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td><input type="text" id="docstate" name="docstate" value="" readonly>
+                            <select name="docstate" id="select-docstate" onchange="replaceValueDocState(event)">
+                                <option value="inwork">in work</option>
+                                <option value="frozen">frozen</option>
+                                <option value="released">released</option>
+                                <option value="canceled">canceled</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Owner</td>
+                        <td><input type="text" name="owner" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Creation date</td>
+                        <td><input type="text" name="creationDate" value="" class="datepicker">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Last modified</td>
+                        <td><input type="text" name="lastModified" value="" class="datepicker">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td><input type="text" name="description" value="">
+                        </td>
+                    </tr>
+
+                </table>
+
+                <input type="submit" name="" value="search">
+
             </form>
         </div>
-        <div class="hide" id="div2">
-            <form>
-                <input type="checkbox"/><br/>
-                <input type="text"></input><br/>
-                <input type="checkbox"/><br/>
-                <input type="text"></input><br/>
-                <textarea></textarea>
+        <div class="form-div2" id="div2">
+            <form id="edit-form" action="AdvancedSearchRoute" method="post">
+
+                <table id="example2" class="display" style="width:100%">
+                    <col width="300">
+
+                    <tr>
+                        <td>Promotion request name</td>
+                        <td><input type="text" name="name" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Owner</td>
+                        <td><input type="text" name="owner" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Promoted document</td>
+                        <td><input type="text" name="promotedDocument" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td><input type="text" id="routestate" name="routestate" value="" readonly>
+                            <select name="routestate" id="select-routestate" onchange="replaceValueRouteState(event)">
+                                <option value="not started">not started</option>
+                                <option value="checking">checking</option>
+                                <option value="approving">approving</option>
+                                <option value="completed">completed</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Check due date</td>
+                        <td><input type="text" name="checkDueDate" value="" class="datepicker">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Person assigned to check</td>
+                        <td><input type="text" name="assignedToCheck" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Approve due date</td>
+                        <td><input type="text" name="approveDueDate" value="" class="datepicker">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Person assign to approve</td>
+                        <td><input type="text" name="assignToApprove" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Comments</td>
+                        <td><input type="text" name="comments" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date of creation</td>
+                        <td><input type="text" name="dateOfCreation" value="" class="datepicker">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Finish date</td>
+                        <td><input type="text" name="finishDate" value="" class="datepicker">
+                        </td>
+                    </tr>
+
+                </table>
+
+                <input type="submit" name="" value="search">
+
             </form>
         </div>
-        <div class="hide" id="div3">
-            <form>
-                <input type="checkbox"/><br/>
-                <input type="text"></input><br/>
-                <input type="checkbox"/><br/>
-                <input type="text"></input><br/>
-                <textarea></textarea>
+        <div class="form-div3" id="div3">
+            <form class="edit-form" action="AdvancedSearchTask" method="post">
+                <table id="example3" class="display" style="width:100%">
+                    <col width="300">
+
+                    <tr>
+                        <td>Task name</td>
+                        <td><input type="text" name="name" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Owner</td>
+                        <td><input type="text" name="owner" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Promoted document</td>
+                        <td><input type="text" name="promotedDocument" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td><input type="text" id="state" name="state" value="" readonly>
+                            <select name="state" id="select-state" onchange="replaceValueState(event)">
+                                <option value="active">Active</option>
+                                <option value="complete">Complete</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Due date</td>
+                        <td><input type="text" name="dueDate" value="" class="datepicker">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Task comment</td>
+                        <td><input type="text" name="comment" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Completion date</td>
+                        <td><input type="text" name="completionDate" value="" class="datepicker">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Your comment</td>
+                        <td><input type="text" name="comment" value="">
+                        </td>
+                    </tr>
+
+                </table>
+
+                <input type="submit" name="" value="search">
+
             </form>
         </div>
-        <div class="hide" id="div4">
-            <form>
-                <input type="checkbox"/><br/>
-                <input type="text"></input><br/>
-                <input type="checkbox"/><br/>
-                <input type="text"></input><br/>
-                <textarea></textarea>
+        <div class="form-div4" id="div4">
+            <form <%--id="edit-form"--%> action="AdvancedSearchUser" method="post">
+
+                <table id="example4" class="display" style="width:100%">
+                    <col width="220">
+
+                    <tr>
+                        <td>Name</td>
+                        <td><input type="text" name="name" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>First Name</td>
+                        <td><input type="text" name="firstName" value=""></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" name="lastName" value=""></td>
+                    </tr>
+                    <tr>
+                        <td>Role</td>
+                        <td><input type="text" id="role" name="role" value="" readonly>
+                            <select name="role" id="select-role" onchange="replaceValue(event)">
+                                <option value="viewer">Viewer</option>
+                                <option value="contributor">Contributor</option>
+                                <option value="manager">Manager</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Login</td>
+                        <td><input type="text" name="login" value="">
+                        </td>
+                    </tr>
+
+                </table>
+
+                <input type="submit" name="" value="search">
+
             </form>
         </div>
 
@@ -192,27 +409,89 @@
     </div>
 
     <script type="text/javascript">
+        $(document).ready(function () {
 
-        function handleSelection(choice) {
-//document.getElementById('select').disabled=true;
-            if (choice == 'div1') {
-                document.getElementById(choice).style.display = "block";
-                document.getElementById('div2').style.display = "none";
-            }
-            else if (choice == "div2") {
-                document.getElementById(choice).style.display = "block";
-                document.getElementById('div1').style.display = "none";
-            }
-            else if (choice == "div3") {
-                document.getElementById(choice).style.display = "block";
-                document.getElementById('div1').style.display = "none";
-            }
-            else if (choice == "div4") {
-                document.getElementById(choice).style.display = "block";
-                document.getElementById('div1').style.display = "none";
-            }
-        }
+            // Setup - add a text input to each footer cell
+            $('#example1 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+            });
+
+            // DataTable
+            var table = $('#example1').DataTable({
+                "lengthMenu": [[10, 20], [10, 20]]
+            });
+
+        });
     </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Setup - add a text input to each footer cell
+            $('#example2 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+            });
+
+            // DataTable
+            var table = $('#example2').DataTable({
+                "lengthMenu": [[10, 20], [10, 20]]
+            });
+
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Setup - add a text input to each footer cell
+            $('#example3 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+            });
+
+            // DataTable
+            var table = $('#example3').DataTable({
+                "lengthMenu": [[10, 20], [10, 20]]
+            });
+
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Setup - add a text input to each footer cell
+            $('#example4 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+            });
+
+            // DataTable
+            var table = $('#example4').DataTable({
+                "lengthMenu": [[10, 20], [10, 20]]
+            });
+
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+        });
+    </script>
+
+    <script src="jsscripts/advancedsearch.js"></script>
+    <script src="jsscripts/dropdownToInput.js"></script>
+    <script src="jsscripts/dropdownToInputState.js"></script>
+    <script src="jsscripts/dropdownToInputRouteState.js"></script>
+    <script src="jsscripts/dropdownToInputDocState.js"></script>
+    <script src="jsscripts/dropdownToInputDocType.js"></script>
+
+
 
 </div>
 

@@ -459,8 +459,8 @@
             <div class="container">
                 <div class="custom-select">
                     <select name="doctype">
-                        <option value="drawing">2D Drawing (pdf)</option>
-                        <option value="drawing">2D Drawing (pdf)</option>
+                        <option value="drawing">Drawing (pdf)</option>
+                        <option value="drawing">Drawing (pdf)</option>
                         <option value="document">Document (doc, docx)</option>
                         <option value="image">Image (jpg, png)</option>
                     </select>
