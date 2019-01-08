@@ -52,7 +52,7 @@
         <div id="search">
             <ul class="sliding-icons">
                 <li>
-                    <a href="#">
+                    <a href="advancedsearch.jsp">
                         <div class="icon">
                             <i class="fas fa-search fa-2x"></i>
                             <i class="fas fa-search fa-2x" title="Advanced search"></i>
@@ -114,7 +114,7 @@
             <input id="txtSearch" placeholder="Filter table" class="form-control"/>
         </div>
 
-        <table <%--class="task-table"--%> id="example" class="display" style="width:100%">
+        <table id="example" class="display" style="width:100%">
             <col width="60">
 
             <%

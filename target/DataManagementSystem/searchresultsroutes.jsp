@@ -1,11 +1,14 @@
-<%@ page import="com.sylwesteroleszek.entity.Task" %>
+<%@ page import="com.sylwesteroleszek.entity.Document" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.sylwesteroleszek.entity.Route" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Dashboard</title>
     <link rel="stylesheet" href="style/documents-view.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -15,7 +18,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
-    <title>Tasks</title>
+    <title>Quick search results</title>
+
 </head>
 <body>
 
@@ -96,8 +100,14 @@
 
     <div id="sidebar">
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
+
+        <% if (!role.equals("viewer")) { %>
+
         <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
         <div class="optionL"><a href="AllUserTasks">Tasks</a></div>
+
+        <% } %>
+
         <%
             if (role.equals("admin")) {
         %>
@@ -110,101 +120,75 @@
 
     <div id="content">
 
-        <div id="navbar">
-            <input id="txtSearch" placeholder="Filter table" class="form-control"/>
-        </div>
-
         <table id="example" class="display" style="width:100%">
             <col width="60">
 
             <%
-                List<Task> userTasks = (List<Task>) request.getAttribute("usertasks");
+                List<Route> matchingRoutes = (List<Route>) request.getAttribute("matchingRoutes");
             %>
-
             <thead>
             <tr>
-                <th>Task name</th>
+                <th>Promotion request name</th>
                 <th>Owner</th>
-                <th>Submitted document</th>
+                <th><i class="far fa-window-restore"></i></th>
+                <th>Promoted document</th>
                 <th>State</th>
-                <th>Due date</th>
+                <th>Check due date</th>
+                <th>Person assigned to check</th>
+                <th>Approve due date</th>
+                <th>Responsible for approving</th>
                 <th>Comments</th>
-                <th>Completion date</th>
+                <th>Creation date</th>
+                <th>Finish date</th>
             </tr>
             </thead>
-
+            <%
+                if (matchingRoutes != null) {
+            %>
             <tbody>
-            <% for (Task t : userTasks) {
+            <%
+                for (Route r : matchingRoutes) {
             %>
             <tr>
-                <td><a href="OpenTask?taskId=<%=t.getId()%>" id="doc-link"><%=t.getName()%>
-                </a></td>
-                <td><%=t.getOwner()%>
+                <td><a href="OpenRoute?routeId=<%=r.getId()%>" id="doc-link"><%=r.getName()%>
+                </a>
+                </td>
+                <td><%=r.getOwner()%>
+                </td>
+                <td>
+                    <div id="popup" onclick="openPopup('OpenRoute?routeId=<%=r.getId()%>')"><i
+                            class="far fa-window-restore"></i></div>
                 </td>
                 <td><span class="doc-link"
-                          onclick="openPopup('OpenDocument?documentId=<%=t.getDocumentBeingApprovedId()%>')"><%=t.getDocumentBeingApprovedName()%></span>
+                          onclick="openPopup('OpenDocument?documentId=<%=r.getDocumentBeingApprovedId()%>')"><%=r.getDocumentBeingApprovedName()%></span>
                 </td>
-                <td><%=t.getState()%>
+                <td><%=r.getState()%>
                 </td>
-                <td><%=t.getDueDate()%>
+                <td><%=r.getCheckingDueDate()%>
                 </td>
-                <td><%=t.getComments()%>
+                <td><%=r.getResponsibleForChecking()%>
                 </td>
-                <td><%=t.getCompletionDate()%>
+                <td><%=r.getDeadline()%>
+                </td>
+                <td><%=r.getResponsibleForApproving()%>
+                </td>
+                <td><%=r.getComments()%>
+                </td>
+                <td><%=r.getCreationDate()%>
+                </td>
+                <td><%=r.getFinishDate()%>
                 </td>
             </tr>
             <%
+
                 }
             %>
             </tbody>
+            <%
+                }
+            %>
 
         </table>
-
-        <script src="jsscripts/popup.js"></script>
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-
-                // Setup - add a text input to each footer cell
-                $('#example tfoot th').each(function () {
-                    var title = $(this).text();
-                    $(this).html('<input type="text" placeholder="Search ' + title + '" />');
-                });
-
-                // DataTable
-                var table = $('#example').DataTable({
-                    "lengthMenu": [[10, 20], [10, 20]]
-                });
-
-                /*// Apply the search
-                table.columns().every(function () {
-                    var that = this;
-
-                    $('input', this.footer()).on('keyup change', function () {
-                        if (that.search() !== this.value) {
-                            that
-                                .search(this.value)
-                                .draw();
-                        }
-                    });
-                });*/
-            });
-        </script>
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#example').DataTable();
-
-                $('#example_filter').hide(); // Hide default search datatables where example is the ID of table
-
-                $('#txtSearch').on('keyup', function () {
-                    $('#example')
-                        .DataTable()
-                        .search($('#txtSearch').val(), false, true)
-                        .draw();
-                });
-            });
-        </script>
 
     </div>
 
@@ -212,7 +196,52 @@
         Sylwester Oleszek 2018 &copy;
     </div>
 
+    <script>
+        // If user clicks anywhere outside of the modal, Modal will close
+
+        var modal = document.getElementById('modal-wrapper');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <script src="jsscripts/popup.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Setup - add a text input to each footer cell
+            $('#example tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+            });
+
+            // DataTable
+            var table = $('#example').DataTable({
+                "lengthMenu": [[10, 20], [10, 20]]
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable();
+
+            $('#example_filter').hide(); // Hide default search datatables where example is the ID of table
+
+            $('#txtSearch').on('keyup', function () {
+                $('#example')
+                    .DataTable()
+                    .search($('#txtSearch').val(), false, true)
+                    .draw();
+            });
+        });
+    </script>
+
 </div>
 
 </body>
+
 </html>

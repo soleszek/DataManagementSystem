@@ -123,42 +123,15 @@
     </div>
 
     <div id="content">
-        <%--<div id="navbar">
-            <ul class="sliding-icons">
-                <li>
-                    <%
-                        if (!role.equals("viewer")) {
-                    %>
-                    <a href="#">
-                        <div class="icon">
-                            <i class="fas fa-plus-square fa-2x"></i>
-                            <i class="fas fa-plus-square fa-2x" title="Create new document"
-                               onclick="document.getElementById('modal-wrapper').style.display='block'"></i>
-                        </div>
-                    </a>
-                    <%
-                    } else {
-                    %>
-
-                    <a href="#">
-                        <div class="icon-disabled">
-                            <i class="fas fa-plus-square fa-2x" title="You don't have privileges"></i>
-                        </div>
-                    </a>
-                    <%
-                        }
-                    %>
-
-                </li>
-            </ul>
-        </div>--%>
 
         <select id="object">
             <option selected>Select type of object</option>
             <option value="div1">Documents</option>
+            <% if (!role.equals("viewer")) { %>
             <option value="div2">Routes</option>
             <option value="div3">Tasks</option>
             <option value="div4">Users</option>
+            <% } %>
         </select>
         <div class="form-div1" id="div1">
             <form class="edit-form" action="AdvancedSearchDocument" method="post">
@@ -168,7 +141,8 @@
 
                     <tr>
                         <td>Name</td>
-                        <td><input type="text" name="name" value=""><td>
+                        <td><input type="text" name="name" value="">
+                        <td>
                         </td>
                     </tr>
                     <tr>
@@ -178,8 +152,8 @@
                     </tr>
                     <tr>
                         <td>Type</td>
-                        <td><input type="text" id=doctype name="doctype" value="" readonly>
-                            <select name="docstate" id="select-doctype" onchange="replaceValueDocType(event)">
+                        <td><input type="text" id=doctype name="doctypeinput" value="" readonly>
+                            <select name="doctype" id="select-doctype" onchange="replaceValueDocType(event)">
                                 <option value="drawing">drawing</option>
                                 <option value="document">document</option>
                                 <option value="image">image</option>
@@ -193,9 +167,9 @@
                     </tr>
                     <tr>
                         <td>State</td>
-                        <td><input type="text" id="docstate" name="docstate" value="" readonly>
+                        <td><input type="text" id="docstate" name="docstateinput" value="" readonly>
                             <select name="docstate" id="select-docstate" onchange="replaceValueDocState(event)">
-                                <option value="inwork">in work</option>
+                                <option value="in work">in work</option>
                                 <option value="frozen">frozen</option>
                                 <option value="released">released</option>
                                 <option value="canceled">canceled</option>
@@ -209,12 +183,16 @@
                     </tr>
                     <tr>
                         <td>Creation date</td>
-                        <td><input type="text" name="creationDate" value="" class="datepicker">
+                        <td><input type="text" name="creationDate" value="" class="datepicker" id="creationDate"
+                                   readonly><input type="button" value="clear"
+                                                   onclick="document.getElementById('creationDate').value = ''"/>
                         </td>
                     </tr>
                     <tr>
                         <td>Last modified</td>
-                        <td><input type="text" name="lastModified" value="" class="datepicker">
+                        <td><input type="text" name="lastModified" value="" class="datepicker" id="lastModificationDate"
+                                   readonly><input type="button" value="clear"
+                                                   onclick="document.getElementById('lastModificationDate').value = ''"/>
                         </td>
                     </tr>
                     <tr>
@@ -263,7 +241,9 @@
                     </tr>
                     <tr>
                         <td>Check due date</td>
-                        <td><input type="text" name="checkDueDate" value="" class="datepicker">
+                        <td><input type="text" name="checkDueDate" value="" id="checkDueDate" class="datepicker"
+                                   readonly><input type="button" value="clear"
+                                                   onclick="document.getElementById('checkDueDate').value = ''"/>
                         </td>
                     </tr>
                     <tr>
@@ -273,12 +253,14 @@
                     </tr>
                     <tr>
                         <td>Approve due date</td>
-                        <td><input type="text" name="approveDueDate" value="" class="datepicker">
+                        <td><input type="text" name="approveDueDate" value="" id="approveDueDate" class="datepicker"
+                                   readonly><input type="button" value="clear"
+                                                   onclick="document.getElementById('approveDueDate').value = ''"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>Person assign to approve</td>
-                        <td><input type="text" name="assignToApprove" value="">
+                        <td>Person assigned to approve</td>
+                        <td><input type="text" name="assignedToApprove" value="">
                         </td>
                     </tr>
                     <tr>
@@ -288,12 +270,16 @@
                     </tr>
                     <tr>
                         <td>Date of creation</td>
-                        <td><input type="text" name="dateOfCreation" value="" class="datepicker">
+                        <td><input type="text" name="dateOfCreation" value="" id="dateOfCreation" class="datepicker"
+                                   readonly><input type="button" value="clear"
+                                                   onclick="document.getElementById('dateOfCreation').value = ''"/>
                         </td>
                     </tr>
                     <tr>
                         <td>Finish date</td>
-                        <td><input type="text" name="finishDate" value="" class="datepicker">
+                        <td><input type="text" name="finishDate" value="" id="finishDate" class="datepicker"
+                                   readonly><input type="button" value="clear"
+                                                   onclick="document.getElementById('finishDate').value = ''"/>
                         </td>
                     </tr>
 
@@ -328,7 +314,7 @@
                         <td><input type="text" id="state" name="state" value="" readonly>
                             <select name="state" id="select-state" onchange="replaceValueState(event)">
                                 <option value="active">Active</option>
-                                <option value="complete">Complete</option>
+                                <option value="completed">Completed</option>
                             </select>
                         </td>
                     </tr>
@@ -345,11 +331,6 @@
                     <tr>
                         <td>Completion date</td>
                         <td><input type="text" name="completionDate" value="" class="datepicker">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Your comment</td>
-                        <td><input type="text" name="comment" value="">
                         </td>
                     </tr>
 
@@ -490,7 +471,8 @@
     <script src="jsscripts/dropdownToInputRouteState.js"></script>
     <script src="jsscripts/dropdownToInputDocState.js"></script>
     <script src="jsscripts/dropdownToInputDocType.js"></script>
-
+    <script src="jsscripts/resetcreationdate.js"></script>
+    <script src="jsscripts/resetlastmodificationdate.js"></script>
 
 
 </div>

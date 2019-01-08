@@ -1,21 +1,29 @@
+<%@ page import="com.sylwesteroleszek.entity.User" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+
     <meta charset="utf-8">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="style/style.css" type="text/css">
+    <link rel="stylesheet" href="style/documents-view.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
-    <title>Admin panel</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
+    <title>Search results of all users</title>
+
 </head>
 <body>
 
 <div id="container">
 
     <%
-        String userName = (String)request.getSession().getAttribute("userName");
+        String userName = (String) request.getSession().getAttribute("userName");
+        String role = (String) request.getSession().getAttribute("role");
 
         String login = (String) request.getSession().getAttribute("login");
         Cookie[] cookies = request.getCookies();
@@ -90,38 +98,101 @@
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
         <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
         <div class="optionL"><a href="AllUserTasks">Tasks</a></div>
+        <%
+            if (role.equals("admin")) {
+        %>
         <div class="optionL"><a href="adminpanel.jsp">Admin Panel</a></div>
+        <%
+            }
+        %>
         <div style="clear: both"></div>
     </div>
 
     <div id="content">
-        <div class="square">
-            <div class="tile1"><H1><a href="registration.jsp" class="tilelink">Create new user</a> </H1></div>
-            <div class="tile1"><H1><a href="AllUsers" class="tilelink">Show all users</a> </H1><</div>
-            <div style="clear: both"></div>
-
-            <div class="tile2"><H1><a href="registration.jsp" class="tilelink">Delete user</a></H1></div>
-            <div class="tile3"><H1><a href="registration.jsp" class="tilelink">Create workspace</a></H1></div>
-            <div style="clear: both"></div>
-
-            <div class="tile4">4</div>
-
+        <div id="navbar">
+            <input id="txtSearch" placeholder="Filter table" class="form-control"/>
         </div>
-        <div class="square">
-            <div class="tile5">5</div>
 
-            <div class="tile6">6</div>
-            <div class="tile7">7</div>
-            <div class="tile8">8</div>
-            <div class="tile9">9</div>
-            <div style="clear: both"></div>
-        </div>
-        <div style="clear: both"></div>
+        <table id="example" class="display" style="width:100%">
+            <col width="60">
+
+            <%
+                List<User> users = (List<User>) request.getAttribute("matchingUsers");
+            %>
+
+            <thead>
+            <tr>
+                <th>User name</th>
+                <th>Login</th>
+                <th>Name</th>
+                <th>Last name</th>
+                <th>Role</th>
+                <th>Password</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% for (User u : users) {
+            %>
+            <tr>
+                <td><a href="AnyUserShow?userId=<%=u.getId()%>" id="doc-link"><%=u.getName()%>
+                </a></td>
+                <td><span class="doc-link"
+                          onclick="openPopup('AnyUserShow?userId=<%=u.getId()%>')"><%=u.getLogin()%></span></td>
+                <td><%=u.getUserName()%>
+                </td>
+                <td><%=u.getLastName()%>
+                </td>
+                <td><%=u.getRole()%>
+                </td>
+                <td><%=u.getPassword()%>
+                </td>
+            </tr>
+            <%
+                }
+            %>
+            </tbody>
+
+        </table>
+
     </div>
 
     <div id="footer">
         Sylwester Oleszek 2018 &copy;
     </div>
+
+    <script src="jsscripts/popup.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Setup - add a text input to each footer cell
+            $('#example tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+            });
+
+            // DataTable
+            var table = $('#example').DataTable({
+                "lengthMenu": [[10, 20], [10, 20]]
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable();
+
+            $('#example_filter').hide(); // Hide default search datatables where example is the ID of table
+
+            $('#txtSearch').on('keyup', function () {
+                $('#example')
+                    .DataTable()
+                    .search($('#txtSearch').val(), false, true)
+                    .draw();
+            });
+        });
+    </script>
 
 </div>
 

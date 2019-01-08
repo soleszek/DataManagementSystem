@@ -55,7 +55,7 @@
         <div id="search">
             <ul class="sliding-icons">
                 <li>
-                    <a href="#">
+                    <a href="advancedsearch.jsp">
                         <div class="icon">
                             <i class="fas fa-search fa-2x"></i>
                             <i class="fas fa-search fa-2x" title="Advanced search"></i>
@@ -119,33 +119,6 @@
 
     <div id="content">
         <div id="navbar">
-            <ul class="sliding-icons">
-                <li>
-                    <%
-                        if (!role.equals("viewer")) {
-                    %>
-                    <a href="#">
-                        <div class="icon">
-                            <i class="fas fa-plus-square fa-2x"></i>
-                            <i class="fas fa-plus-square fa-2x" title="Create new document"
-                               onclick="document.getElementById('modal-wrapper').style.display='block'"></i>
-                        </div>
-                    </a>
-                    <%
-                    } else {
-                    %>
-
-                    <a href="#">
-                        <div class="icon-disabled">
-                            <i class="fas fa-plus-square fa-2x" title="You don't have privileges"></i>
-                        </div>
-                    </a>
-                    <%
-                        }
-                    %>
-
-                </li>
-            </ul>
             <input id="txtSearch" placeholder="Filter table" class="form-control"/>
         </div>
 

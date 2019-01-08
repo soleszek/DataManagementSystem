@@ -118,7 +118,7 @@
             <col width="60">
 
             <%
-                List<Task> userTasks = (List<Task>) request.getAttribute("usertasks");
+                List<Task> matchingTasks = (List<Task>) request.getAttribute("matchingTasks");
             %>
 
             <thead>
@@ -134,7 +134,7 @@
             </thead>
 
             <tbody>
-            <% for (Task t : userTasks) {
+            <% for (Task t : matchingTasks) {
             %>
             <tr>
                 <td><a href="OpenTask?taskId=<%=t.getId()%>" id="doc-link"><%=t.getName()%>
@@ -175,19 +175,6 @@
                 var table = $('#example').DataTable({
                     "lengthMenu": [[10, 20], [10, 20]]
                 });
-
-                /*// Apply the search
-                table.columns().every(function () {
-                    var that = this;
-
-                    $('input', this.footer()).on('keyup change', function () {
-                        if (that.search() !== this.value) {
-                            that
-                                .search(this.value)
-                                .draw();
-                        }
-                    });
-                });*/
             });
         </script>
 
