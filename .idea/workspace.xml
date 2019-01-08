@@ -6,56 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c36d803-88fe-41d2-bf65-efca6c6a5f84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsscripts/resetcreationdate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsscripts/resetlastmodificationdate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/searchresultsroutes.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/searchresultstasks.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/searchresultsusers.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/AdvancedSearchDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/AdvancedSearchDocument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/AdvancedSearchRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/AdvancedSearchRoute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/AdvancedSearchTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/AdvancedSearchTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/AdvancedSearchUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sylwesteroleszek/servlets/AdvancedSearchUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/adminpanel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/adminpanel.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/advancedsearch.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/advancedsearch.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/allusers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/allusers.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/document.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/document.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/documents.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/documents.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/documentview/lifecycle.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/documentview/lifecycle.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/documentview/revisions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/documentview/revisions.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/documentview/routes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/documentview/routes.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/quicksearch.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/quicksearch.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/route.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/route.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/routeslist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/routeslist.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/tasks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/tasks.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/taskview.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/taskview.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/AdvancedSearchDocument.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/AdvancedSearchDocument.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/AdvancedSearchRoute.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/AdvancedSearchRoute.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/AdvancedSearchTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/AdvancedSearchTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/AdvancedSearchUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/WEB-INF/classes/com/sylwesteroleszek/servlets/AdvancedSearchUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/adminpanel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/adminpanel.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/advancedsearch.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/advancedsearch.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/allusers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/allusers.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/document.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/document.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/documents.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/documents.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/documentview/lifecycle.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/documentview/lifecycle.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/documentview/revisions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/documentview/revisions.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/documentview/routes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/documentview/routes.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/quicksearch.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/quicksearch.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/route.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/route.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/routeslist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/routeslist.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/tasks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/tasks.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/taskview.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/taskview.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/user.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DataManagementSystem/viewer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DataManagementSystem/viewer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/AdvancedSearchDocument.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/AdvancedSearchDocument.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/AdvancedSearchRoute.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/AdvancedSearchRoute.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/AdvancedSearchTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/AdvancedSearchTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/AdvancedSearchUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sylwesteroleszek/servlets/AdvancedSearchUser.class" afterDir="false" />
-    </list>
+    <list default="true" id="7c36d803-88fe-41d2-bf65-efca6c6a5f84" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -223,8 +174,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/webapp/quicksearch.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-807">
-                  <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+                <state relative-caret-position="138">
+                  <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
                 </state>
               </provider>
             </entry>
@@ -328,7 +279,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/allusers.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/document.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/documents.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/quicksearch.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/route.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/routeslist.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/tasks.jsp" />
@@ -339,6 +289,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/searchresultstasks.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/searchresultsusers.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/advancedsearch.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/quicksearch.jsp" />
       </list>
     </option>
   </component>
@@ -481,7 +432,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546980398741" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546981557047" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Pulpit/SDA/Lambda" />
   </component>
@@ -626,18 +577,18 @@
       <workItem from="1546279362934" duration="50220000" />
       <workItem from="1546678980466" duration="39163000" />
       <workItem from="1546882743192" duration="18839000" />
-      <workItem from="1546972817275" duration="7525000" />
+      <workItem from="1546972817275" duration="8189000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268151000" />
+    <option name="totallyTimeSpent" value="268815000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="34" width="1920" height="1046" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.1943557" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1943557" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.29020235" />
       <window_info id="Persistence" order="2" side_tool="true" weight="0.32960597" />
       <window_info id="Designer" order="3" />
@@ -667,7 +618,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.115015976" />
+      <window_info anchor="right" id="Database" order="6" weight="0.115015976" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -1074,8 +1025,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/quicksearch.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-807">
-          <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+        <state relative-caret-position="138">
+          <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
         </state>
       </provider>
     </entry>
