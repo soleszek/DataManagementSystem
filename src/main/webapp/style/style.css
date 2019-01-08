@@ -77,11 +77,94 @@ body {
     letter-spacing: 3px;
 }
 
-#menu {
+.menu {
     background-color: #303030;
     margin-top: 20px;
     color: #ffffff;
+    padding: 6px;
+    height: 65px;
+}
+
+.topmenu{
+    float: left;
     padding: 10px;
+    width: 496px;
+}
+
+#search{
+    float: left;
+    padding: 10px;
+    width: 496px;
+    /*border: 2px solid white;*/
+}
+
+.thing{
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    border: 1px solid #000;
+    width: 400px;
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.thing .thing-label{
+    width: 100%;
+    position: absolute;
+    line-height: 40px;
+    color: #000;
+    left: 50px;
+    z-index: 1;
+    font-size: 20px;
+}
+
+.thing .thing-text{
+    padding-left: 40px;
+    width: 0;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 11;
+    background: #e91e63;
+    font-size: 20px;
+}
+
+.thing .thing-text:focus{
+    width: 90%;
+    outline: none;
+    cursor: text;
+    background: #fff;
+}
+
+.thing .thing-text:focus + .thing-btn{
+    opacity: 1;
+    left: 320px;
+    z-index: 11;
+    background: #e91e63;
+    font-size: 20px;
+}
+
+.thing .thing-btn{
+    position: absolute;
+    z-index: -11;
+    opacity: 0;
+    left: 0;
+    border: none;
+    top: 0;
+    cursor: pointer;
+    width: 80px;
+    height: 50px;
+    color: white;
+}
+
+.thing .thing-label, .thing .thing-text, .thing .thing-btn{
+    display: inline-block;
+    height: 100%;
+    transition: 0.4s ease;
+    cursor: pointer;
 }
 
 #sidebar {
@@ -111,6 +194,52 @@ body {
     background-color: #dedede;
     min-height: 650px;
     text-align: justify;
+}
+
+tfoot input {
+    width: 100%;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+ul{
+    /*position: relative;*/
+    margin: 0px;
+    padding: 1px 0;
+    float: left;
+}
+
+ul li{
+    list-style: none;
+    display: block;
+    background-color: transparent;
+    float: left;
+}
+
+ul li a .icon{
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    /*padding-left: 4px;*/
+    overflow: hidden;
+    /*margin: 0 auto 2px;*/
+}
+
+ul li a .icon .fas{
+    width: 100%;
+    height: 100%;
+    /*line-height: 40px;
+    font-size: 34px;*/
+    transition: 0.5s;
+    color: #000;
+}
+
+ul li a .icon .fas:last-child{
+    color: #e91e63;
+}
+
+ul li a:hover .icon .fas{
+    transform: translateY(-100%);
 }
 
 #footer {
@@ -366,7 +495,7 @@ table td:nth-child(2) {
     background-color: #e7e9ec;
 }
 
-ul {
+/*.ul {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -389,9 +518,15 @@ ul li a {
     text-decoration: none;
     padding: 0 50px;
     display: block;
-}
+}*/
 
 ul.lifecycle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 20px 0;
     display: flex;
     list-style: none;
     background-color: transparent;

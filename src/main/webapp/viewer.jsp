@@ -5,6 +5,9 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style/style.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
     <title>Document viewer</title>
 </head>
 <body>
@@ -36,30 +39,58 @@
     %>
 
     <div id="logo">
-        Data Management System
+        <span style="color:#c34f4f">Data</span> Management System
     </div>
 
-    <div id="search">
+    <div class="menu">
 
-    </div>
-
-    <div id="menu">
-        <div class="optionSO">
-            <form action="LogoutServlet" method="get">
-                <input type="hidden" name="login" value="<%=login%>"/>
-                <input type="submit" name="menu" value="Sign out">
+        <div class="topmenu">
+            <label>Name</label>
+        </div>
+        <div id="search">
+            <ul class="sliding-icons">
+                <li>
+                    <a href="advancedsearch.jsp">
+                        <div class="icon">
+                            <i class="fas fa-search fa-2x"></i>
+                            <i class="fas fa-search fa-2x" title="Advanced search"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <form class="thing" action="QuickSearch" method="get">
+                <label for="ddd" class="thing-label">
+                    Type to search...
+                </label>
+                <input type="text" name="phrase" id="ddd" class="thing-text">
+                <input type="submit" value="search" class="thing-btn">
             </form>
+            <div style="clear: both"></div>
         </div>
-        <div class="option">
-            <form id = "usershow" action="UserShow" method="get">
-                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%></a>
-            </form>
+
+        <div class="topmenu">
+            <div class="optionSO">
+                <form action="LogoutServlet" method="get">
+                    <input type="hidden" name="login" value="<%=login%>"/>
+                    <input type="submit" name="menu" value="Sign out">
+                </form>
+            </div>
+            <div class="option">
+                <form id="usershow" action="UserShow" method="get">
+                    <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
+                    </a>
+                </form>
+            </div>
+            <div class="optionSO">
+                <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+            </div>
+            <div style="clear: both"></div>
+
         </div>
-        <div class="optionSO">
-            <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
-        </div>
-        <div style="clear: both"></div>
+        <div style="clear:both;"></div>
+
     </div>
+    <div style="clear:both"></div>
 
     <div id="sidebar">
         <div class="optionL"><a href="OpenDocument?documentId=<%=document.getId()%>">Properties</a></div>

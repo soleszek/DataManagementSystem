@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="style/documents-view.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
     <title>Documents</title>
 
     <style>
@@ -20,8 +26,7 @@
             font-family: Helvetica, Arial, sans-serif;
         }
 
-        /* Full-width input fields */
-        input[type=text], input[type=password] {
+        .modal-text {
             width: 90%;
             padding: 12px 20px;
             margin: 8px 26px;
@@ -76,7 +81,7 @@
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 12;
             left: 0;
             top: 0;
             width: 100%;
@@ -215,31 +220,58 @@
     %>
 
     <div id="logo">
-        Data Management System
+        <span style="color:#c34f4f">Data</span> Management System
     </div>
 
-    <div id="search">
+    <div class="menu">
 
-    </div>
-
-    <div id="menu">
-        <div class="optionSO">
-            <form action="LogoutServlet" method="get">
-                <input type="hidden" name="login" value="<%=login%>"/>
-                <input type="submit" name="menu" value="Sign out">
+        <div class="topmenu">
+            <label>Name</label>
+        </div>
+        <div id="search">
+            <ul class="sliding-icons">
+                <li>
+                    <a href="advancedsearch.jsp">
+                        <div class="icon">
+                            <i class="fas fa-search fa-2x"></i>
+                            <i class="fas fa-search fa-2x" title="Advanced search"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <form class="thing" action="QuickSearch" method="get">
+                <label for="ddd" class="thing-label">
+                    Type to search...
+                </label>
+                <input type="text" name="phrase" id="ddd" class="thing-text">
+                <input type="submit" value="search" class="thing-btn">
             </form>
+            <div style="clear: both"></div>
         </div>
-        <div class="option">
-            <form id="usershow" action="UserShow" method="get">
-                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
-                </a>
-            </form>
+
+        <div class="topmenu">
+            <div class="optionSO">
+                <form action="LogoutServlet" method="get">
+                    <input type="hidden" name="login" value="<%=login%>"/>
+                    <input type="submit" name="menu" value="Sign out">
+                </form>
+            </div>
+            <div class="option">
+                <form id="usershow" action="UserShow" method="get">
+                    <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
+                    </a>
+                </form>
+            </div>
+            <div class="optionSO">
+                <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+            </div>
+            <div style="clear: both"></div>
+
         </div>
-        <div class="optionSO">
-            <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
-        </div>
-        <div style="clear: both"></div>
+        <div style="clear:both;"></div>
+
     </div>
+    <div style="clear:both"></div>
 
     <div id="sidebar">
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
@@ -261,71 +293,39 @@
         <div style="clear: both"></div>
     </div>
 
-    <div id="navbar">
-        <ul class="sliding-icons">
-            <li>
-                <%
-                    if (!role.equals("viewer")) {
-                %>
-                <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-plus-square fa-2x"></i>
-                        <i class="fas fa-plus-square fa-2x" title="Create new document"
-                           onclick="document.getElementById('modal-wrapper').style.display='block'"></i>
-                    </div>
-                </a>
-                <%
-                } else {
-                %>
-
-                <a href="#">
-                    <div class="icon-disabled">
-                        <i class="fas fa-plus-square fa-2x" title="You don't have privileges"></i>
-                    </div>
-                </a>
-                <%
-                    }
-                %>
-
-            </li>
-            <li>
-                <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-filter fa-2x"></i>
-                        <i class="fas fa-filter fa-2x" title="Show all"></i>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-filter fa-2x"></i>
-                        <i class="fas fa-filter fa-2x" title="Show in work"></i>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-filter fa-2x"></i>
-                        <i class="fas-orange fa-filter fa-2x" title="Show frozen"></i>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-filter fa-2x"></i>
-                        <i class="fas-blue fa-filter fa-2x" title="Show released"></i>
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </div>
-
     <div id="content">
+        <div id="navbar">
+            <ul class="sliding-icons">
+                <li>
+                    <%
+                        if (!role.equals("viewer")) {
+                    %>
+                    <a href="#">
+                        <div class="icon">
+                            <i class="fas fa-plus-square fa-2x"></i>
+                            <i class="fas fa-plus-square fa-2x" title="Create new document"
+                               onclick="document.getElementById('modal-wrapper').style.display='block'"></i>
+                        </div>
+                    </a>
+                    <%
+                    } else {
+                    %>
 
-        <table>
+                    <a href="#">
+                        <div class="icon-disabled">
+                            <i class="fas fa-plus-square fa-2x" title="You don't have privileges"></i>
+                        </div>
+                    </a>
+                    <%
+                        }
+                    %>
+
+                </li>
+            </ul>
+            <input id="txtSearch" placeholder="Filter table" class="form-control"/>
+        </div>
+
+        <table id="example" class="display" style="width:100%">
             <col width="60">
 
             <%
@@ -339,9 +339,8 @@
                 }
 
             %>
-
+            <thead>
             <tr>
-                <th><input type="checkbox"></th>
                 <th>Name</th>
                 <th>Title</th>
                 <th><i class="far fa-window-restore"></i></th>
@@ -354,11 +353,15 @@
                 <th>Attachement</th>
                 <th>Description</th>
             </tr>
-            <% if (role.equals("viewer")) {
+            </thead>
+            <%
+                if (role.equals("viewer")) {
+            %>
+            <tbody>
+            <%
                 for (Document d : approvedDocuments) {
             %>
             <tr>
-                <td><input type="checkbox"></td>
                 <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getName()%>
                 </a></td>
                 <td><%=d.getTitle()%>
@@ -386,12 +389,19 @@
             </tr>
             <%
                 }
+            %>
+            </tbody>
+
+            <%
             } else {
+            %>
+
+            <tbody>
+            <%
                 for (Document d : documents) {
             %>
 
             <tr>
-                <td><input type="checkbox"></td>
                 <td><a href="OpenDocument?documentId=<%=d.getId()%>" id="doc-link"><%=d.getName()%>
                 </a></td>
                 <td><%=d.getTitle()%>
@@ -419,7 +429,11 @@
             </tr>
 
             <%
-                    }
+                }
+            %>
+            </tbody>
+
+            <%
                 }
             %>
 
@@ -445,19 +459,19 @@
             <div class="container">
                 <div class="custom-select">
                     <select name="doctype">
-                        <option value="drawing">2D Drawing (pdf)</option>
-                        <option value="drawing">2D Drawing (pdf)</option>
+                        <option value="drawing">Drawing (pdf)</option>
+                        <option value="drawing">Drawing (pdf)</option>
                         <option value="document">Document (doc, docx)</option>
                         <option value="image">Image (jpg, png)</option>
                     </select>
                 </div>
-                <input type="text" placeholder="Enter title" name="title" required>
-                <input type="text" readonly name="owner" value="<%=login%>">
+                <input type="text" class="modal-text" placeholder="Enter title" name="title" required>
+                <input type="text" class="modal-text" preadonly name="owner" value="<%=login%>">
                 <c:set var="now" value="<%=new java.util.Date()%>"/>
-                <input type="text" readonly name="creation date"
+                <input type="text" class="modal-text" preadonly name="creation date"
                        value="<fmt:formatDate type = "date" value = "${now}"/>">
-                <input type="file" name="file" class="file" required>
-                <input type="text" placeholder="Enter description" name="description" required>
+                <input type="file" class="modal-text" pname="file" class="file" required>
+                <input type="text" class="modal-text" pplaceholder="Enter description" name="description" required>
                 <button type="submit">Create</button>
             </div>
         </form>
@@ -478,7 +492,52 @@
     <script src="jsscripts/dropdownmenu.js"></script>
     <script src="jsscripts/popup.js"></script>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Setup - add a text input to each footer cell
+            $('#example tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+            });
+
+            // DataTable
+            var table = $('#example').DataTable({
+                "lengthMenu": [[10, 20], [10, 20]]
+            });
+
+            /*// Apply the search
+            table.columns().every(function () {
+                var that = this;
+
+                $('input', this.footer()).on('keyup change', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });*/
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable();
+
+            $('#example_filter').hide(); // Hide default search datatables where example is the ID of table
+
+            $('#txtSearch').on('keyup', function () {
+                $('#example')
+                    .DataTable()
+                    .search($('#txtSearch').val(), false, true)
+                    .draw();
+            });
+        });
+    </script>
+
 </div>
 
 </body>
+
 </html>

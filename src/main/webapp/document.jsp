@@ -63,7 +63,7 @@
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 12;
             left: 0;
             top: 0;
             width: 100%;
@@ -183,7 +183,7 @@
 <div id="container">
 
     <%
-        String userName = (String)request.getSession().getAttribute("userName");
+        String userName = (String) request.getSession().getAttribute("userName");
 
         String login = (String) request.getSession().getAttribute("login");
         Cookie[] cookies = request.getCookies();
@@ -206,31 +206,58 @@
     %>
 
     <div id="logo">
-        Data Management System
+        <span style="color:#c34f4f">Data</span> Management System
     </div>
 
-    <div id="search">
+    <div class="menu">
 
-    </div>
-
-    <div id="menu">
-        <div class="optionSO">
-            <form action="LogoutServlet" method="get">
-                <input type="hidden" name="login" value="<%=login%>"/>
-                <input type="submit" name="menu" value="Sign out">
+        <div class="topmenu">
+            <label>Name</label>
+        </div>
+        <div id="search">
+            <ul class="sliding-icons">
+                <li>
+                    <a href="advancedsearch.jsp">
+                        <div class="icon">
+                            <i class="fas fa-search fa-2x"></i>
+                            <i class="fas fa-search fa-2x" title="Advanced search"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <form class="thing" action="QuickSearch" method="get">
+                <label for="ddd" class="thing-label">
+                    Type to search...
+                </label>
+                <input type="text" name="phrase" id="ddd" class="thing-text">
+                <input type="submit" value="search" class="thing-btn">
             </form>
+            <div style="clear: both"></div>
         </div>
-        <div class="option">
-            <form id="usershow" action="UserShow" method="get">
-                <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
-                </a>
-            </form>
+
+        <div class="topmenu">
+            <div class="optionSO">
+                <form action="LogoutServlet" method="get">
+                    <input type="hidden" name="login" value="<%=login%>"/>
+                    <input type="submit" name="menu" value="Sign out">
+                </form>
+            </div>
+            <div class="option">
+                <form id="usershow" action="UserShow" method="get">
+                    <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
+                    </a>
+                </form>
+            </div>
+            <div class="optionSO">
+                <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+            </div>
+            <div style="clear: both"></div>
+
         </div>
-        <div class="optionSO">
-            <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
-        </div>
-        <div style="clear: both"></div>
+        <div style="clear:both;"></div>
+
     </div>
+    <div style="clear:both"></div>
 
     <div id="sidebar">
         <div class="optionL"><a href="OpenDocument?documentId=<%=document.getId()%>">Properties</a></div>
@@ -251,34 +278,35 @@
         <div style="clear: both"></div>
     </div>
 
-    <div id="navbar">
-        <ul>
-            <li>
-                <%
-                    if(!role.equals("viewer") && !document.getState().equals("frozen") && !document.getState().equals("released") || role.equals("admin")) {
-                %>
-                <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-minus-square fa-2x"></i>
-                        <i class="fas fa-minus-square fa-2x" title="Delete user" onclick="document.getElementById('modal-wrapper-deletedocument').style.display='block'"></i>
-                    </div>
-                </a>
-                <%
-                } else {
-                %>
-                <a href="#">
-                    <div class="icon-disabled">
-                        <i class="fas fa-minus-square fa-2x" title="You don't have privileges"></i>
-                    </div>
-                </a>
-                <%
-                    }
-                %>
-            </li>
-        </ul>
-    </div>
-
     <div id="content">
+
+        <div id="navbar">
+            <ul>
+                <li>
+                    <%
+                        if (!role.equals("viewer") && !document.getState().equals("frozen") && !document.getState().equals("released") || role.equals("admin")) {
+                    %>
+                    <a href="#">
+                        <div class="icon">
+                            <i class="fas fa-minus-square fa-2x"></i>
+                            <i class="fas fa-minus-square fa-2x" title="Delete document"
+                               onclick="document.getElementById('modal-wrapper-deletedocument').style.display='block'"></i>
+                        </div>
+                    </a>
+                    <%
+                    } else {
+                    %>
+                    <a href="#">
+                        <div class="icon-disabled">
+                            <i class="fas fa-minus-square fa-2x" title="You don't have privileges"></i>
+                        </div>
+                    </a>
+                    <%
+                        }
+                    %>
+                </li>
+            </ul>
+        </div>
         <%--<col width="220">--%>
 
         <form id="edit-form" action="UpdateDocument" method="post">
@@ -293,7 +321,8 @@
                 </tr>
                 <tr>
                     <td>Title</td>
-                    <td><input type="text" class="edit-text" name="title" value="<%=document.getTitle()%>" readonly required size="35">
+                    <td><input type="text" class="edit-text" name="title" value="<%=document.getTitle()%>" readonly
+                               required size="35">
                     </td>
                 </tr>
                 <tr>
@@ -333,7 +362,8 @@
                 </tr>
                 <tr>
                     <td>Description</td>
-                    <td><input type="text" class="edit-text" name="description" value="<%=document.getDescription()%>" readonly required size="35">
+                    <td><input type="text" class="edit-text" name="description" value="<%=document.getDescription()%>"
+                               readonly required size="35">
                     </td>
                 </tr>
 
@@ -342,14 +372,18 @@
             </table>
 
             <%
-                if(!role.equals("viewer") && !document.getState().equals("frozen") && !document.getState().equals("released") || role.equals("admin")) {
+                if (!role.equals("viewer") && !document.getState().equals("frozen") && !document.getState().equals("released") || role.equals("admin")) {
             %>
 
             <br><br>
 
-            <button type="button" id="editButton" class="button-edit" style="visibility:visible" onclick="edit()">Edit</button>
-            <button type="button" id="saveButton" class="button-edit" style="visibility:hidden" onclick="save()">Save</button>
-            <button type="button" id="cancelButton" class="button-edit" style="visibility:hidden" onclick="cancel()">Cancel</button>
+            <button type="button" id="editButton" class="button-edit" style="visibility:visible" onclick="edit()">Edit
+            </button>
+            <button type="button" id="saveButton" class="button-edit" style="visibility:hidden" onclick="save()">Save
+            </button>
+            <button type="button" id="cancelButton" class="button-edit" style="visibility:hidden" onclick="cancel()">
+                Cancel
+            </button>
 
             <script src="jsscripts/editform.js"></script>
 
@@ -371,13 +405,17 @@
         <form class="modal-content animate" action="DeleteDocument" method="get">
 
             <div class="imgcontainer">
-                <span onclick="document.getElementById('modal-wrapper-deletedocument').style.display='none'" class="close"
+                <span onclick="document.getElementById('modal-wrapper-deletedocument').style.display='none'"
+                      class="close"
                       title="Close PopUp">&times;</span>
                 <img src="style/delete-document.jpeg" alt="Document" class="avatar">
                 <h1 style="text-align:center">Delete document</h1>
             </div>
 
-            <div class="container"><h3 style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You are about to delete <%=document.getName()%></h3>
+            <div class="container"><h3
+                    style="text-align:left; margin-left: 24px; padding-top: 35px; padding-bottom: 15px">You are about to
+                delete <%=document.getName()%>
+            </h3>
 
                 <input type="hidden" name="documentId" value="<%=document.getId()%>">
 
