@@ -37,23 +37,6 @@ public class StartRoute extends HttpServlet {
 
         Route updatedRoute = proceedRoute.promoteRoute();
 
-       /* route.setState("checking");
-
-        routeDao.SaveOrUpdate(route);
-
-        /*Task task = new Task.Builder()
-                .owner(route.getOwner())
-                .assignedTo(route.getResponsibleForChecking())
-                .documentBeingApprovedId(route.getDocumentBeingApprovedId())
-                .state("active")
-                .dueDate(route.getCheckingDueDate())
-                .completionDate(null)
-                .comments("Please check")
-                .parentId(String.valueOf(route.getId()))
-                .build();
-
-        taskDao.SaveOrUpdate(task);*/
-
         String documentBeingApprovedIdString = route.getDocumentBeingApprovedId();
         Long documentBeingApprovedId = Long.parseLong(documentBeingApprovedIdString);
 

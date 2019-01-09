@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -9,8 +10,9 @@
     <link rel="stylesheet" href="style/style.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="jsscripts/clock.js"></script>
 </head>
-<body>
+<body onload="startTime()">
 <div id="container">
 
     <%
@@ -71,7 +73,8 @@
             </div>
             <div class="option">
                 <form id="usershow" action="UserShow" method="get">
-                    <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
+                    <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <c:out
+                            value="${sessionScope.userName}"/>
                     </a>
                 </form>
             </div>
@@ -116,8 +119,9 @@
             <div class="tile3"><H1><a href="registration.jsp" class="tilelink">Clock</a></H1></div>
             <div style="clear: both"></div>
 
-            <div class="tile4">4</div>
+            <div class="tile4" id="txt">
 
+            </div>
         </div>
         <div class="square">
             <div class="tile5">Sentense</div>

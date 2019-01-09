@@ -19,9 +19,9 @@ public class AllUsersShow extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<User> users = userDao.findAll();
+        List<User> usersList = userDao.findAll();
 
-        req.setAttribute("users", users);
+        req.setAttribute("users", usersList);
         RequestDispatcher rd = req.getRequestDispatcher("allusers.jsp");
         rd.forward(req, resp);
     }

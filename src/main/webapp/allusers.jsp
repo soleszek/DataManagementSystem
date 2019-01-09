@@ -1,5 +1,4 @@
-<%@ page import="com.sylwesteroleszek.entity.User" %>
-<%@ page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -79,7 +78,7 @@
             </div>
             <div class="option">
                 <form id="usershow" action="UserShow" method="get">
-                    <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <%=userName%>
+                    <a href="#" onclick="document.getElementById('usershow').submit()">Witaj <c:out value="${sessionScope.userName}"/>
                     </a>
                 </form>
             </div>
@@ -116,10 +115,6 @@
         <table id="example" class="display" style="width:100%">
             <col width="60">
 
-            <%
-                List<User> users = (List<User>) request.getAttribute("users");
-            %>
-
             <thead>
             <tr>
                 <th>User name</th>
@@ -132,25 +127,22 @@
             </thead>
 
             <tbody>
-            <% for (User u : users) {
-            %>
-            <tr>
-                <td><a href="AnyUserShow?userId=<%=u.getId()%>" id="doc-link"><%=u.getName()%>
-                </a></td>
-                <td><span class="doc-link"
-                          onclick="openPopup('AnyUserShow?userId=<%=u.getId()%>')"><%=u.getLogin()%></span></td>
-                <td><%=u.getUserName()%>
-                </td>
-                <td><%=u.getLastName()%>
-                </td>
-                <td><%=u.getRole()%>
-                </td>
-                <td><%=u.getPassword()%>
-                </td>
-            </tr>
-            <%
-                }
-            %>
+            <c:forEach var="user" items="${users}">
+                <tr>
+                    <td><a href="AnyUserShow?userId=${user.getId()}" id="doc-link">${user.getName()}
+                    </a></td>
+                    <td><span class="doc-link"
+                              onclick="openPopup('AnyUserShow?userId=${user.getId()}')">${user.getLogin()}</span></td>
+                    <td>${user.getUserName()}
+                    </td>
+                    <td>${user.getLastName()}
+                    </td>
+                    <td>${user.getRole()}
+                    </td>
+                    <td>${user.getPassword()}
+                    </td>
+                </tr>
+            </c:forEach>
             </tbody>
 
         </table>
@@ -176,19 +168,6 @@
             var table = $('#example').DataTable({
                 "lengthMenu": [[10, 20], [10, 20]]
             });
-
-            /*// Apply the search
-            table.columns().every(function () {
-                var that = this;
-
-                $('input', this.footer()).on('keyup change', function () {
-                    if (that.search() !== this.value) {
-                        that
-                            .search(this.value)
-                            .draw();
-                    }
-                });
-            });*/
         });
     </script>
 

@@ -495,31 +495,6 @@ table td:nth-child(2) {
     background-color: #e7e9ec;
 }
 
-/*.ul {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    padding: 20px 0;
-    background: #fff;
-    display: flex;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
-}
-
-ul li {
-    list-style: none;
-    text-align: center;
-    display: block;
-}
-
-ul li a {
-    text-decoration: none;
-    padding: 0 50px;
-    display: block;
-}*/
-
 ul.lifecycle {
     position: absolute;
     top: 50%;
@@ -719,4 +694,10 @@ ul.lifecycle > li:not(:last-child):before {
 #doc-link:hover {
     text-decoration: none;
     color: #e91e63;
+}
+
+#txt{
+    color: blue;
+    font-size: 100px;
+    margin-top: 25px;
 }
