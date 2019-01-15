@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class NameFactory {
 
-    public String createName (Long id, String type) {
+    public String createName(Long id, String type) {
 
         int year = LocalDate.now().getYear();
         String yearStr = String.valueOf(year);
@@ -15,66 +15,62 @@ public class NameFactory {
 
         String idString = String.valueOf(id);
 
-        if(type.equals("user")){
+        int length = idString.length();
 
-            int length = idString.length();
+        switch (type) {
 
-            for(int i = 0; i < (numberOfDigits - length); i++){
-                name = name + "0";
+            case "user": {
+
+                for (int i = 0; i < (numberOfDigits - length); i++) {
+                    name = name + "0";
+                }
+                return name = "U-" + yearStr + "-" + name + idString;
             }
 
-            return name = "U-" + yearStr + "-" + name + idString;
+            case "drawing": {
 
-        } else if (type.equals("drawing")){
+                for (int i = 0; i < (numberOfDigits - length); i++) {
+                    name = name + "0";
+                }
 
-            int length = idString.length();
-
-            for(int i = 0; i < (numberOfDigits - length); i++){
-                name = name + "0";
+                return name = "drw-" + yearStr + "-" + name + idString;
             }
 
-            return name = "drw-" + yearStr + "-" + name + idString;
+            case "image": {
 
-        } else if (type.equals("image")) {
+                for (int i = 0; i < (numberOfDigits - length); i++) {
+                    name = name + "0";
+                }
 
-            int length = idString.length();
-
-            for(int i = 0; i < (numberOfDigits - length); i++){
-                name = name + "0";
+                return name = "img-" + yearStr + "-" + name + idString;
             }
 
-            return name = "img-" + yearStr + "-" + name + idString;
+            case "document": {
 
-        } else if (type.equals("document")) {
+                for (int i = 0; i < (numberOfDigits - length); i++) {
+                    name = name + "0";
+                }
 
-            int length = idString.length();
-
-            for(int i = 0; i < (numberOfDigits - length); i++){
-                name = name + "0";
+                return name = "doc-" + yearStr + "-" + name + idString;
             }
 
-            return name = "doc-" + yearStr + "-" + name + idString;
+            case "route": {
 
-        } else if (type.equals("route")) {
+                for (int i = 0; i < (numberOfDigits - length); i++) {
+                    name = name + "0";
+                }
 
-            int length = idString.length();
-
-            for(int i = 0; i < (numberOfDigits - length); i++){
-                name = name + "0";
+                return name = "R-" + yearStr + "-" + name + idString;
             }
 
-            return name = "R-" + yearStr + "-" + name + idString;
+            case "task": {
 
-        } else if (type.equals("task")) {
+                for (int i = 0; i < (numberOfDigits - length); i++) {
+                    name = name + "0";
+                }
 
-            int length = idString.length();
-
-            for(int i = 0; i < (numberOfDigits - length); i++){
-                name = name + "0";
+                return name = "T-" + yearStr + "-" + name + idString;
             }
-
-            return name = "T-" + yearStr + "-" + name + idString;
-
         }
 
         return null;

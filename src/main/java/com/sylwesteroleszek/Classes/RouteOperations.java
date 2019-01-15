@@ -1,5 +1,6 @@
 package com.sylwesteroleszek.Classes;
 
+import com.sylwesteroleszek.Enums.RouteStates;
 import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.dao.RouteDao;
 import com.sylwesteroleszek.dao.TaskDao;
@@ -23,16 +24,16 @@ public class RouteOperations {
 
     public Route promoteRoute() {
 
-        if(route.getState().equals("not started")) {
+        if(route.getState().equals(RouteStates.NOT_STARTED.getState())) {
 
             TaskFactory taskFactory = new TaskFactory();
             taskFactory.createTask(route);
 
-            route.setState("checking");
+            route.setState(RouteStates.CHECKING.getState());
 
             routeDao.SaveOrUpdate(route);
 
-        } else if (route.getState().equals("checking")){
+        } else if (route.getState().equals(RouteStates.CHECKING.getState())){
 
             String promotedDocumentIdString = route.getDocumentBeingApprovedId();
             Long promotedDocumentId = Long.parseLong(promotedDocumentIdString);
@@ -43,11 +44,11 @@ public class RouteOperations {
             TaskFactory taskFactory = new TaskFactory();
             taskFactory.createTask(route);
 
-            route.setState("approving");
+            route.setState(RouteStates.APPROVING.getState());
             routeDao.SaveOrUpdate(route);
 
 
-        } else if (route.getState().equals("approving")){
+        } else if (route.getState().equals(RouteStates.APPROVING.getState())){
 
             String promotedDocumentIdString = route.getDocumentBeingApprovedId();
             Long promotedDocumentId = Long.parseLong(promotedDocumentIdString);
@@ -55,7 +56,7 @@ public class RouteOperations {
             document.setState("released");
             documentDao.SaveOrUpdate(document);
 
-            route.setState("completed");
+            route.setState(RouteStates.COMPLETED.getState());
             routeDao.SaveOrUpdate(route);
 
         }

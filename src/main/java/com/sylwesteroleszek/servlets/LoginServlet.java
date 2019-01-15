@@ -1,7 +1,12 @@
 package com.sylwesteroleszek.servlets;
 
+import com.sylwesteroleszek.dao.DocumentDao;
+import com.sylwesteroleszek.dao.RouteDao;
+import com.sylwesteroleszek.dao.TaskDao;
 import com.sylwesteroleszek.dao.UserDao;
 import com.sylwesteroleszek.daoImpl.UserDaoImpl;
+import com.sylwesteroleszek.entity.Route;
+import com.sylwesteroleszek.entity.Task;
 import com.sylwesteroleszek.entity.User;
 import com.sylwesteroleszek.providers.DaoProvider;
 
@@ -15,11 +20,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 
-    private UserDao userDao = new UserDaoImpl();
+    private UserDao userDao = DaoProvider.getInstance().getUserDao();
+    private DocumentDao documentDao = DaoProvider.getInstance().getDocumentDao();
+    private RouteDao routeDao = DaoProvider.getInstance().getRouteDao();
+    private TaskDao taskDao = DaoProvider.getInstance().getTaskDao();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -40,9 +49,24 @@ public class LoginServlet extends HttpServlet {
 
             resp.addCookie(loginCookie);
 
+            int allDocuments = documentDao.findAll().size();
+
+            List<Route> allRoutes = routeDao.findAll();
+            List<Route> activeRoutes = allRoutes.stream()
+                    .filter(a -> a.getState().equals("checking") || a.getState().equals("approving"))
+                    .collect(Collectors.toList());
+
+            List<Task> allTasks = taskDao.findAll();
+            List<Task> assignedTasks = allTasks.stream()
+                    .filter(t -> t.getAssignedTo().equals(userLoggedIn.get().getLogin()) && t.getState().equals("active"))
+                    .collect(Collectors.toList());
+
             req.getSession().setAttribute("login", userLoggedIn.get().getLogin());
             req.getSession().setAttribute("userName", userLoggedIn.get().getUserName());
             req.getSession().setAttribute("role", userLoggedIn.get().getRole());
+            req.setAttribute("allDocuments", allDocuments);
+            req.setAttribute("activeRoutes", activeRoutes);
+            req.setAttribute("assignedTasks", assignedTasks);
             RequestDispatcher rd = req.getRequestDispatcher("dashboard.jsp");
             rd.forward(req, resp);
         } else {

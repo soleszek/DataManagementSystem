@@ -74,7 +74,7 @@
         <div class="topmenu">
             <div class="optionSO">
                 <form action="LogoutServlet" method="get">
-                    <input type="hidden" name="login" value="<%=login%>"/>
+                    <input type="hidden" name="login" value="<c:out value="${sessionScope.login}"/>"/>
                     <input type="submit" name="menu" value="Sign out">
                 </form>
             </div>
@@ -176,19 +176,6 @@
                 var table = $('#example').DataTable({
                     "lengthMenu": [[10, 20], [10, 20]]
                 });
-
-                /*// Apply the search
-                table.columns().every(function () {
-                    var that = this;
-
-                    $('input', this.footer()).on('keyup change', function () {
-                        if (that.search() !== this.value) {
-                            that
-                                .search(this.value)
-                                .draw();
-                        }
-                    });
-                });*/
             });
         </script>
 

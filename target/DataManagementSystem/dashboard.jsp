@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style/style.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <script src="jsscripts/clock.js"></script>
+
 </head>
 <body onload="startTime()">
 <div id="container">
@@ -67,7 +67,7 @@
         <div class="topmenu">
             <div class="optionSO">
                 <form action="LogoutServlet" method="get">
-                    <input type="hidden" name="login" value="<%=login%>"/>
+                    <input type="hidden" name="login" value="<c:out value="${sessionScope.login}"/>">
                     <input type="submit" name="menu" value="Sign out">
                 </form>
             </div>
@@ -111,22 +111,65 @@
 
     <div id="content">
         <div class="square">
-            <div class="tile1"><H1><a href="#" class="tilelink">Your new tasks</a></H1></div>
-            <div class="tile1"><H1><a href="AllUsers" class="tilelink">New routes</a></H1><</div>
+            <div class="tile1"><H1><a href="AllDocuments" class="tilelink">
+                All documents<br><br>
+                <c:out value="${allDocuments}"/>
+            </a></H1></div>
+            <div class="tile1"><H1><a href="ShowAllRoutes" class="tilelink">
+                Active routes<br><br>
+                <c:out value="${activeRoutes.size()}"/>
+            </a></H1><</div>
             <div style="clear: both"></div>
 
-            <div class="tile2"><H1><a href="registration.jsp" class="tilelink">New documents</a></H1></div>
-            <div class="tile3"><H1><a href="registration.jsp" class="tilelink">Clock</a></H1></div>
+            <div class="tile2"><H1><a href="AllUserTasks" class="tilelink">
+                Your active tasks<br><br>
+                <c:out value="${assignedTasks.size()}"/>
+            </a></H1></div>
+            <div class="tile3">
+
+                <div class="calc">
+
+                    <div class="display"><input type="text" id="wynik" readonly/></div>
+
+                    <div class="tile"><input type="button" value="9" onclick="pobierz('9')"/></div>
+                    <div class="tile"><input type="button" value="8" onclick="pobierz('8')"/></div>
+                    <div class="tile"><input type="button" value="7" onclick="pobierz('7')"/></div>
+                    <div class="tile"><input type="button" value="+" onclick="pobierz('+')"/></div>
+                    <div style="clear:both;"></div>
+
+                    <div class="tile"><input type="button" value="6" onclick="pobierz('6')"/></div>
+                    <div class="tile"><input type="button" value="5" onclick="pobierz('5')"/></div>
+                    <div class="tile"><input type="button" value="4" onclick="pobierz('4')"/></div>
+                    <div class="tile"><input type="button" value="-" onclick="pobierz('-')"/></div>
+                    <div style="clear:both;"></div>
+
+                    <div class="tile"><input type="button" value="3" onclick="pobierz('3')"/></div>
+                    <div class="tile"><input type="button" value="2" onclick="pobierz('2')"/></div>
+                    <div class="tile"><input type="button" value="1" onclick="pobierz('1')"/></div>
+                    <div class="tile"><input type="button" value="x" onclick="pobierz('*')"/></div>
+                    <div style="clear:both;"></div>
+
+                    <div class="tile"><input type="button" value="0" onclick="pobierz('0')"/></div>
+                    <div class="tile"><input type="button" value="C" onclick="czysc()"/></div>
+                    <div class="wynik"><input type="button" value="=" onclick="oblicz()" style="width:75px"/></div>
+                    <div style="clear:both;"></div>
+
+                </div>
+
+            </div>
             <div style="clear: both"></div>
 
-            <div class="tile4" id="txt">
-
+            <div class="tile4">
+                <div id="txt"></div>
             </div>
         </div>
         <div class="square">
-            <div class="tile5">Sentense</div>
+            <div class="tile5">
 
-            <div class="tile6">You spend ... in the systeme</div>
+
+            </div>
+
+            <div class="tile6">You spend ... in the system</div>
             <div class="tile7">7</div>
             <div class="tile8">8</div>
             <div class="tile9">9</div>
@@ -138,6 +181,9 @@
     <div id="footer">
         Sylwester Oleszek 2018 &copy;
     </div>
+
+    <script src="jsscripts/clock.js"></script>
+    <script src="jsscripts/calc.jsp"></script>
 
 </div>
 

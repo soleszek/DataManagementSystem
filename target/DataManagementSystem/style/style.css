@@ -697,7 +697,51 @@ ul.lifecycle > li:not(:last-child):before {
 }
 
 #txt{
+    padding-top: 40px;
     color: blue;
     font-size: 100px;
+}
+
+.tile{
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    background-color: blue;
+    border: solid blue 2px;
+}
+
+.calc{
     margin-top: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 180px;
+    height: 195px;
+}
+
+.wynik{
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    background-color: blue;
+    border: solid blue 2px;
+    width: 75px;
+}
+
+.tile > input[type="button"], .wynik > input[type="button"]
+{
+    background-color:lightgrey;
+    color: black;
+    width:30px
+}
+
+
+#wynik{
+    background-color:white;
+    width: 160px;
+    margin-left: auto;
+    margin-right: auto;
 }

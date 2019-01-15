@@ -239,7 +239,7 @@
         <div class="topmenu">
             <div class="optionSO">
                 <form action="LogoutServlet" method="get">
-                    <input type="hidden" name="login" value="<%=login%>"/>
+                    <input type="hidden" name="login" value="<c:out value="${sessionScope.login}"/>"/>
                     <input type="submit" name="menu" value="Sign out">
                 </form>
             </div>
