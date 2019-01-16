@@ -1,5 +1,6 @@
 package com.sylwesteroleszek.servlets;
 
+import com.sylwesteroleszek.Enums.DocumentStates;
 import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.daoImpl.DocumentDaoImpl;
 import com.sylwesteroleszek.entity.Document;
@@ -45,7 +46,7 @@ public class CreateNewRevision extends HttpServlet {
                     .type(document.getType())
                     .title(document.getTitle())
                     .description("")
-                    .state("in work")
+                    .state(DocumentStates.INWORK.getState())
                     .owner(login)
                     .creationDate(LocalDate.now())
                     .lastModification(null)
@@ -63,8 +64,6 @@ public class CreateNewRevision extends HttpServlet {
             String message = "<font color=red>You can create new revision only from released documents</font>";
             req.getSession().setAttribute("message", message);
             RequestDispatcher rd = req.getRequestDispatcher("CantCreateRevision");
-            /*resp.getWriter()
-                    .println("<font color=red>You can create new revision only from released documents</font>");*/
             rd.forward(req, resp);
         }
     }

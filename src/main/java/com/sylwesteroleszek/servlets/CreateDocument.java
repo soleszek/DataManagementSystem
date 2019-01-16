@@ -1,5 +1,6 @@
 package com.sylwesteroleszek.servlets;
 
+import com.sylwesteroleszek.Enums.DocumentStates;
 import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.entity.Document;
 import com.sylwesteroleszek.factory.NameFactory;
@@ -41,7 +42,7 @@ public class CreateDocument extends HttpServlet {
                 .type(documentType)
                 .title(title)
                 .description(description)
-                .state("in work")
+                .state(DocumentStates.INWORK.getState())
                 .owner(owner)
                 .creationDate(LocalDate.now())
                 .lastModification(null)

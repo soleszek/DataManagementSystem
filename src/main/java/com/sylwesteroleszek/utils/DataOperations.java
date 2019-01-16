@@ -1,5 +1,7 @@
 package com.sylwesteroleszek.utils;
 
+import com.sylwesteroleszek.Enums.ObjectTypes;
+
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,46 +15,46 @@ public class DataOperations {
     public static final String imagesPath = "/home/sylwester/Dokumenty/DMSfiles/images/";
 
     public static void saveData(String docType, InputStream fileContent, String fileName){
-        if(docType.equals("drawing")){
+        if(docType.equals(ObjectTypes.DRAWING.getObjectType())){
 
             save(drawingsPath, fileContent, fileName);
 
-        } else if (docType.equals("document")){
+        } else if (docType.equals(ObjectTypes.DOCUMENT.getObjectType())){
 
             save(documentsPath, fileContent, fileName);
 
-        } else if(docType.equals("image")) {
+        } else if(docType.equals(ObjectTypes.IMAGE.getObjectType())) {
 
             save(imagesPath, fileContent, fileName);
         }
     }
 
     public static void deleteData(String docType, String fileName){
-        if(docType.equals("drawing")){
+        if(docType.equals(ObjectTypes.DRAWING.getObjectType())){
 
             delete(drawingsPath, fileName);
 
-        } else if (docType.equals("document")){
+        } else if (docType.equals(ObjectTypes.DOCUMENT.getObjectType())){
 
             delete(documentsPath, fileName);
 
-        } else if(docType.equals("image")) {
+        } else if(docType.equals(ObjectTypes.IMAGE.getObjectType())) {
 
             delete(imagesPath, fileName);
         }
     }
 
     public static DataInputStream loadData(String docType, String fileName){
-        if(docType.equals("drawing")){
+        if(docType.equals(ObjectTypes.DRAWING.getObjectType())){
 
             return read(drawingsPath, fileName);
 
-        } else if (docType.equals("document")){
+        } else if (docType.equals(ObjectTypes.DOCUMENT.getObjectType())){
 
             return read(documentsPath, fileName);
 
 
-        } else if(docType.equals("image")) {
+        } else if(docType.equals(ObjectTypes.IMAGE.getObjectType())) {
 
             return read(imagesPath, fileName);
 

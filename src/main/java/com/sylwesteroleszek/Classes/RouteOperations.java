@@ -1,5 +1,6 @@
 package com.sylwesteroleszek.Classes;
 
+import com.sylwesteroleszek.Enums.DocumentStates;
 import com.sylwesteroleszek.Enums.RouteStates;
 import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.dao.RouteDao;
@@ -38,7 +39,7 @@ public class RouteOperations {
             String promotedDocumentIdString = route.getDocumentBeingApprovedId();
             Long promotedDocumentId = Long.parseLong(promotedDocumentIdString);
             Document document = documentDao.findBy(promotedDocumentId);
-            document.setState("frozen");
+            document.setState(DocumentStates.FROZEN.getState());
             documentDao.SaveOrUpdate(document);
 
             TaskFactory taskFactory = new TaskFactory();
@@ -53,7 +54,7 @@ public class RouteOperations {
             String promotedDocumentIdString = route.getDocumentBeingApprovedId();
             Long promotedDocumentId = Long.parseLong(promotedDocumentIdString);
             Document document = documentDao.findBy(promotedDocumentId);
-            document.setState("released");
+            document.setState(DocumentStates.RELEASED.getState());
             documentDao.SaveOrUpdate(document);
 
             route.setState(RouteStates.COMPLETED.getState());

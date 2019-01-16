@@ -1,5 +1,7 @@
 package com.sylwesteroleszek.factory;
 
+import com.sylwesteroleszek.Enums.RouteStates;
+import com.sylwesteroleszek.Enums.TaskStates;
 import com.sylwesteroleszek.dao.TaskDao;
 import com.sylwesteroleszek.entity.Route;
 import com.sylwesteroleszek.entity.Task;
@@ -13,14 +15,14 @@ public class TaskFactory {
 
         String routeState = route.getState();
 
-        if(routeState.equals("not started")){
+        if(routeState.equals(RouteStates.NOT_STARTED.getState())){
 
             Task task = new Task.Builder()
                     .owner(route.getOwner())
                     .assignedTo(route.getResponsibleForChecking())
                     .documentBeingApprovedId(route.getDocumentBeingApprovedId())
                     .documentBeingApprovedName(route.getDocumentBeingApprovedName())
-                    .state("active")
+                    .state(TaskStates.ACTIVE.getState())
                     .dueDate(route.getCheckingDueDate())
                     .completionDate(null)
                     .comments("Please check")
@@ -39,14 +41,14 @@ public class TaskFactory {
 
             assignTaskName(task);
 
-        } else if (routeState.equals("checking")){
+        } else if (routeState.equals(RouteStates.CHECKING.getState())){
 
             Task task = new Task.Builder()
                     .owner(route.getOwner())
                     .assignedTo(route.getResponsibleForApproving())
                     .documentBeingApprovedId(route.getDocumentBeingApprovedId())
                     .documentBeingApprovedName(route.getDocumentBeingApprovedName())
-                    .state("active")
+                    .state(TaskStates.ACTIVE.getState())
                     .dueDate(route.getCheckingDueDate())
                     .completionDate(null)
                     .comments("Please approve")

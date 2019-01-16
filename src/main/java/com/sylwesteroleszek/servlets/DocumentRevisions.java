@@ -22,7 +22,6 @@ public class DocumentRevisions extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String documentIdString = req.getParameter("documentId");
-        /*String message = req.getParameter("message");*/
 
         Long documentId = Long.parseLong(documentIdString);
         Document document = documentDao.findBy(documentId);

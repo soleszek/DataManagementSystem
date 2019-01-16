@@ -1,5 +1,7 @@
 package com.sylwesteroleszek.servlets;
 
+import com.sylwesteroleszek.Enums.RouteStates;
+import com.sylwesteroleszek.Enums.TaskStates;
 import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.dao.RouteDao;
 import com.sylwesteroleszek.dao.TaskDao;
@@ -53,12 +55,12 @@ public class LoginServlet extends HttpServlet {
 
             List<Route> allRoutes = routeDao.findAll();
             List<Route> activeRoutes = allRoutes.stream()
-                    .filter(a -> a.getState().equals("checking") || a.getState().equals("approving"))
+                    .filter(a -> a.getState().equals(RouteStates.CHECKING.getState()) || a.getState().equals(RouteStates.APPROVING.getState()))
                     .collect(Collectors.toList());
 
             List<Task> allTasks = taskDao.findAll();
             List<Task> assignedTasks = allTasks.stream()
-                    .filter(t -> t.getAssignedTo().equals(userLoggedIn.get().getLogin()) && t.getState().equals("active"))
+                    .filter(t -> t.getAssignedTo().equals(userLoggedIn.get().getLogin()) && t.getState().equals(TaskStates.ACTIVE.getState()))
                     .collect(Collectors.toList());
 
             req.getSession().setAttribute("login", userLoggedIn.get().getLogin());

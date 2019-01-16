@@ -46,10 +46,6 @@ public class QuickSearch extends HttpServlet {
                         d.getOwner().equals(phrase))
                 .collect(Collectors.toList());
 
-        /*List<Document> matchingType = documents.stream()
-                .filter(d -> d.getName().equals(phrase))
-                .collect(Collectors.toList());*/
-
         req.setAttribute("matchingDocuments", matchingDocuments);
         RequestDispatcher rd = req.getRequestDispatcher("quicksearch.jsp");
         rd.forward(req, resp);

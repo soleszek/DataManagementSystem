@@ -1,5 +1,6 @@
 package com.sylwesteroleszek.servlets;
 
+import com.sylwesteroleszek.Enums.UserRoles;
 import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.dao.RouteDao;
 import com.sylwesteroleszek.dao.UserDao;
@@ -41,11 +42,11 @@ public class DocumentRoutes extends HttpServlet {
         List<User> users = userDao.findAll();
 
         List<User> checkers = users.stream()
-                .filter(a -> a.getRole().equals("contributor") || a.getRole().equals("manager") || a.getRole().equals("admin"))
+                .filter(a -> a.getRole().equals(UserRoles.CONTRIBUTOR.getRole()) || a.getRole().equals(UserRoles.MANAGER.getRole()) || a.getRole().equals(UserRoles.ADMIN.getRole()))
                 .collect(Collectors.toList());
 
         List<User> approvers = users.stream()
-                .filter(a -> a.getRole().equals("manager") || a.getRole().equals("admin"))
+                .filter(a -> a.getRole().equals(UserRoles.MANAGER.getRole()) || a.getRole().equals(UserRoles.ADMIN.getRole()))
                 .collect(Collectors.toList());
 
         List<Route> routes = routeDao.findAll();

@@ -1,5 +1,6 @@
 package com.sylwesteroleszek.servlets;
 
+import com.sylwesteroleszek.Enums.RouteStates;
 import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.dao.RouteDao;
 import com.sylwesteroleszek.daoImpl.DocumentDaoImpl;
@@ -46,7 +47,7 @@ public class CreateRoute extends HttpServlet {
         Route route = new Route.Builder()
                 .name(null)
                 .owner(login)
-                .state("not started")
+                .state(RouteStates.NOT_STARTED.getState())
                 .creationDate(LocalDate.now())
                 .finishDate(null)
                 .deadline(deadline)
