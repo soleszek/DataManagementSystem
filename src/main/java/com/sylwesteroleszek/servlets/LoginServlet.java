@@ -51,27 +51,6 @@ public class LoginServlet extends HttpServlet {
 
             resp.addCookie(loginCookie);
 
-            /*int allDocuments = documentDao.findAll().size();
-
-            List<Route> allRoutes = routeDao.findAll();
-            List<Route> activeRoutes = allRoutes.stream()
-                    .filter(a -> a.getState().equals(RouteStates.CHECKING.getState()) || a.getState().equals(RouteStates.APPROVING.getState()))
-                    .collect(Collectors.toList());
-
-            List<Task> allTasks = taskDao.findAll();
-            List<Task> assignedTasks = allTasks.stream()
-                    .filter(t -> t.getAssignedTo().equals(userLoggedIn.get().getLogin()) && t.getState().equals(TaskStates.ACTIVE.getState()))
-                    .collect(Collectors.toList());
-
-            req.getSession().setAttribute("login", userLoggedIn.get().getLogin());
-            req.getSession().setAttribute("userName", userLoggedIn.get().getUserName());
-            req.getSession().setAttribute("role", userLoggedIn.get().getRole());
-            req.setAttribute("allDocuments", allDocuments);
-            req.setAttribute("activeRoutes", activeRoutes);
-            req.setAttribute("assignedTasks", assignedTasks);
-            RequestDispatcher rd = req.getRequestDispatcher("dashboard.jsp");
-            rd.forward(req, resp);*/
-
             req.getSession().setAttribute("login", userLoggedIn.get().getLogin());
             req.getSession().setAttribute("userName", userLoggedIn.get().getUserName());
             req.getSession().setAttribute("role", userLoggedIn.get().getRole());
