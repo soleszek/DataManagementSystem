@@ -27,17 +27,6 @@
             font-family: Helvetica, Arial, sans-serif;
         }
 
-        /* Full-width input fields */
-        /*        input[type=text], input[type=password] {
-                    width: 90%;
-                    padding: 12px 20px;
-                    margin: 8px 26px;
-                    display: inline-block;
-                    border: 1px solid #ccc;
-                    box-sizing: border-box;
-                    font-size:16px;
-                }*/
-
         /* Set a style for all buttons */
         button {
             background-color: #46b7ce;
@@ -273,7 +262,7 @@
                 </form>
             </div>
             <div class="optionSO">
-                <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+                <a href="Dashboard" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
             </div>
             <div style="clear: both"></div>
 

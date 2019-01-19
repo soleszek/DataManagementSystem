@@ -263,7 +263,7 @@
                 </form>
             </div>
             <div class="optionSO">
-                <a href="dashboard.jsp" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
+                <a href="Dashboard" id="home"><i class="fas fa-play fa-lg" title="Home"></i></a>
             </div>
             <div style="clear: both"></div>
 
@@ -466,12 +466,12 @@
                     </select>
                 </div>
                 <input type="text" class="modal-text" placeholder="Enter title" name="title" required>
-                <input type="text" class="modal-text" preadonly name="owner" value="<%=login%>">
+                <input type="text" class="modal-text" readonly name="owner" value="<%=login%>">
                 <c:set var="now" value="<%=new java.util.Date()%>"/>
-                <input type="text" class="modal-text" preadonly name="creation date"
+                <input type="text" class="modal-text" readonly name="creation date"
                        value="<fmt:formatDate type = "date" value = "${now}"/>">
-                <input type="file" class="modal-text" pname="file" class="file" required>
-                <input type="text" class="modal-text" pplaceholder="Enter description" name="description" required>
+                <input type="file" class="modal-text" name="file" class="file" required>
+                <input type="text" class="modal-text" placeholder="Enter description" name="description" required>
                 <button type="submit">Create</button>
             </div>
         </form>
@@ -505,19 +505,6 @@
             var table = $('#example').DataTable({
                 "lengthMenu": [[10, 20], [10, 20]]
             });
-
-            /*// Apply the search
-            table.columns().every(function () {
-                var that = this;
-
-                $('input', this.footer()).on('keyup change', function () {
-                    if (that.search() !== this.value) {
-                        that
-                            .search(this.value)
-                            .draw();
-                    }
-                });
-            });*/
         });
     </script>
 

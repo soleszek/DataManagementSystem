@@ -13,7 +13,10 @@ import com.sylwesteroleszek.entity.Route;
 import com.sylwesteroleszek.entity.Task;
 import com.sylwesteroleszek.factory.TaskFactory;
 
+import java.util.logging.Logger;
+
 public class RouteOperations {
+
     Route route;
 
     private RouteDao routeDao = new RouteDaoImpl();

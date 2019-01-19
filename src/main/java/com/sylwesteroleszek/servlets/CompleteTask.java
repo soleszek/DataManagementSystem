@@ -1,6 +1,7 @@
 package com.sylwesteroleszek.servlets;
 
 import com.sylwesteroleszek.Classes.RouteOperations;
+import com.sylwesteroleszek.Enums.TaskStates;
 import com.sylwesteroleszek.dao.DocumentDao;
 import com.sylwesteroleszek.dao.RouteDao;
 import com.sylwesteroleszek.dao.TaskDao;
@@ -42,7 +43,7 @@ public class CompleteTask extends HttpServlet {
 
         routeOperations.promoteRoute();
 
-        task.setState("completed");
+        task.setState(TaskStates.COMPLETED.getState());
         taskDao.SaveOrUpdate(task);
 
         req.setAttribute("task", task);

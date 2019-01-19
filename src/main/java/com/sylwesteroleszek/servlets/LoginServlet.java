@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 
             resp.addCookie(loginCookie);
 
-            int allDocuments = documentDao.findAll().size();
+            /*int allDocuments = documentDao.findAll().size();
 
             List<Route> allRoutes = routeDao.findAll();
             List<Route> activeRoutes = allRoutes.stream()
@@ -70,7 +70,14 @@ public class LoginServlet extends HttpServlet {
             req.setAttribute("activeRoutes", activeRoutes);
             req.setAttribute("assignedTasks", assignedTasks);
             RequestDispatcher rd = req.getRequestDispatcher("dashboard.jsp");
+            rd.forward(req, resp);*/
+
+            req.getSession().setAttribute("login", userLoggedIn.get().getLogin());
+            req.getSession().setAttribute("userName", userLoggedIn.get().getUserName());
+            req.getSession().setAttribute("role", userLoggedIn.get().getRole());
+            RequestDispatcher rd = req.getRequestDispatcher("Dashboard");
             rd.forward(req, resp);
+
         } else {
             RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
             resp.getWriter()
