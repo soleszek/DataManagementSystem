@@ -275,13 +275,16 @@
     <div id="sidebar">
         <div class="optionL"><a href="OpenDocument?documentId=<%=document.getId()%>">Properties</a></div>
         <div class="optionL"><a href="DocumentRevisions?documentId=<%=document.getId()%>">Revisions</a></div>
-        <div class="optionL"><a href="DocumentRoutes?documentId=<%=document.getId()%>">Routes</a></div>
+
+        <c:if test="${role ne 'viewer'}">
+            <div class="optionL"><a href="DocumentRoutes?documentId=<%=document.getId()%>">Routes</a></div>
+        </c:if>
+
         <div class="optionL"><a href="Lifecycle?documentId=<%=document.getId()%>">Lifecycle</a></div>
-        <%
-            if (document.getType().equals("drawing")) {
-        %>
-        <div class="optionL"><a href="viewer.jsp">Viewer</a></div>
-        <% } %>
+        <c:if test="${document.getType() eq 'drawing'}">
+            <div class="optionL"><a href="viewer.jsp">Viewer</a></div>
+        </c:if>
+
         <div style="clear: both"></div>
     </div>
 
@@ -449,8 +452,6 @@
 
         <div class="route-stages">
 
-            <%--<div class="pg-container">--%>
-
                 <ul class="progressbar">
 
                     <%
@@ -493,8 +494,6 @@
                     %>
 
                 </ul>
-
-            <%--</div>--%>
 
         </div>
 

@@ -28,11 +28,11 @@
                 }
             }
         }
-
-        if (login == null) {
-            response.sendRedirect("index.jsp");
-        }
     %>
+
+    <c:if test="${empty login}">
+        <c:redirect url = "index.jsp"/>
+    </c:if>
 
     <div id="logo">
         <span style="color:#c34f4f">Data</span> Management System
