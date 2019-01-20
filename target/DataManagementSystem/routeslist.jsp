@@ -220,19 +220,6 @@
             var table = $('#example').DataTable({
                 "lengthMenu": [[10, 20], [10, 20]]
             });
-
-            /*// Apply the search
-            table.columns().every(function () {
-                var that = this;
-
-                $('input', this.footer()).on('keyup change', function () {
-                    if (that.search() !== this.value) {
-                        that
-                            .search(this.value)
-                            .draw();
-                    }
-                });
-            });*/
         });
     </script>
 

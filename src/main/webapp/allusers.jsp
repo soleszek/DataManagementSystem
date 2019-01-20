@@ -95,15 +95,15 @@
 
     <div id="sidebar">
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
-        <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
-        <div class="optionL"><a href="AllUserTasks">Tasks</a></div>
-        <%
-            if (role.equals("admin")) {
-        %>
-        <div class="optionL"><a href="adminpanel.jsp">Admin Panel</a></div>
-        <%
-            }
-        %>
+        <c:if test="${role ne 'viewer'}">
+            <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
+            <div class="optionL"><a href="AllUserTasks">Tasks</a></div>
+        </c:if>
+
+        <c:if test="${role eq 'admin'}">
+            <div class="optionL"><a href="adminpanel.jsp">Admin Panel</a></div>
+        </c:if>
+
         <div style="clear: both"></div>
     </div>
 

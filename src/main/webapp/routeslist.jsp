@@ -103,21 +103,15 @@
 
     <div id="sidebar">
         <div class="optionL"><a href="AllDocuments">Documents</a></div>
-        <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
+        <c:if test="${role ne 'viewer'}">
+            <div class="optionL"><a href="ShowAllRoutes">Routes</a></div>
+            <div class="optionL"><a href="AllUserTasks">Tasks</a></div>
+        </c:if>
 
-        <% if (!role.equals("viewer")) { %>
+        <c:if test="${role eq 'admin'}">
+            <div class="optionL"><a href="adminpanel.jsp">Admin Panel</a></div>
+        </c:if>
 
-        <div class="optionL"><a href="AllUserTasks">Tasks</a></div>
-
-        <% } %>
-
-        <%
-            if (role.equals("admin")) {
-        %>
-        <div class="optionL"><a href="adminpanel.jsp">Admin Panel</a></div>
-        <%
-            }
-        %>
         <div style="clear: both"></div>
     </div>
 
@@ -220,19 +214,6 @@
             var table = $('#example').DataTable({
                 "lengthMenu": [[10, 20], [10, 20]]
             });
-
-            /*// Apply the search
-            table.columns().every(function () {
-                var that = this;
-
-                $('input', this.footer()).on('keyup change', function () {
-                    if (that.search() !== this.value) {
-                        that
-                            .search(this.value)
-                            .draw();
-                    }
-                });
-            });*/
         });
     </script>
 
